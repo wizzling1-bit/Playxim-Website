@@ -254,6 +254,46 @@ h1, h2, h3, h4, .font-display {
   border: 1px solid var(--border);
 }
 
+/* Animated Wave Floating Label Form Control */
+.wave-form-control {
+  position: relative;
+  width: 100%;
+}
+
+.wave-form-control input:focus {
+  box-shadow: 0 2px 10px -2px rgba(30, 107, 255, 0.25);
+  border-bottom-color: var(--primary);
+}
+
+.dark .wave-form-control input:focus {
+  box-shadow: 0 2px 14px -2px rgba(56, 189, 248, 0.35);
+  border-bottom-color: var(--glow);
+}
+
+.wave-form-control input:focus + label span,
+.wave-form-control input:not(:placeholder-shown) + label span,
+.wave-form-control input:-webkit-autofill + label span {
+  transform: translateY(-24px);
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.dark .wave-form-control input:focus + label span,
+.dark .wave-form-control input:not(:placeholder-shown) + label span,
+.dark .wave-form-control input:-webkit-autofill + label span {
+  color: var(--glow);
+}
+
+.wave-form-control:focus-within .wave-left-icon {
+  color: var(--primary);
+}
+
+.dark .wave-form-control:focus-within .wave-left-icon {
+  color: var(--glow);
+}
+
 /* Accessible Motion: Intentional alternative preserving state transitions and feedback */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {

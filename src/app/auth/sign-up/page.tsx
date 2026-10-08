@@ -6,8 +6,7 @@ import { useRouter } from "next/navigation";
 import { Lock, Mail, User, ArrowRight, Check, Eye, EyeOff } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { WaveInput } from "@/components/ui/wave-input";
 import { signUpSchema } from "@/lib/validations/auth";
 import { useAuth } from "@/lib/hooks/use-auth";
 
@@ -130,47 +129,42 @@ export default function SignUpPage() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="space-y-1.5">
-            <Label htmlFor="email" required>Email Address</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="alex@creatorstudio.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              leftIcon={<Mail className="h-4 w-4" />}
-              required
-            />
-          </div>
+        <form onSubmit={handleSubmit} className="space-y-4 pt-2">
+          <WaveInput
+            id="email"
+            type="email"
+            label="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            leftIcon={<Mail className="h-4 w-4" />}
+            autoComplete="email"
+            required
+          />
 
-          <div className="space-y-1.5">
-            <Label htmlFor="username" required>Claim Creator Username</Label>
-            <Input
-              id="username"
-              placeholder="alexcreator"
-              value={username}
-              onChange={(e) => setUsername(e.target.value.toLowerCase().replace(/[^a-z0-9_-]/g, ""))}
-              leftIcon={<User className="h-4 w-4" />}
-              helperText={`Your public handle will be playxim.com/@${username || "handle"}`}
-              required
-            />
-          </div>
+          <WaveInput
+            id="username"
+            label="Claim Creator Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value.toLowerCase().replace(/[^a-z0-9_-]/g, ""))}
+            leftIcon={<User className="h-4 w-4" />}
+            helperText={`Your public handle will be playxim.com/@${username || "handle"}`}
+            required
+          />
 
-          <div className="space-y-1.5">
-            <Label htmlFor="password" required>Secure Password</Label>
-            <Input
+          <div className="space-y-1">
+            <WaveInput
               id="password"
               type={showPassword ? "text" : "password"}
-              placeholder="••••••••"
+              label="Secure Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               leftIcon={<Lock className="h-4 w-4" />}
+              autoComplete="new-password"
               rightIcon={
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="hover:text-brand-text transition-colors"
+                  className="hover:text-brand-text transition-colors p-1"
                   aria-label={showPassword ? "Hide password" : "Show password"}
                   aria-pressed={showPassword}
                 >

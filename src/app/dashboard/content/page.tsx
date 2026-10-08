@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { WaveInput } from "@/components/ui/wave-input";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { PageHeader } from "@/components/ui/layout-primitives";
@@ -459,14 +460,14 @@ export default function ContentPage() {
             </div>
 
             {shareAccessType === "password" && (
-              <div className="space-y-1.5 animate-in fade-in">
-                <Label htmlFor="share-password" required>Access Passcode</Label>
-                <Input
+              <div className="pt-2 pb-1 animate-in fade-in">
+                <WaveInput
                   id="share-password"
                   type="password"
-                  placeholder="Set an access password..."
+                  label="Access Passcode"
                   value={sharePassword}
                   onChange={(e) => setSharePassword(e.target.value)}
+                  required
                 />
               </div>
             )}

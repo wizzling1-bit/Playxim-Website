@@ -5,8 +5,7 @@ import Link from "next/link";
 import { Mail, ArrowLeft, Send, CheckCircle2 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { WaveInput } from "@/components/ui/wave-input";
 import { forgotPasswordSchema } from "@/lib/validations/auth";
 import { useAuth } from "@/lib/hooks/use-auth";
 
@@ -72,25 +71,23 @@ export default function ForgotPasswordPage() {
             </Link>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4 pt-2">
             {error && (
               <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-xs text-red-600 dark:text-red-400">
                 {error}
               </div>
             )}
 
-            <div className="space-y-1.5">
-              <Label htmlFor="email" required>Email Address</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="alex@creatorstudio.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                leftIcon={<Mail className="h-4 w-4" />}
-                required
-              />
-            </div>
+            <WaveInput
+              id="email"
+              type="email"
+              label="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              leftIcon={<Mail className="h-4 w-4" />}
+              autoComplete="email"
+              required
+            />
 
             <Button
               type="submit"

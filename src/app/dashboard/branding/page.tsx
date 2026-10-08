@@ -6,7 +6,7 @@ import {
   Save,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { WaveInput } from "@/components/ui/wave-input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -36,21 +36,21 @@ export default function BrandingPage() {
         <div className="lg:col-span-2 space-y-6">
           <Card className="p-6">
             <form onSubmit={handleSave} className="space-y-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <Label htmlFor="display-name" required>Display Brand Name</Label>
-                  <Input
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                <div>
+                  <WaveInput
                     id="display-name"
+                    label="Display Brand Name"
                     value={displayName}
                     onChange={(e) => setDisplayName(e.target.value)}
                     required
                   />
                 </div>
 
-                <div className="space-y-1.5">
-                  <Label htmlFor="handle" required>Creator Handle</Label>
-                  <Input
+                <div>
+                  <WaveInput
                     id="handle"
+                    label="Creator Handle"
                     value={handle}
                     onChange={(e) => setHandle(e.target.value.toLowerCase())}
                     helperText={`Public URL: playxim.com/@${handle}`}

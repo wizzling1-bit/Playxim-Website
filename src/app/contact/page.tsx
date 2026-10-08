@@ -8,7 +8,7 @@ import { Container } from "@/components/ui/layout-primitives";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { WaveInput } from "@/components/ui/wave-input";
 import { Label } from "@/components/ui/label";
 
 export default function ContactPage() {
@@ -62,23 +62,27 @@ export default function ContactPage() {
                   </Button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="space-y-1.5">
-                    <Label htmlFor="name" required>Your Name</Label>
-                    <Input id="name" placeholder="Alex Morgan" required />
-                  </div>
+                <form onSubmit={handleSubmit} className="space-y-4 pt-2">
+                  <WaveInput
+                    id="name"
+                    label="Your Name"
+                    required
+                  />
 
-                  <div className="space-y-1.5">
-                    <Label htmlFor="email" required>Email Address</Label>
-                    <Input id="email" type="email" placeholder="alex@creatorstudio.com" required />
-                  </div>
+                  <WaveInput
+                    id="email"
+                    type="email"
+                    label="Email Address"
+                    required
+                  />
 
-                  <div className="space-y-1.5">
-                    <Label htmlFor="subject" required>Inquiry Subject</Label>
-                    <Input id="subject" placeholder="Large catalog migration / Creator Program inquiry" required />
-                  </div>
+                  <WaveInput
+                    id="subject"
+                    label="Inquiry Subject"
+                    required
+                  />
 
-                  <div className="space-y-1.5">
+                  <div className="space-y-1.5 pt-2">
                     <Label htmlFor="message" required>Message Details</Label>
                     <textarea
                       id="message"

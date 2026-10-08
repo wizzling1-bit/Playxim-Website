@@ -22,8 +22,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { WaveInput } from "@/components/ui/wave-input";
 
 interface PlaylistItem {
   id: string;
@@ -199,13 +198,13 @@ export default function PlaylistsPage() {
             </DialogDescription>
           </DialogHeader>
 
-          <div className="py-2 space-y-1.5">
-            <Label htmlFor="pl-title" required>Playlist Title</Label>
-            <Input
+          <div className="pt-2 pb-1">
+            <WaveInput
               id="pl-title"
-              placeholder="e.g. 3D Modeling with Blender 2026"
+              label="Playlist Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
+              required
               autoFocus
             />
           </div>

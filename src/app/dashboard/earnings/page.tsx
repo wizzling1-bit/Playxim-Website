@@ -22,8 +22,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { WaveInput } from "@/components/ui/wave-input";
 import { formatCurrency } from "@/lib/utils";
 import { CreatorBalance, EarningsLedgerEntry } from "@/lib/types/database";
 
@@ -249,19 +248,18 @@ export default function EarningsPage() {
           </DialogHeader>
 
           <div className="py-2 space-y-4">
-            <div className="space-y-1.5">
-              <Label htmlFor="payout-amount" required>Withdrawal Amount (USD)</Label>
-              <Input
+            <div className="pt-2 pb-1">
+              <WaveInput
                 id="payout-amount"
                 type="number"
                 min="50"
                 max={availableUsd}
+                label="Withdrawal Amount (USD)"
                 value={payoutAmount}
                 onChange={(e) => setPayoutAmount(e.target.value)}
+                helperText={`Available: ${formatCurrency(availableUsd)} (Minimum withdrawal: $50.00)`}
+                required
               />
-              <p className="text-[11px] text-brand-muted">
-                Available: {formatCurrency(availableUsd)} (Minimum withdrawal: $50.00)
-              </p>
             </div>
 
             {payoutMessage && (

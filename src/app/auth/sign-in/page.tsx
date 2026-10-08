@@ -6,8 +6,7 @@ import { useRouter } from "next/navigation";
 import { Lock, Mail, ArrowRight, Eye, EyeOff } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { WaveInput } from "@/components/ui/wave-input";
 import { signInSchema } from "@/lib/validations/auth";
 import { useAuth } from "@/lib/hooks/use-auth";
 
@@ -117,42 +116,32 @@ export default function SignInPage() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="space-y-1.5">
-            <Label htmlFor="email" required>Email Address</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="alex@creatorstudio.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              leftIcon={<Mail className="h-4 w-4" />}
-              required
-            />
-          </div>
+        <form onSubmit={handleSubmit} className="space-y-4 pt-2">
+          <WaveInput
+            id="email"
+            type="email"
+            label="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            leftIcon={<Mail className="h-4 w-4" />}
+            autoComplete="email"
+            required
+          />
 
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between">
-              <Label htmlFor="password" required>Password</Label>
-              <Link
-                href="/auth/forgot-password"
-                className="text-xs text-brand-primary hover:underline"
-              >
-                Forgot password?
-              </Link>
-            </div>
-            <Input
+          <div className="space-y-1">
+            <WaveInput
               id="password"
               type={showPassword ? "text" : "password"}
-              placeholder="••••••••"
+              label="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               leftIcon={<Lock className="h-4 w-4" />}
+              autoComplete="current-password"
               rightIcon={
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="hover:text-brand-text transition-colors"
+                  className="hover:text-brand-text transition-colors p-1"
                   aria-label={showPassword ? "Hide password" : "Show password"}
                   aria-pressed={showPassword}
                 >
@@ -161,6 +150,14 @@ export default function SignInPage() {
               }
               required
             />
+            <div className="flex justify-end pt-0.5">
+              <Link
+                href="/auth/forgot-password"
+                className="text-xs text-brand-primary hover:underline"
+              >
+                Forgot password?
+              </Link>
+            </div>
           </div>
 
           <Button

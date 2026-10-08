@@ -20,7 +20,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
+import { WaveInput } from "@/components/ui/wave-input";
 import { formatBytes } from "@/lib/utils";
 
 interface SharedContent {
@@ -201,19 +201,16 @@ export default function WatchPage() {
                 </p>
               </div>
 
-              <form onSubmit={handleVerifyPasscode} className="space-y-4">
-                <Input
+              <form onSubmit={handleVerifyPasscode} className="space-y-6">
+                <WaveInput
                   type="password"
-                  placeholder="Enter passcode..."
+                  label="Enter Access Passcode"
                   value={passcode}
                   onChange={(e) => setPasscode(e.target.value)}
                   autoFocus
-                  className="text-center tracking-widest text-sm"
+                  required
+                  error={passcodeError}
                 />
-
-                {passcodeError && (
-                  <p className="text-xs text-red-500 font-semibold">{passcodeError}</p>
-                )}
 
                 <Button variant="primary" size="md" className="w-full">
                   Unlock Content

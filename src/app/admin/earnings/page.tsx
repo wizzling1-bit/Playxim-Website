@@ -15,7 +15,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
+import { WaveInput } from "@/components/ui/wave-input";
 import { Label } from "@/components/ui/label";
 import { formatCurrency } from "@/lib/utils";
 
@@ -112,22 +112,22 @@ export default function AdminEarningsPage() {
           </DialogHeader>
 
           <form onSubmit={handleAdjustSubmit} className="py-2 space-y-4 text-xs">
-            <div className="space-y-1.5">
-              <Label htmlFor="creator-handle" required>Creator Handle</Label>
-              <Input
+            <div className="pt-2">
+              <WaveInput
                 id="creator-handle"
+                label="Creator Handle"
                 value={creatorHandle}
                 onChange={(e) => setCreatorHandle(e.target.value)}
                 required
               />
             </div>
 
-            <div className="space-y-1.5">
-              <Label htmlFor="adjust-amount" required>Adjustment Amount (+ or - USD)</Label>
-              <Input
+            <div className="pt-2">
+              <WaveInput
                 id="adjust-amount"
                 type="number"
                 step="0.01"
+                label="Adjustment Amount (+ or - USD)"
                 value={adjustmentAmount}
                 onChange={(e) => setAdjustmentAmount(e.target.value)}
                 required

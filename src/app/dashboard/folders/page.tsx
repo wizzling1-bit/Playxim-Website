@@ -19,8 +19,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { WaveInput } from "@/components/ui/wave-input";
 import { formatBytes } from "@/lib/utils";
 
 interface FolderRecord {
@@ -181,13 +180,13 @@ export default function FoldersPage() {
             </DialogDescription>
           </DialogHeader>
 
-          <div className="py-2 space-y-1.5">
-            <Label htmlFor="folder-name" required>Folder Name</Label>
-            <Input
+          <div className="pt-2 pb-1">
+            <WaveInput
               id="folder-name"
-              placeholder="e.g. Master Archives 2026"
+              label="Folder Name"
               value={newFolderName}
               onChange={(e) => setNewFolderName(e.target.value)}
+              required
               autoFocus
             />
           </div>

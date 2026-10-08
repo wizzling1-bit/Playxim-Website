@@ -7,8 +7,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { WaveInput } from "@/components/ui/wave-input";
 import { PageHeader } from "@/components/ui/layout-primitives";
 
 export default function AdminSettingsPage() {
@@ -41,21 +40,21 @@ export default function AdminSettingsPage() {
               Financial & Monetization Models
             </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <Label htmlFor="cpm-rate" required>Creator Baseline CPM (USD per 1,000 Views)</Label>
-                <Input
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+              <div>
+                <WaveInput
                   id="cpm-rate"
+                  label="Creator Baseline CPM (USD / 1K Views)"
                   value={cpmRate}
                   onChange={(e) => setCpmRate(e.target.value)}
                   required
                 />
               </div>
 
-              <div className="space-y-1.5">
-                <Label htmlFor="qual-seconds" required>Minimum Qualified Watch Seconds</Label>
-                <Input
+              <div>
+                <WaveInput
                   id="qual-seconds"
+                  label="Minimum Qualified Watch Seconds"
                   value={qualificationSeconds}
                   onChange={(e) => setQualificationSeconds(e.target.value)}
                   required
@@ -70,21 +69,21 @@ export default function AdminSettingsPage() {
               Ingestion & Session Boundaries
             </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-1.5">
-                <Label htmlFor="upload-concurrency" required>Max Parallel Upload Chunks</Label>
-                <Input
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+              <div>
+                <WaveInput
                   id="upload-concurrency"
+                  label="Max Parallel Upload Chunks"
                   value={uploadConcurrency}
                   onChange={(e) => setUploadConcurrency(e.target.value)}
                   required
                 />
               </div>
 
-              <div className="space-y-1.5">
-                <Label htmlFor="session-lifetime" required>Share Password Session Lifetime (Hours)</Label>
-                <Input
+              <div>
+                <WaveInput
                   id="session-lifetime"
+                  label="Share Passcode Session Lifetime (Hours)"
                   value={sessionLifetimeHours}
                   onChange={(e) => setSessionLifetimeHours(e.target.value)}
                   required

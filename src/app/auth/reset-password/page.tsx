@@ -6,8 +6,7 @@ import { useRouter } from "next/navigation";
 import { Lock, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { WaveInput } from "@/components/ui/wave-input";
 import { useSearchParams } from "next/navigation";
 import { confirmPasswordReset, updatePassword } from "firebase/auth";
 import { auth } from "@/lib/firebase/client";
@@ -82,38 +81,34 @@ function ResetPasswordContent() {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4 pt-2">
             {error && (
               <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-xs text-red-600 dark:text-red-400">
                 {error}
               </div>
             )}
 
-            <div className="space-y-1.5">
-              <Label htmlFor="password" required>New Password</Label>
-              <Input
-                id="password"
-                type="password"
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                leftIcon={<Lock className="h-4 w-4" />}
-                required
-              />
-            </div>
+            <WaveInput
+              id="password"
+              type="password"
+              label="New Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              leftIcon={<Lock className="h-4 w-4" />}
+              autoComplete="new-password"
+              required
+            />
 
-            <div className="space-y-1.5">
-              <Label htmlFor="confirm-password" required>Confirm Password</Label>
-              <Input
-                id="confirm-password"
-                type="password"
-                placeholder="••••••••"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                leftIcon={<Lock className="h-4 w-4" />}
-                required
-              />
-            </div>
+            <WaveInput
+              id="confirm-password"
+              type="password"
+              label="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              leftIcon={<Lock className="h-4 w-4" />}
+              autoComplete="new-password"
+              required
+            />
 
             <Button
               type="submit"
