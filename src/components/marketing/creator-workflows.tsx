@@ -52,13 +52,13 @@ export function CreatorWorkflowsSection() {
               <div className="w-3/4 h-6 bg-black/15 dark:bg-black/50 blur-xl rounded-full -mt-4 pointer-events-none" />
 
               {/* Floating Mini Overlay Badge */}
-              <div className="absolute bottom-4 left-4 hidden sm:flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-brand-surface/90 dark:bg-[#111728]/90 border border-brand-border/80 shadow-lg backdrop-blur-md">
+              <div className="absolute bottom-4 left-4 hidden sm:flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-white/95 dark:bg-[#111728]/95 border border-slate-200/80 dark:border-white/10 shadow-lg backdrop-blur-md">
                 <div className="h-6 w-6 rounded-md bg-brand-primary/10 text-brand-primary flex items-center justify-center">
                   <UploadCloud className="h-3.5 w-3.5" />
                 </div>
                 <div className="text-left">
-                  <div className="text-xs font-bold text-brand-text">Multi-Threaded Uploads</div>
-                  <div className="text-[11px] text-brand-muted font-mono">1.2 Gbps Transfer Rate</div>
+                  <div className="text-xs font-bold text-slate-900 dark:text-brand-text">Multi-Threaded Uploads</div>
+                  <div className="text-[11px] text-slate-500 dark:text-brand-muted font-mono">1.2 Gbps Transfer Rate</div>
                 </div>
               </div>
             </div>
@@ -112,7 +112,7 @@ export function CreatorWorkflowsSection() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Copy: Video Streaming */}
             <div className="lg:col-span-5 space-y-5 text-left order-2 lg:order-1">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-brand-glow border border-blue-500/20">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-brand-primary dark:text-brand-glow border border-blue-500/20">
                 <Play className="h-3.5 w-3.5 fill-current" />
                 <span>Mobile-First Streaming</span>
               </div>
@@ -142,7 +142,7 @@ export function CreatorWorkflowsSection() {
 
               <div className="pt-2">
                 <a href="#how-it-works">
-                  <Button variant="secondary" size="md" className="rounded-full border border-brand-border">
+                  <Button variant="secondary" size="md" className="rounded-full bg-white dark:bg-transparent text-brand-text border border-slate-200 dark:border-brand-border shadow-xs hover:bg-slate-50 dark:hover:bg-brand-bg-soft">
                     <span>Explore Player Capabilities</span>
                     <ArrowRight className="h-4 w-4 ml-1.5" />
                   </Button>
@@ -153,7 +153,7 @@ export function CreatorWorkflowsSection() {
             {/* Visual: Isolated 3D Phone Video Player */}
             <div className="lg:col-span-7 relative group order-1 lg:order-2 flex flex-col items-center justify-center">
               {/* Ambient Glow */}
-              <div className="absolute inset-8 bg-gradient-to-tr from-brand-glow/25 to-brand-primary/25 blur-3xl rounded-full -z-10 opacity-70 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-8 bg-gradient-to-tr from-brand-glow/20 to-brand-primary/20 blur-3xl rounded-full -z-10 opacity-70 group-hover:opacity-100 transition-opacity" />
 
               <div className="relative w-full max-w-sm aspect-[4/3] select-none filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.18)] dark:drop-shadow-[0_20px_40px_rgba(14,165,233,0.2)] transition-transform duration-500 hover:scale-[1.03]">
                 <Image
@@ -169,7 +169,7 @@ export function CreatorWorkflowsSection() {
               <div className="w-1/2 h-5 bg-black/15 dark:bg-black/50 blur-xl rounded-full -mt-2 pointer-events-none" />
 
               {/* Floating Stream Tag */}
-              <div className="absolute bottom-4 right-4 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-brand-surface/90 dark:bg-[#111728]/90 border border-brand-border shadow-lg text-xs font-semibold text-brand-text">
+              <div className="absolute bottom-4 right-4 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/95 dark:bg-[#111728]/95 border border-slate-200/80 dark:border-white/10 shadow-lg text-xs font-semibold text-slate-900 dark:text-white">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span>1080p 60fps Active Stream</span>
               </div>
@@ -185,7 +185,7 @@ export function CreatorWorkflowsSection() {
             {/* Visual: Isolated 3D Phone Wallet */}
             <div className="lg:col-span-7 relative group flex flex-col items-center justify-center">
               {/* Ambient Glow */}
-              <div className="absolute inset-8 bg-gradient-to-tr from-amber-500/20 to-emerald-500/20 blur-3xl rounded-full -z-10 opacity-70 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-8 bg-gradient-to-tr from-amber-500/15 to-emerald-500/15 blur-3xl rounded-full -z-10 opacity-70 group-hover:opacity-100 transition-opacity" />
 
               <div className="relative w-full max-w-sm aspect-[4/3] select-none filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.18)] dark:drop-shadow-[0_20px_40px_rgba(245,158,11,0.2)] transition-transform duration-500 hover:scale-[1.03]">
                 <Image
@@ -201,7 +201,7 @@ export function CreatorWorkflowsSection() {
               <div className="w-1/2 h-5 bg-black/15 dark:bg-black/50 blur-xl rounded-full -mt-2 pointer-events-none" />
 
               {/* Floating Earnings Tag */}
-              <div className="absolute top-4 left-4 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-brand-surface/90 dark:bg-[#111728]/90 border border-amber-500/30 shadow-lg text-xs font-bold text-amber-600 dark:text-amber-400">
+              <div className="absolute top-4 left-4 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/95 dark:bg-[#111728]/95 border border-amber-300/80 dark:border-amber-500/30 shadow-lg text-xs font-bold text-amber-600 dark:text-amber-400">
                 <DollarSign className="h-4 w-4" />
                 <span>$1.00 / 1K Views</span>
               </div>

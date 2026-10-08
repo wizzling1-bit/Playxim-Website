@@ -82,7 +82,7 @@ export function MarketingHero() {
               <Button
                 size="lg"
                 variant="secondary"
-                className="h-12 sm:h-13 px-7 text-sm sm:text-base font-semibold rounded-full border border-brand-border hover:bg-brand-bg-soft transition-all duration-200"
+                className="h-12 sm:h-13 px-7 text-sm sm:text-base font-semibold rounded-full bg-white dark:bg-transparent text-brand-text border border-slate-200 dark:border-brand-border shadow-xs hover:bg-slate-50 dark:hover:bg-brand-bg-soft transition-all duration-200"
               >
                 See How It Works
               </Button>
@@ -120,7 +120,7 @@ export function MarketingHero() {
               href="https://play.google.com/store/apps/details?id=com.playxim.app&pcampaignid=web_share"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-4.5 py-2.5 rounded-xl bg-brand-surface/90 border border-brand-border/80 shadow-xs hover:border-brand-primary/50 hover:bg-brand-bg-soft hover:-translate-y-0.5 transition-all group"
+              className="inline-flex items-center gap-2.5 px-4.5 py-2.5 rounded-xl bg-white dark:bg-brand-surface/90 border border-slate-200/80 dark:border-brand-border/80 shadow-xs hover:border-brand-primary/50 hover:bg-slate-50 dark:hover:bg-brand-bg-soft hover:-translate-y-0.5 transition-all group"
             >
               <div className="h-6 w-6 text-brand-primary flex items-center justify-center">
                 <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
@@ -136,7 +136,7 @@ export function MarketingHero() {
             {/* App Store */}
             <a
               href="#download-app"
-              className="inline-flex items-center gap-2.5 px-4.5 py-2.5 rounded-xl bg-brand-surface/90 border border-brand-border/80 shadow-xs hover:border-brand-primary/50 hover:bg-brand-bg-soft hover:-translate-y-0.5 transition-all group"
+              className="inline-flex items-center gap-2.5 px-4.5 py-2.5 rounded-xl bg-white dark:bg-brand-surface/90 border border-slate-200/80 dark:border-brand-border/80 shadow-xs hover:border-brand-primary/50 hover:bg-slate-50 dark:hover:bg-brand-bg-soft hover:-translate-y-0.5 transition-all group"
             >
               <div className="h-6 w-6 text-brand-primary flex items-center justify-center">
                 <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
@@ -150,7 +150,7 @@ export function MarketingHero() {
             </a>
 
             {/* Rating */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-brand-surface/80 border border-brand-border/60 text-xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white dark:bg-brand-surface/80 border border-slate-200/80 dark:border-brand-border/60 text-xs shadow-xs">
               <div className="flex items-center text-amber-500">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-3.5 w-3.5 fill-current" />
@@ -168,12 +168,12 @@ export function MarketingHero() {
         <ScrollReveal delay={350} duration={850}>
           <div className="pt-8 sm:pt-14 relative w-full max-w-6xl mx-auto">
             {/* Multi-layered atmospheric radial glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-r from-brand-primary/25 via-brand-glow/20 to-purple-500/15 blur-[130px] rounded-full pointer-events-none -z-10" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-r from-brand-primary/20 via-brand-glow/15 to-purple-500/10 dark:from-brand-primary/25 dark:via-brand-glow/20 dark:to-purple-500/15 blur-[130px] rounded-full pointer-events-none -z-10" />
 
             {/* Floating 3D Device Container */}
             <div className="relative group flex flex-col items-center justify-center">
               {/* FLOATING GLASS CARD 1 (Top Left): Upload Complete */}
-              <div className="hidden md:flex absolute top-4 -left-2 lg:-left-6 z-30 items-center gap-3 px-4 py-2.5 rounded-2xl bg-brand-surface/90 dark:bg-[#111728]/90 border border-brand-border/80 shadow-2xl backdrop-blur-xl animate-float-slow text-left">
+              <div className="hidden md:flex absolute top-4 -left-2 lg:-left-6 z-30 items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/95 dark:bg-[#111728]/95 border border-slate-200/80 dark:border-white/10 shadow-xl shadow-slate-900/5 dark:shadow-black/50 backdrop-blur-xl animate-float-slow text-left">
                 <div className="h-8 w-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
                   <CheckCircle2 className="h-5 w-5" />
                 </div>
@@ -189,7 +189,7 @@ export function MarketingHero() {
               </div>
 
               {/* FLOATING GLASS CARD 2 (Top Right): Get Instant Share Link */}
-              <div className="hidden md:flex absolute top-6 -right-2 lg:-right-6 z-30 items-center gap-3 px-4 py-2.5 rounded-2xl bg-brand-surface/90 dark:bg-[#111728]/90 border border-brand-border/80 shadow-2xl backdrop-blur-xl animate-float-slow [animation-delay:1.5s] text-left">
+              <div className="hidden md:flex absolute top-6 -right-2 lg:-right-6 z-30 items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/95 dark:bg-[#111728]/95 border border-slate-200/80 dark:border-white/10 shadow-xl shadow-slate-900/5 dark:shadow-black/50 backdrop-blur-xl animate-float-slow [animation-delay:1.5s] text-left">
                 <div className="h-8 w-8 rounded-xl bg-brand-primary/15 border border-brand-primary/30 flex items-center justify-center text-brand-primary shrink-0">
                   <Share2 className="h-4 w-4" />
                 </div>
@@ -199,7 +199,7 @@ export function MarketingHero() {
                     <span className="text-[11px] font-mono text-brand-primary">playxim.com/watch/8XK92</span>
                     <button
                       onClick={handleCopyLink}
-                      className="p-1 rounded hover:bg-brand-bg-soft text-brand-muted hover:text-brand-text transition-colors"
+                      className="p-1 rounded hover:bg-slate-100 dark:hover:bg-brand-bg-soft text-brand-muted hover:text-brand-text transition-colors"
                       title="Copy Link"
                     >
                       {copied ? <Check className="h-3 w-3 text-emerald-500" /> : <Copy className="h-3 w-3" />}
@@ -209,7 +209,7 @@ export function MarketingHero() {
               </div>
 
               {/* FLOATING GLASS CARD 3 (Bottom Left): $1.00 per 1K Views Payout */}
-              <div className="hidden md:flex absolute bottom-6 left-0 lg:-left-4 z-30 items-center gap-3 px-4 py-2.5 rounded-2xl bg-brand-surface/90 dark:bg-[#111728]/90 border border-amber-500/30 shadow-2xl backdrop-blur-xl animate-float-slow [animation-delay:2.5s] text-left">
+              <div className="hidden md:flex absolute bottom-6 left-0 lg:-left-4 z-30 items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/95 dark:bg-[#111728]/95 border border-amber-300/80 dark:border-amber-500/30 shadow-xl shadow-slate-900/5 dark:shadow-black/50 backdrop-blur-xl animate-float-slow [animation-delay:2.5s] text-left">
                 <div className="h-8 w-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-600 dark:text-amber-400 font-bold shrink-0">
                   $
                 </div>
@@ -224,8 +224,8 @@ export function MarketingHero() {
               </div>
 
               {/* FLOATING GLASS CARD 4 (Bottom Right): App Stream & Download */}
-              <div className="hidden md:flex absolute bottom-8 right-0 lg:-right-4 z-30 items-center gap-3 px-4 py-2.5 rounded-2xl bg-brand-surface/90 dark:bg-[#111728]/90 border border-brand-border/80 shadow-2xl backdrop-blur-xl animate-float-slow [animation-delay:3.5s] text-left">
-                <div className="h-8 w-8 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-brand-glow shrink-0">
+              <div className="hidden md:flex absolute bottom-8 right-0 lg:-right-4 z-30 items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/95 dark:bg-[#111728]/95 border border-slate-200/80 dark:border-white/10 shadow-xl shadow-slate-900/5 dark:shadow-black/50 backdrop-blur-xl animate-float-slow [animation-delay:3.5s] text-left">
+                <div className="h-8 w-8 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-brand-primary dark:text-brand-glow shrink-0">
                   <Play className="h-4 w-4 fill-current" />
                 </div>
                 <div>

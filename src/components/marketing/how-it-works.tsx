@@ -54,12 +54,12 @@ export function HowItWorksSection() {
         {/* 4 Connected Circular Steps */}
         <div className="relative mt-12 sm:mt-16">
           {/* Desktop Connecting Line */}
-          <div className="hidden lg:block absolute top-12 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-brand-primary via-emerald-500 to-amber-500/80 -z-0" />
+          <div className="hidden lg:block absolute top-12 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-blue-300 via-emerald-300 to-amber-300 dark:from-brand-primary dark:via-emerald-500 dark:to-amber-500/80 -z-0" />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 relative z-10">
             {steps.map((item, idx) => (
               <ScrollReveal key={item.step} delay={idx * 120} duration={700}>
-                <div className="flex flex-col items-center text-center p-7 rounded-2xl bg-brand-surface/90 dark:bg-[#111728]/90 border border-brand-border shadow-xs hover:border-brand-primary/40 hover:-translate-y-1 transition-all duration-300 group h-full">
+                <div className="flex flex-col items-center text-center p-7 rounded-2xl bg-white dark:bg-[#111728]/90 border border-slate-200/80 dark:border-brand-border shadow-xs hover:shadow-md hover:border-brand-primary/40 hover:-translate-y-1 transition-all duration-300 group h-full">
                   {/* Step Circle with Icon */}
                   <div className="relative mb-5">
                     <div
@@ -67,18 +67,18 @@ export function HowItWorksSection() {
                     >
                       {item.icon}
                     </div>
-                    <span className="absolute -bottom-2 -right-1 font-mono text-xs font-black bg-brand-surface dark:bg-[#161F36] text-brand-text border border-brand-border px-2 py-0.5 rounded-full shadow-xs">
+                    <span className="absolute -bottom-2 -right-1 font-mono text-xs font-black bg-white dark:bg-[#161F36] text-slate-900 dark:text-brand-text border border-slate-200 dark:border-brand-border px-2 py-0.5 rounded-full shadow-xs">
                       {item.step}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-display font-bold text-brand-text mb-2">
+                  <h3 className="text-lg font-display font-bold text-slate-900 dark:text-brand-text mb-2">
                     {item.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-xs sm:text-sm text-brand-muted leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-brand-muted leading-relaxed">
                     {item.description}
                   </p>
                 </div>

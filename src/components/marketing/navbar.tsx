@@ -85,14 +85,14 @@ export function MarketingNavbar() {
         className={cn(
           "pointer-events-auto mx-auto transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]",
           isScrolled
-            ? "max-w-5xl rounded-full bg-brand-surface/92 dark:bg-[#111728]/92 backdrop-blur-2xl border border-brand-border/90 shadow-xl shadow-black/5 dark:shadow-black/40 py-1.5 px-4 sm:px-6 scale-[0.99]"
-            : "max-w-7xl border-b border-brand-border/40 bg-brand-bg/60 dark:bg-[#07090E]/60 backdrop-blur-md py-3.5 sm:py-4 px-4 sm:px-8 lg:px-10 rounded-none shadow-none"
+            ? "max-w-5xl rounded-full bg-white/92 dark:bg-[#111728]/92 backdrop-blur-2xl border border-slate-200/90 dark:border-brand-border/90 shadow-xl shadow-slate-900/5 dark:shadow-black/40 py-1.5 px-4 sm:px-6 scale-[0.99]"
+            : "max-w-7xl border-b border-slate-200/60 dark:border-brand-border/40 bg-white/60 dark:bg-[#07090E]/60 backdrop-blur-md py-3.5 sm:py-4 px-4 sm:px-8 lg:px-10 rounded-none shadow-none"
         )}
       >
         <div className="flex h-10 sm:h-11 items-center justify-between gap-3">
           {/* Brand Logo & Wordmark */}
           <Link href="/" className="flex items-center gap-2.5 group shrink-0" aria-label="Playxim Home">
-            <div className="relative h-7 w-7 sm:h-8 sm:w-8 overflow-hidden rounded-lg border border-brand-border/80 bg-brand-surface shadow-xs transition-transform duration-200 group-hover:scale-105">
+            <div className="relative h-7 w-7 sm:h-8 sm:w-8 overflow-hidden rounded-lg border border-slate-200/80 dark:border-brand-border/80 bg-white dark:bg-brand-surface shadow-xs transition-transform duration-200 group-hover:scale-105">
               <Image
                 src="/logo.webp"
                 alt="Playxim Logo"
@@ -101,7 +101,7 @@ export function MarketingNavbar() {
                 priority
               />
             </div>
-            <span className="font-display font-bold tracking-tight text-base sm:text-lg text-brand-text">
+            <span className="font-display font-bold tracking-tight text-base sm:text-lg text-slate-900 dark:text-brand-text">
               PLAYXIM
             </span>
           </Link>
@@ -122,7 +122,7 @@ export function MarketingNavbar() {
                   "flex items-center gap-1 px-3 py-1.5 rounded-full transition-all duration-200 cursor-pointer text-xs font-semibold",
                   isPlatformActive
                     ? "text-brand-primary bg-brand-primary/10"
-                    : "text-brand-muted hover:text-brand-text hover:bg-brand-bg-soft"
+                    : "text-slate-600 dark:text-brand-muted hover:text-slate-900 dark:hover:text-brand-text hover:bg-slate-100 dark:hover:bg-brand-bg-soft"
                 )}
                 aria-expanded={platformOpen}
                 aria-haspopup="true"
@@ -137,7 +137,7 @@ export function MarketingNavbar() {
               </button>
 
               {platformOpen && (
-                <div className="absolute top-full left-0 mt-2 w-72 rounded-[var(--radius-xl)] border border-brand-border bg-brand-surface/98 backdrop-blur-2xl p-2 shadow-2xl animate-in fade-in zoom-in-95 duration-150 z-50">
+                <div className="absolute top-full left-0 mt-2 w-72 rounded-[var(--radius-xl)] border border-slate-200/90 dark:border-brand-border bg-white/98 dark:bg-[#111728]/98 backdrop-blur-2xl p-2 shadow-2xl shadow-slate-900/10 dark:shadow-black/50 animate-in fade-in zoom-in-95 duration-150 z-50">
                   <div className="space-y-1">
                     {PLATFORM_ITEMS.map((item) => (
                       <Link
@@ -175,7 +175,7 @@ export function MarketingNavbar() {
                     "px-3 py-1.5 rounded-full transition-all duration-200 text-xs font-semibold",
                     isActive
                       ? "text-brand-primary bg-brand-primary/10"
-                      : "text-brand-muted hover:text-brand-text hover:bg-brand-bg-soft"
+                      : "text-slate-600 dark:text-brand-muted hover:text-slate-900 dark:hover:text-brand-text hover:bg-slate-100 dark:hover:bg-brand-bg-soft"
                   )}
                 >
                   {link.label}
@@ -188,7 +188,7 @@ export function MarketingNavbar() {
           <div className="hidden md:flex items-center gap-2 shrink-0">
             <ThemeToggle />
             <Link href="/auth/sign-in">
-              <Button variant="ghost" size="sm" className="h-8 px-3 text-xs font-semibold rounded-full">
+              <Button variant="ghost" size="sm" className="h-8 px-3 text-xs font-semibold rounded-full text-slate-700 dark:text-brand-text hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-brand-bg-soft">
                 Sign In
               </Button>
             </Link>
@@ -210,7 +210,7 @@ export function MarketingNavbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="h-8 w-8 rounded-full border border-brand-border bg-brand-surface flex items-center justify-center text-brand-text transition-colors hover:bg-brand-bg-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+              className="h-8 w-8 rounded-full border border-slate-200 dark:border-brand-border bg-white dark:bg-brand-surface flex items-center justify-center text-slate-900 dark:text-brand-text transition-colors hover:bg-slate-100 dark:hover:bg-brand-bg-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
             >
@@ -221,7 +221,7 @@ export function MarketingNavbar() {
 
         {/* Mobile Dropdown Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden pt-3 pb-2 border-t border-brand-border/60 mt-2 space-y-2 animate-in fade-in duration-150">
+          <div className="md:hidden pt-3 pb-2 border-t border-slate-200/80 dark:border-brand-border/60 mt-2 space-y-2 animate-in fade-in duration-150">
             <div className="space-y-1">
               <div className="text-xs font-bold uppercase tracking-wider text-brand-muted px-2 pt-1">
                 Platform

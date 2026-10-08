@@ -69,18 +69,18 @@ export function FaqSection() {
             return (
               <ScrollReveal key={idx} delay={idx * 40} duration={500}>
                 <div
-                  className="rounded-2xl border border-brand-border bg-brand-surface/90 dark:bg-[#111728]/90 overflow-hidden transition-all shadow-2xs hover:border-brand-primary/40"
+                  className="rounded-2xl border border-slate-200/80 dark:border-brand-border bg-white dark:bg-[#111728]/90 overflow-hidden transition-all shadow-xs hover:border-brand-primary/40"
                 >
                   <button
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? null : idx)}
-                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-brand-text cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/40"
+                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-slate-900 dark:text-brand-text cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/40"
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${idx}`}
                   >
                     <span>{faq.q}</span>
                     <ChevronDown
-                      className={`h-4 w-4 text-brand-muted shrink-0 transition-transform duration-200 ${
+                      className={`h-4 w-4 text-slate-400 dark:text-brand-muted shrink-0 transition-transform duration-200 ${
                         isOpen ? "rotate-180 text-brand-primary" : ""
                       }`}
                     />
@@ -88,7 +88,7 @@ export function FaqSection() {
                   {isOpen && (
                     <div
                       id={`faq-answer-${idx}`}
-                      className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-brand-muted leading-relaxed border-t border-brand-border/40 pt-3 animate-in fade-in-50 duration-150"
+                      className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-slate-600 dark:text-brand-muted leading-relaxed border-t border-slate-100 dark:border-brand-border/40 pt-3 animate-in fade-in-50 duration-150"
                     >
                       {faq.a}
                     </div>

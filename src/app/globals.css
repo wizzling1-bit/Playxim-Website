@@ -1,24 +1,26 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
     /* Playxim Apple x Linear Design System Tokens - Light Mode (Default) */
-    --bg: #F3F6FC;
-    --bg-soft: #E9EFFA;
+    --bg: #F8FAFC;
+    --bg-soft: #F1F5F9;
     --surface: #FFFFFF;
-    --surface-raised: #F8FAFE;
-    --surface-2: #F8FAFE;
-    --border: #D3DEF2;
-    --border-subtle: rgba(10, 19, 48, 0.06);
-    --border-highlight: rgba(30, 107, 255, 0.25);
-    --text: #0A1330;
-    --muted: #55637F;
+    --surface-raised: #FFFFFF;
+    --surface-2: #F8FAFC;
+    --border: #E2E8F0;
+    --border-subtle: rgba(15, 23, 42, 0.06);
+    --border-highlight: rgba(30, 107, 255, 0.20);
+    --text: #0F172A;
+    --muted: #64748B;
     --primary: #1E6BFF;
     --primary-hover: #1557D6;
     --primary-text: #1E6BFF;
-    --glow: #0EA5E9;
-    --accent: #B7791F;
-    --band: #0A1330;
+    --glow: #0284C7;
+    --accent: #D97706;
+    --band: #0F172A;
 
     /* Semantic Mappings */
     --background: var(--bg);

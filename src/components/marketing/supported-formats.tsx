@@ -53,13 +53,13 @@ const FORMAT_CATEGORIES = [
 
 export function SupportedFormatsStrip() {
   return (
-    <section className="py-10 border-y border-brand-border/60 bg-brand-surface/30 backdrop-blur-xs relative">
+    <section className="py-10 border-y border-slate-200/80 dark:border-brand-border/60 bg-slate-50/70 dark:bg-brand-surface/30 backdrop-blur-xs relative">
       <Container className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <ScrollReveal duration={600}>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
             <div className="flex items-center gap-2">
               <span className="flex h-2 w-2 rounded-full bg-brand-primary animate-pulse" />
-              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-muted">
+              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-600 dark:text-brand-muted">
                 Supported Formats & Multi-Platform Ingestion
               </h2>
             </div>
@@ -72,20 +72,20 @@ export function SupportedFormatsStrip() {
             {FORMAT_CATEGORIES.map((item, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-2xl bg-brand-surface/90 dark:bg-[#111728]/90 border border-brand-border/70 hover:border-brand-primary/40 hover:-translate-y-0.5 transition-all shadow-xs group text-left"
+                className="p-4 rounded-2xl bg-white dark:bg-[#111728]/90 border border-slate-200/80 dark:border-brand-border/70 hover:border-brand-primary/40 hover:-translate-y-0.5 transition-all shadow-xs hover:shadow-md group text-left"
               >
                 <div className="flex items-center justify-between mb-2.5">
-                  <div className="h-8 w-8 rounded-xl bg-brand-bg-soft dark:bg-[#161F36] border border-brand-border/60 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="h-8 w-8 rounded-xl bg-slate-100 dark:bg-[#161F36] border border-slate-200/60 dark:border-brand-border/60 flex items-center justify-center group-hover:scale-105 transition-transform">
                     {item.icon}
                   </div>
-                  <span className="text-[10px] font-mono font-medium text-brand-muted">
+                  <span className="text-[10px] font-mono font-medium text-slate-500 dark:text-brand-muted">
                     {item.tag}
                   </span>
                 </div>
-                <div className="text-xs font-bold text-brand-text truncate">
+                <div className="text-xs font-bold text-slate-900 dark:text-brand-text truncate">
                   {item.label}
                 </div>
-                <div className="text-[11px] font-mono text-brand-muted mt-0.5 truncate">
+                <div className="text-[11px] font-mono text-slate-500 dark:text-brand-muted mt-0.5 truncate">
                   {item.formats}
                 </div>
               </div>

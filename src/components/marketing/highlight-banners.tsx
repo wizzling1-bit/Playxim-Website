@@ -19,9 +19,9 @@ export function HighlightBannersSection() {
       <Container className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 space-y-10">
         {/* Banner 1: Unlimited Storage for Every Creator */}
         <ScrollReveal duration={750}>
-          <div className="relative rounded-3xl p-6 sm:p-10 lg:p-12 border border-brand-border bg-gradient-to-br from-brand-surface via-brand-surface/90 to-brand-primary/5 dark:from-[#111728] dark:via-[#111728]/90 dark:to-brand-primary/10 shadow-xl overflow-hidden group">
+          <div className="relative rounded-3xl p-6 sm:p-10 lg:p-12 border border-slate-200/80 dark:border-brand-border bg-gradient-to-br from-white via-white to-blue-50/50 dark:from-[#111728] dark:via-[#111728]/90 dark:to-brand-primary/10 shadow-xl shadow-slate-900/5 dark:shadow-black/40 overflow-hidden group">
             {/* Subtle glow background */}
-            <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-brand-primary/12 blur-[100px] rounded-full pointer-events-none -z-10" />
+            <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-brand-primary/10 dark:bg-brand-primary/12 blur-[100px] rounded-full pointer-events-none -z-10" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4 text-left">
@@ -65,9 +65,9 @@ export function HighlightBannersSection() {
 
               {/* Quick Stat Card on Right */}
               <div className="lg:col-span-4 flex justify-center lg:justify-end">
-                <div className="w-full max-w-sm p-6 rounded-2xl bg-brand-bg-soft/90 dark:bg-[#0D121F]/90 border border-brand-border/80 shadow-lg text-left space-y-4">
+                <div className="w-full max-w-sm p-6 rounded-2xl bg-slate-50/90 dark:bg-[#0D121F]/90 border border-slate-200/80 dark:border-brand-border/80 shadow-md text-left space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold text-brand-muted uppercase font-mono">
+                    <span className="text-xs font-semibold text-slate-500 dark:text-brand-muted uppercase font-mono">
                       Storage Capacity
                     </span>
                     <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full">
@@ -75,17 +75,17 @@ export function HighlightBannersSection() {
                     </span>
                   </div>
                   <div>
-                    <div className="text-3xl sm:text-4xl font-display font-extrabold text-brand-text">
+                    <div className="text-3xl sm:text-4xl font-display font-extrabold text-slate-900 dark:text-brand-text">
                       ∞ UNLIMITED
                     </div>
-                    <div className="text-xs text-brand-muted mt-1 font-mono">
+                    <div className="text-xs text-slate-500 dark:text-brand-muted mt-1 font-mono">
                       0 GB Used / Infinite Cloud Available
                     </div>
                   </div>
-                  <div className="h-2 w-full rounded-full bg-brand-border/60 overflow-hidden">
+                  <div className="h-2 w-full rounded-full bg-slate-200 dark:bg-brand-border/60 overflow-hidden">
                     <div className="h-full bg-gradient-to-r from-brand-primary to-brand-glow w-1/4 rounded-full" />
                   </div>
-                  <div className="text-[11px] text-brand-muted">
+                  <div className="text-[11px] text-slate-500 dark:text-brand-muted">
                     No artificial caps • Free for all creators
                   </div>
                 </div>
@@ -96,7 +96,7 @@ export function HighlightBannersSection() {
 
         {/* Banner 2: $1.00 per 1,000 Views Program */}
         <ScrollReveal delay={150} duration={750}>
-          <div className="relative rounded-3xl p-6 sm:p-10 lg:p-12 border border-brand-border bg-gradient-to-br from-brand-surface via-brand-surface/90 to-amber-500/5 dark:from-[#111728] dark:via-[#111728]/90 dark:to-amber-500/10 shadow-xl overflow-hidden group">
+          <div className="relative rounded-3xl p-6 sm:p-10 lg:p-12 border border-slate-200/80 dark:border-brand-border bg-gradient-to-br from-white via-white to-amber-50/50 dark:from-[#111728] dark:via-[#111728]/90 dark:to-amber-500/10 shadow-xl shadow-slate-900/5 dark:shadow-black/40 overflow-hidden group">
             {/* Subtle glow background */}
             <div className="absolute top-0 left-0 w-[500px] h-[350px] bg-amber-500/10 blur-[100px] rounded-full pointer-events-none -z-10" />
 

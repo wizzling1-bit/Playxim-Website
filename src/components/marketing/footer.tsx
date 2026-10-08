@@ -7,13 +7,13 @@ import { Container } from "@/components/ui/layout-primitives";
 
 export function MarketingFooter() {
   return (
-    <footer className="border-t border-brand-border bg-brand-surface dark:bg-[#07090E] text-brand-muted text-xs sm:text-sm pt-16 pb-12 transition-colors">
+    <footer className="border-t border-slate-200/80 dark:border-brand-border bg-slate-50 dark:bg-[#07090E] text-slate-600 dark:text-brand-muted text-xs sm:text-sm pt-16 pb-12 transition-colors">
       <Container className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12 text-left">
           {/* Brand info */}
           <div className="col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="relative h-8 w-8 overflow-hidden rounded-lg border border-brand-border bg-brand-surface shadow-xs">
+              <div className="relative h-8 w-8 overflow-hidden rounded-lg border border-slate-200 dark:border-brand-border bg-white dark:bg-brand-surface shadow-xs">
                 <Image
                   src="/logo.webp"
                   alt="Playxim Logo"
@@ -21,14 +21,14 @@ export function MarketingFooter() {
                   className="object-contain p-1"
                 />
               </div>
-              <span className="font-bold tracking-tight text-base text-brand-text">
+              <span className="font-bold tracking-tight text-base text-slate-900 dark:text-brand-text">
                 PLAYXIM
               </span>
             </Link>
-            <p className="text-xs text-brand-muted max-w-sm leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-brand-muted max-w-sm leading-relaxed">
               Upload videos and files without limits. Get instant share links, stream in 4K or download via web and mobile app, and earn $1.00 for every 1,000 views.
             </p>
-            <div className="flex items-center gap-2 text-xs font-mono text-emerald-800 dark:text-emerald-400">
+            <div className="flex items-center gap-2 text-xs font-mono text-emerald-700 dark:text-emerald-400">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -137,7 +137,7 @@ export function MarketingFooter() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-brand-border/60 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-brand-muted gap-4">
+        <div className="border-t border-slate-200/80 dark:border-brand-border/60 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-brand-muted gap-4">
           <p>© 2026 Playxim Inc. All rights reserved.</p>
           <p className="flex items-center gap-4">
             <span>Domain: playxim.com</span>

@@ -9,15 +9,15 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function FinalCtaSection() {
   return (
-    <section className="py-24 sm:py-32 relative overflow-hidden border-t border-brand-border bg-gradient-to-b from-transparent via-brand-primary/5 to-transparent">
+    <section className="py-24 sm:py-32 relative overflow-hidden border-t border-slate-200/80 dark:border-brand-border bg-gradient-to-b from-transparent via-brand-primary/5 to-transparent">
       {/* Background ambient animated glow */}
       <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[400px] bg-gradient-to-tr from-brand-primary/20 via-brand-glow/15 to-purple-500/10 blur-[140px] rounded-full pointer-events-none -z-10 animate-float-slow" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[400px] bg-gradient-to-tr from-brand-primary/15 via-brand-glow/10 to-purple-500/10 dark:from-brand-primary/20 dark:via-brand-glow/15 dark:to-purple-500/10 blur-[140px] rounded-full pointer-events-none -z-10 animate-float-slow" />
 
       <Container className="relative z-10 text-center max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 space-y-7">
         <ScrollReveal duration={700}>
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-brand-surface dark:bg-[#111728] border border-brand-border shadow-xs text-brand-primary">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-white dark:bg-[#111728] border border-slate-200/80 dark:border-brand-border shadow-xs text-brand-primary">
             <Sparkles className="h-3.5 w-3.5 animate-pulse text-brand-primary" />
             <span>Start in Under 60 Seconds</span>
           </div>
@@ -48,7 +48,7 @@ export function FinalCtaSection() {
               <Button
                 size="lg"
                 variant="secondary"
-                className="h-12 sm:h-13 px-7 text-sm sm:text-base font-semibold rounded-full border border-brand-border hover:bg-brand-bg-soft"
+                className="h-12 sm:h-13 px-7 text-sm sm:text-base font-semibold rounded-full bg-white dark:bg-transparent text-brand-text border border-slate-200 dark:border-brand-border shadow-xs hover:bg-slate-50 dark:hover:bg-brand-bg-soft"
               >
                 See How It Works
               </Button>

@@ -70,7 +70,7 @@ export function ComparisonTableSection() {
   ];
 
   return (
-    <section id="comparison" className="py-20 sm:py-28 border-t border-brand-border/60 bg-brand-surface/30 backdrop-blur-xs relative">
+    <section id="comparison" className="py-20 sm:py-28 border-t border-slate-200/80 dark:border-brand-border/60 bg-slate-50/70 dark:bg-brand-surface/30 backdrop-blur-xs relative">
       <Container className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <ScrollReveal duration={600}>
           <SectionHeader
@@ -79,13 +79,13 @@ export function ComparisonTableSection() {
             description="See how Playxim outclasses conventional cloud storage and file sharing platforms designed in the pre-creator era."
           />
 
-          <div className="rounded-2xl border border-brand-border bg-brand-surface/95 dark:bg-[#111728]/95 shadow-xl overflow-hidden text-left mt-8">
+          <div className="rounded-2xl border border-slate-200/80 dark:border-brand-border bg-white dark:bg-[#111728]/95 shadow-xl shadow-slate-900/5 dark:shadow-black/40 overflow-hidden text-left mt-8">
             <div className="overflow-x-auto">
               <table className="w-full text-xs sm:text-sm">
                 <thead>
-                  <tr className="border-b border-brand-border bg-brand-bg-soft/70 dark:bg-[#0D121F]/80">
-                    <th className="py-4.5 px-4 sm:px-6 font-bold text-brand-text">Key Features</th>
-                    <th className="py-4.5 px-4 sm:px-6 font-extrabold text-brand-primary bg-brand-primary/10 border-x border-brand-primary/25 min-w-[220px]">
+                  <tr className="border-b border-slate-200/80 dark:border-brand-border bg-slate-50/90 dark:bg-[#0D121F]/80">
+                    <th className="py-4.5 px-4 sm:px-6 font-bold text-slate-900 dark:text-brand-text">Key Features</th>
+                    <th className="py-4.5 px-4 sm:px-6 font-extrabold text-brand-primary bg-blue-50/80 dark:bg-brand-primary/10 border-x border-blue-200/80 dark:border-brand-primary/25 min-w-[220px]">
                       <div className="flex items-center gap-1.5">
                         <Sparkles className="h-4 w-4" />
                         <span>Playxim</span>
@@ -94,21 +94,21 @@ export function ComparisonTableSection() {
                         </span>
                       </div>
                     </th>
-                    <th className="py-4.5 px-4 sm:px-6 font-semibold text-brand-muted min-w-[150px]">Google Drive</th>
-                    <th className="py-4.5 px-4 sm:px-6 font-semibold text-brand-muted min-w-[150px]">Terabox</th>
-                    <th className="py-4.5 px-4 sm:px-6 font-semibold text-brand-muted min-w-[150px]">Mega</th>
+                    <th className="py-4.5 px-4 sm:px-6 font-semibold text-slate-600 dark:text-brand-muted min-w-[150px]">Google Drive</th>
+                    <th className="py-4.5 px-4 sm:px-6 font-semibold text-slate-600 dark:text-brand-muted min-w-[150px]">Terabox</th>
+                    <th className="py-4.5 px-4 sm:px-6 font-semibold text-slate-600 dark:text-brand-muted min-w-[150px]">Mega</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-brand-border/60 font-medium">
+                <tbody className="divide-y divide-slate-200/70 dark:divide-brand-border/60 font-medium">
                   {comparisonData.map((row, idx) => (
-                    <tr key={idx} className="hover:bg-brand-bg-soft/50 dark:hover:bg-[#161F36]/50 transition-colors">
+                    <tr key={idx} className="hover:bg-slate-50/70 dark:hover:bg-[#161F36]/50 transition-colors">
                       {/* Feature Title */}
-                      <td className="py-4.5 px-4 sm:px-6 font-semibold text-brand-text">
+                      <td className="py-4.5 px-4 sm:px-6 font-semibold text-slate-900 dark:text-brand-text">
                         {row.feature}
                       </td>
 
                       {/* Playxim (Winner Column) */}
-                      <td className="py-4.5 px-4 sm:px-6 bg-brand-primary/5 dark:bg-brand-primary/10 border-x border-brand-primary/20 text-brand-text font-bold">
+                      <td className="py-4.5 px-4 sm:px-6 bg-blue-50/40 dark:bg-brand-primary/10 border-x border-blue-200/60 dark:border-brand-primary/20 text-slate-900 dark:text-brand-text font-bold">
                         <div className="flex items-center gap-2">
                           <div className="h-5 w-5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                             <Check className="h-3.5 w-3.5 stroke-[3]" />
@@ -118,30 +118,30 @@ export function ComparisonTableSection() {
                       </td>
 
                       {/* Google Drive */}
-                      <td className="py-4.5 px-4 sm:px-6 text-brand-muted">
+                      <td className="py-4.5 px-4 sm:px-6 text-slate-500 dark:text-brand-muted">
                         <div className="flex items-center gap-2">
                           {row.othersCross ? (
-                            <X className="h-4 w-4 text-red-400 shrink-0" />
+                            <X className="h-4 w-4 text-red-500/80 shrink-0" />
                           ) : null}
                           <span>{row.gdrive}</span>
                         </div>
                       </td>
 
                       {/* Terabox */}
-                      <td className="py-4.5 px-4 sm:px-6 text-brand-muted">
+                      <td className="py-4.5 px-4 sm:px-6 text-slate-500 dark:text-brand-muted">
                         <div className="flex items-center gap-2">
                           {row.othersCross ? (
-                            <X className="h-4 w-4 text-red-400 shrink-0" />
+                            <X className="h-4 w-4 text-red-500/80 shrink-0" />
                           ) : null}
                           <span>{row.terabox}</span>
                         </div>
                       </td>
 
                       {/* Mega */}
-                      <td className="py-4.5 px-4 sm:px-6 text-brand-muted">
+                      <td className="py-4.5 px-4 sm:px-6 text-slate-500 dark:text-brand-muted">
                         <div className="flex items-center gap-2">
                           {row.othersCross ? (
-                            <X className="h-4 w-4 text-red-400 shrink-0" />
+                            <X className="h-4 w-4 text-red-500/80 shrink-0" />
                           ) : null}
                           <span>{row.mega}</span>
                         </div>
