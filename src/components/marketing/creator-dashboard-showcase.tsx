@@ -24,7 +24,8 @@ export function CreatorDashboardShowcase() {
   ];
 
   return (
-    <section className="py-24 sm:py-32 border-t border-brand-border/60 bg-brand-bg relative">
+    <section className="py-24 sm:py-32 border-t border-brand-border/60 bg-transparent relative">
+      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Large Product Mockup */}

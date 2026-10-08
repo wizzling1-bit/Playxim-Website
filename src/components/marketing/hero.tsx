@@ -23,27 +23,41 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/ui/layout-primitives";
+import { AnimatedTextRotator } from "@/components/ui/animated-text-rotator";
 
 export function MarketingHero() {
   return (
-    <section className="relative overflow-hidden pt-12 sm:pt-20 pb-20 sm:pb-28">
-      {/* Ambient background glow mesh */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[900px] h-[400px] sm:h-[500px] bg-gradient-to-tr from-brand-primary/15 via-brand-glow/12 to-purple-500/8 blur-[140px] rounded-full pointer-events-none -z-10" />
+    <section className="relative overflow-hidden pt-12 sm:pt-20 pb-20 sm:pb-28 bg-gradient-to-b from-transparent via-brand-bg/30 to-transparent">
+      {/* Subtle grid pattern background */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
+
+      {/* Ambient floating glow mesh orbs */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[750px] h-[350px] sm:h-[450px] bg-gradient-to-tr from-brand-primary/20 via-brand-glow/15 to-purple-500/10 blur-[130px] rounded-full pointer-events-none -z-10 animate-float-slow" />
+      <div className="absolute top-1/3 left-1/4 w-[320px] h-[320px] bg-brand-primary/12 blur-[100px] rounded-full pointer-events-none -z-10 animate-float-slow [animation-delay:3s]" />
 
       <Container className="relative z-10 text-center max-w-5xl mx-auto space-y-8">
         {/* Eyebrow Pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-brand-surface border border-brand-border shadow-xs backdrop-blur-md text-brand-primary">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-brand-surface/80 border border-brand-border shadow-xs backdrop-blur-md text-brand-primary">
           <Sparkles className="h-3 w-3 animate-pulse text-brand-primary shrink-0" />
           <span className="tracking-wide uppercase font-mono text-[11px]">
             The Creator Content Infrastructure
           </span>
         </div>
 
-        {/* Main Headline */}
+        {/* Main Headline with Animated Text Rotator */}
         <h1 className="text-5xl sm:text-7xl md:text-[88px] lg:text-[98px] font-display font-extrabold tracking-tight text-brand-text leading-[0.98] max-w-4xl mx-auto">
           Everything you create,{" "}
-          <span className="block mt-1 sm:mt-2 text-gradient-shimmer">
-            ready for your audience.
+          <span className="block mt-1 sm:mt-2">
+            <AnimatedTextRotator
+              words={[
+                "ready for your audience.",
+                "ready to share & earn.",
+                "stored without limits.",
+                "streamed in crisp 4K.",
+                "delivered at lightspeed.",
+                "monetized on your terms.",
+              ]}
+            />
           </span>
         </h1>
 

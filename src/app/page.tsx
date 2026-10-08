@@ -55,7 +55,7 @@ export default function MarketingHomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-brand-bg text-brand-text selection:bg-brand-primary selection:text-white transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-transparent text-brand-text selection:bg-brand-primary selection:text-white transition-colors duration-300">
       {/* 1. Floating Capsule Navigation */}
       <MarketingNavbar />
 

@@ -9,7 +9,8 @@ export function ThreeEnginesSection() {
   const pipeline = ["UPLOAD", "STORE", "SHARE", "REACH", "EARN"];
 
   return (
-    <section className="py-24 sm:py-32 border-t border-brand-border/60 bg-brand-surface/30 relative">
+    <section className="py-24 sm:py-32 border-t border-brand-border/60 bg-brand-surface/30 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-brand-primary/10 blur-[130px] rounded-full pointer-events-none -z-10 animate-float-slow" />
       <Container>
         <SectionHeader
           badge={<Badge variant="secondary">Architecture</Badge>}

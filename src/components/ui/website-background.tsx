@@ -30,7 +30,7 @@ export function WebsiteBackground() {
 
   return (
     <div
-      className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-60 dark:opacity-80 transition-opacity duration-700"
+      className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-75 dark:opacity-90 transition-opacity duration-700"
       aria-hidden="true"
     >
       <CursorRingField

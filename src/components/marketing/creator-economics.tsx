@@ -18,7 +18,8 @@ export function CreatorEconomicsSection() {
   const viewPresets = [50000, 100000, 250000, 500000, 1000000];
 
   return (
-    <section id="calculator" className="py-24 sm:py-32 border-t border-brand-border/60 bg-brand-bg relative">
+    <section id="calculator" className="py-24 sm:py-32 border-t border-brand-border/60 bg-transparent relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-amber-500/8 blur-[130px] rounded-full pointer-events-none -z-10 animate-float-slow" />
       <Container className="max-w-4xl mx-auto">
         <SectionHeader
           badge={<Badge variant="premium">Earnings Calculator</Badge>}

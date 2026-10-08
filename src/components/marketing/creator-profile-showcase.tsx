@@ -18,7 +18,7 @@ export function CreatorProfileShowcase() {
   const [activeProfileTab, setActiveProfileTab] = React.useState<"videos" | "playlists" | "archives">("videos");
 
   return (
-    <section className="py-24 sm:py-32 border-t border-brand-border/60 bg-brand-bg relative">
+    <section className="py-24 sm:py-32 border-t border-brand-border/60 bg-transparent relative">
       <Container>
         <SectionHeader
           badge={<Badge variant="default">Creator Hub</Badge>}

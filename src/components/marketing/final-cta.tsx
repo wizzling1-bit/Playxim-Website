@@ -8,9 +8,10 @@ import { Container } from "@/components/ui/layout-primitives";
 
 export function FinalCtaSection() {
   return (
-    <section className="py-28 sm:py-36 relative overflow-hidden border-t border-brand-border bg-gradient-to-b from-brand-bg-soft/40 via-brand-primary/5 to-brand-bg-soft/60">
-      {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-brand-primary/20 via-brand-glow/15 to-purple-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+    <section className="py-28 sm:py-36 relative overflow-hidden border-t border-brand-border bg-gradient-to-b from-transparent via-brand-primary/5 to-transparent">
+      {/* Background grid pattern & ambient animated glow */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-brand-primary/20 via-brand-glow/15 to-purple-500/10 blur-[130px] rounded-full pointer-events-none -z-10 animate-float-slow" />
 
       <Container className="relative z-10 text-center max-w-4xl mx-auto space-y-8">
         {/* Eyebrow */}

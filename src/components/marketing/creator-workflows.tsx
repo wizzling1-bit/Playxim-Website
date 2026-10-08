@@ -31,7 +31,8 @@ export function CreatorWorkflowsSection() {
   };
 
   return (
-    <section className="py-24 sm:py-32 border-t border-brand-border/60 bg-brand-bg relative space-y-28 sm:space-y-36">
+    <section className="py-24 sm:py-32 border-t border-brand-border/60 bg-transparent relative space-y-28 sm:space-y-36">
+      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
       <Container>
         {/* BLOCK 1: Ingestion (Visual Left, Content Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">

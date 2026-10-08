@@ -52,7 +52,7 @@ export function FaqSection() {
   ];
 
   return (
-    <section id="faq" className="py-24 sm:py-32 border-t border-brand-border/60 bg-brand-bg relative">
+    <section id="faq" className="py-24 sm:py-32 border-t border-brand-border/60 bg-transparent relative">
       <Container className="max-w-4xl mx-auto">
         <SectionHeader
           badge={<Badge variant="default">FAQ</Badge>}

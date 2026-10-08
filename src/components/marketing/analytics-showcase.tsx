@@ -17,7 +17,8 @@ export function AnalyticsShowcaseSection() {
   ];
 
   return (
-    <section className="py-24 sm:py-32 border-t border-brand-border/60 bg-brand-bg relative">
+    <section className="py-24 sm:py-32 border-t border-brand-border/60 bg-transparent relative">
+      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
       <Container>
         <SectionHeader
           badge={<Badge variant="default">Intelligence</Badge>}
