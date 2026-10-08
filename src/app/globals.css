@@ -273,7 +273,7 @@ h1, h2, h3, h4, .font-display {
 .wave-form-control input:focus + label span,
 .wave-form-control input:not(:placeholder-shown) + label span,
 .wave-form-control input:-webkit-autofill + label span {
-  transform: translateY(-24px);
+  transform: translateY(-20px);
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 600;

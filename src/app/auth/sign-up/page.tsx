@@ -129,7 +129,7 @@ export default function SignUpPage() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4 pt-2">
+        <form onSubmit={handleSubmit} className="space-y-5 pt-1">
           <WaveInput
             id="email"
             type="email"
@@ -151,7 +151,7 @@ export default function SignUpPage() {
             required
           />
 
-          <div className="space-y-1">
+          <div className="space-y-2 pt-1">
             <WaveInput
               id="password"
               type={showPassword ? "text" : "password"}

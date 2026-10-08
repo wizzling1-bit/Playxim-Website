@@ -69,10 +69,10 @@ export const WaveInput = React.forwardRef<HTMLInputElement, WaveInputProps>(
     const letters = label.split("");
 
     return (
-      <div className={cn("w-full space-y-1", containerClassName)}>
+      <div className={cn("w-full space-y-1.5", containerClassName)}>
         <div
           className={cn(
-            "wave-form-control relative w-full",
+            "wave-form-control relative w-full pt-5",
             isActive && "is-active",
             leftIcon && "has-left-icon",
             rightIcon && "has-right-icon",
@@ -80,7 +80,7 @@ export const WaveInput = React.forwardRef<HTMLInputElement, WaveInputProps>(
           )}
         >
           {leftIcon && (
-            <div className="wave-left-icon absolute left-0 top-3 text-brand-muted transition-colors pointer-events-none">
+            <div className="wave-left-icon absolute left-0 top-6 text-brand-muted transition-colors pointer-events-none">
               {leftIcon}
             </div>
           )}
@@ -97,7 +97,7 @@ export const WaveInput = React.forwardRef<HTMLInputElement, WaveInputProps>(
             placeholder=" " // required for :placeholder-shown CSS selector
             required={required}
             className={cn(
-              "w-full bg-transparent border-0 border-b-2 border-brand-border py-2.5 text-base sm:text-sm text-brand-text outline-none transition-all duration-200",
+              "w-full bg-transparent border-0 border-b-2 border-brand-border pb-2 pt-1 text-base sm:text-sm text-brand-text outline-none transition-all duration-200",
               "focus:border-brand-primary dark:focus:border-brand-glow",
               leftIcon ? "pl-7" : "pl-0",
               rightIcon ? "pr-8" : "pr-0",
@@ -110,7 +110,7 @@ export const WaveInput = React.forwardRef<HTMLInputElement, WaveInputProps>(
           <label
             htmlFor={inputId}
             className={cn(
-              "absolute top-2.5 flex pointer-events-none select-none transition-all duration-200",
+              "absolute top-6 flex pointer-events-none select-none transition-all duration-200",
               leftIcon ? "left-7" : "left-0"
             )}
           >
@@ -124,7 +124,7 @@ export const WaveInput = React.forwardRef<HTMLInputElement, WaveInputProps>(
                   "inline-block text-sm text-brand-muted transition-all duration-300 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]",
                   char === " " && "w-1.5",
                   isActive &&
-                    "-translate-y-6 text-xs font-semibold text-brand-primary dark:text-brand-glow"
+                    "-translate-y-5 text-xs font-semibold text-brand-primary dark:text-brand-glow"
                 )}
               >
                 {char === " " ? "\u00A0" : char}
@@ -135,7 +135,7 @@ export const WaveInput = React.forwardRef<HTMLInputElement, WaveInputProps>(
                 style={{ transitionDelay: `${letters.length * 45}ms` }}
                 className={cn(
                   "inline-block text-xs text-brand-primary/70 dark:text-brand-glow/70 ml-1 transition-all duration-300 ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]",
-                  isActive && "-translate-y-6"
+                  isActive && "-translate-y-5"
                 )}
               >
                 *
@@ -144,18 +144,18 @@ export const WaveInput = React.forwardRef<HTMLInputElement, WaveInputProps>(
           </label>
 
           {rightIcon && (
-            <div className="wave-right-icon absolute right-0 top-2.5 text-brand-muted hover:text-brand-text transition-colors">
+            <div className="wave-right-icon absolute right-0 top-5 text-brand-muted hover:text-brand-text transition-colors">
               {rightIcon}
             </div>
           )}
         </div>
 
         {error ? (
-          <p className="text-xs text-red-500 pt-0.5 animate-in fade-in duration-150">
+          <p className="text-xs text-red-500 pt-1 animate-in fade-in duration-150">
             {error}
           </p>
         ) : helperText ? (
-          <p className="text-xs text-brand-muted pt-0.5">{helperText}</p>
+          <p className="text-xs text-brand-muted pt-1">{helperText}</p>
         ) : null}
       </div>
     );
