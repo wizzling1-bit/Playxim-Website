@@ -39,10 +39,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-brand-bg text-brand-text relative">
+      <body className="min-h-screen flex flex-col bg-brand-bg text-brand-text relative">
         <ThemeProvider defaultTheme="light">
           <AuthProvider>
             <WebsiteBackground />

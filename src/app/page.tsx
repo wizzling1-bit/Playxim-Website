@@ -13,6 +13,8 @@ import { MobileAppBannerSection } from "@/components/marketing/mobile-app-banner
 import { FinalCtaSection } from "@/components/marketing/final-cta";
 import { MarketingFooter } from "@/components/marketing/footer";
 
+import Lenis from "lenis";
+
 export default function MarketingHomePage() {
   // Enhanced smooth scroll initialization with Lenis
   React.useEffect(() => {
@@ -21,56 +23,52 @@ export default function MarketingHomePage() {
       return;
     }
 
-    let lenisInstance: any = null;
-    let animationFrameId: number;
-
-    import("lenis").then((LenisModule) => {
-      const Lenis = LenisModule.default;
-      lenisInstance = new Lenis({
-        duration: 1.35,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        orientation: "vertical",
-        gestureOrientation: "vertical",
-        smoothWheel: true,
-        wheelMultiplier: 1.1,
-        touchMultiplier: 1.6,
-      });
-
-      function raf(time: number) {
-        lenisInstance?.raf(time);
-        animationFrameId = requestAnimationFrame(raf);
-      }
-      animationFrameId = requestAnimationFrame(raf);
-
-      // Smooth anchor scroll interception for silky navigation jumps
-      const handleAnchorClick = (e: MouseEvent) => {
-        const target = (e.target as HTMLElement)?.closest("a");
-        if (!target) return;
-        const href = target.getAttribute("href");
-        if (href && href.startsWith("#") && href.length > 1) {
-          const targetElement = document.querySelector(href);
-          if (targetElement) {
-            e.preventDefault();
-            lenisInstance.scrollTo(targetElement, {
-              offset: -75,
-              duration: 1.2,
-            });
-          }
-        }
-      };
-
-      document.addEventListener("click", handleAnchorClick);
-
-      return () => {
-        document.removeEventListener("click", handleAnchorClick);
-      };
+    const lenis = new Lenis({
+      duration: 1.25,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      smoothWheel: true,
+      wheelMultiplier: 1.05,
+      touchMultiplier: 1.6,
+      infinite: false,
     });
 
+    (window as any).lenis = lenis;
+
+    let animationFrameId: number;
+    function raf(time: number) {
+      lenis.raf(time);
+      animationFrameId = requestAnimationFrame(raf);
+    }
+    animationFrameId = requestAnimationFrame(raf);
+
+    // Smooth anchor scroll interception for silky navigation jumps
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement)?.closest("a");
+      if (!target) return;
+      const href = target.getAttribute("href");
+      if (href && href.startsWith("#") && href.length > 1) {
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+          e.preventDefault();
+          lenis.scrollTo(targetElement as HTMLElement, {
+            offset: -80,
+            duration: 1.2,
+          });
+        }
+      }
+    };
+
+    document.addEventListener("click", handleAnchorClick);
+
     return () => {
+      document.removeEventListener("click", handleAnchorClick);
       if (animationFrameId) {
         cancelAnimationFrame(animationFrameId);
       }
-      lenisInstance?.destroy();
+      lenis.destroy();
+      delete (window as any).lenis;
     };
   }, []);
 
