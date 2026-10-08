@@ -1,69 +1,480 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import * as React from "react";
+import Link from "next/link";
+import {
+  Sparkles,
+  ArrowRight,
+  HardDrive,
+  Video,
+  TrendingUp,
+  CheckCircle2,
+  Lock,
+  Share2,
+  DollarSign,
+  FileCheck2,
+  Play,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+} from "@/components/ui/card";
+import { FileCard, type FileCardData } from "@/components/ui/file-card";
+import { Container, SectionHeader } from "@/components/ui/layout-primitives";
+import { MarketingNavbar } from "@/components/marketing/navbar";
+import { MarketingFooter } from "@/components/marketing/footer";
+import { CtaBanner } from "@/components/marketing/cta-banner";
+import { formatCurrency, formatCompactNumber } from "@/lib/utils";
+
+export default function MarketingHomePage() {
+  // Interactive view monetization calculator state
+  const [estimatedViews, setEstimatedViews] = React.useState<number>(100000);
+  const [cpmRate, setCpmRate] = React.useState<number>(1.75); // $1.75 per 1,000 views
+  const estimatedEarnings = (estimatedViews / 1000) * cpmRate;
+
+  // Showcase file entities
+  const sampleFiles: FileCardData[] = [
+    {
+      id: "f1",
+      name: "Tokyo_Nightlife_4K_ProRes.mp4",
+      type: "video",
+      size: 2411724800, // 2.25 GB
+      status: "ready",
+      views: 74200,
+      updatedAt: "1h ago",
+    },
+    {
+      id: "f2",
+      name: "Sound_Effects_Master_Library.zip",
+      type: "archive",
+      size: 891289600, // 850 MB
+      status: "ready",
+      views: 18400,
+      updatedAt: "3h ago",
+    },
+    {
+      id: "f3",
+      name: "Blender_3D_Environment_Assets.blend",
+      type: "other",
+      size: 1468006400, // 1.36 GB
+      status: "ready",
+      views: 8900,
+      updatedAt: "Yesterday",
+    },
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <div className="min-h-screen flex flex-col bg-brand-bg transition-colors duration-200">
+      <MarketingNavbar />
+
+      {/* 1. Hero Section */}
+      <section className="relative overflow-hidden pt-20 pb-24 border-b border-brand-border bg-gradient-to-b from-brand-bg via-brand-bg to-brand-bg-soft/30">
+        <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+        <Container className="relative z-10 text-center max-w-4xl mx-auto space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-brand-primary/10 text-brand-primary border border-brand-primary/20 shadow-sm animate-in fade-in slide-in-from-bottom-2 duration-500">
+            <Sparkles className="h-3.5 w-3.5" />
+            <span>Upload. Share. Grow. — The Creator Content Platform</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-brand-text leading-[1.08]">
+            Everything you create, <br className="hidden sm:inline" />
+            <span className="text-brand-primary dark:text-brand-glow">
+              ready to share & earn.
+            </span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="text-lg sm:text-xl text-brand-muted max-w-2xl mx-auto leading-relaxed">
+            Upload videos, high-resolution archives, and digital media to one elegant creator cloud.
+            Share instantly with direct links and monetize eligible application video streams.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
+            <Link href="/auth/sign-up">
+              <Button size="pill-lg" variant="primary" className="shadow-lg shadow-brand-primary/25">
+                <span>Start Uploading (Free)</span>
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
+            <Link href="/features">
+              <Button size="pill-lg" variant="secondary">
+                See How It Works
+              </Button>
+            </Link>
+          </div>
+
+          {/* Platform proof metrics bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-14 text-left">
+            <div className="p-4 rounded-[var(--radius-lg)] bg-brand-surface border border-brand-border shadow-sm">
+              <div className="text-2xl sm:text-3xl font-extrabold text-brand-text tracking-tight">
+                Unlimited
+              </div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-brand-primary mt-1">
+                Storage Policy
+              </div>
+              <div className="text-xs text-brand-muted mt-0.5">No artificial quotas for creators</div>
+            </div>
+
+            <div className="p-4 rounded-[var(--radius-lg)] bg-brand-surface border border-brand-border shadow-sm">
+              <div className="text-2xl sm:text-3xl font-extrabold text-brand-text tracking-tight">
+                Zero
+              </div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-brand-glow mt-1">
+                Compression
+              </div>
+              <div className="text-xs text-brand-muted mt-0.5">Original bits delivered intact</div>
+            </div>
+
+            <div className="p-4 rounded-[var(--radius-lg)] bg-brand-surface border border-brand-border shadow-sm">
+              <div className="text-2xl sm:text-3xl font-extrabold text-brand-text tracking-tight">
+                100%
+              </div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-emerald-500 mt-1">
+                Edge Delivery
+              </div>
+              <div className="text-xs text-brand-muted mt-0.5">Cloudflare 300+ city PoPs</div>
+            </div>
+
+            <div className="p-4 rounded-[var(--radius-lg)] bg-brand-surface border border-brand-border shadow-sm">
+              <div className="text-2xl sm:text-3xl font-extrabold text-brand-text tracking-tight">
+                Daily
+              </div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-amber-500 mt-1">
+                Earnings Accrual
+              </div>
+              <div className="text-xs text-brand-muted mt-0.5">Real-time ledger transparency</div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* 2. Interactive Product Proof: Creator Dashboard Experience Preview */}
+      <section className="py-20 border-b border-brand-border bg-brand-surface/40">
+        <Container>
+          <SectionHeader
+            badge={<Badge variant="default">Creator Control Plane</Badge>}
+            title="Engineered for creator speed"
+            description="Manage terabytes of content with high information density, instant search, and zero lag."
+          />
+
+          {/* Interactive Shell Mockup */}
+          <div className="rounded-[var(--radius-2xl)] border border-brand-border bg-brand-surface shadow-2xl overflow-hidden max-w-5xl mx-auto">
+            {/* Window control chrome */}
+            <div className="h-11 px-4 border-b border-brand-border bg-brand-bg-soft/70 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="h-3 w-3 rounded-full bg-red-400/80" />
+                <div className="h-3 w-3 rounded-full bg-amber-400/80" />
+                <div className="h-3 w-3 rounded-full bg-emerald-400/80" />
+                <span className="ml-3 font-mono text-xs text-brand-muted">
+                  playxim.com/dashboard/content
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Badge variant="glow">Live Sync</Badge>
+              </div>
+            </div>
+
+            {/* Dashboard Mockup Content */}
+            <div className="p-6 sm:p-8 space-y-6">
+              {/* Stat summary pills */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="p-4 rounded-[var(--radius-md)] bg-brand-bg-soft/50 border border-brand-border">
+                  <div className="text-xs text-brand-muted font-medium">Total Files Hosted</div>
+                  <div className="text-2xl font-bold text-brand-text mt-1">1,482 items</div>
+                  <div className="text-xs text-emerald-600 mt-1 flex items-center gap-1">
+                    <TrendingUp className="h-3 w-3" />
+                    <span>+48 uploads this week</span>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-[var(--radius-md)] bg-brand-bg-soft/50 border border-brand-border">
+                  <div className="text-xs text-brand-muted font-medium">Total Video Streams</div>
+                  <div className="text-2xl font-bold text-brand-text mt-1">394,200 views</div>
+                  <div className="text-xs text-brand-primary mt-1 flex items-center gap-1">
+                    <Play className="h-3 w-3" />
+                    <span>94.2% completion rate</span>
+                  </div>
+                </div>
+
+                <div className="p-4 rounded-[var(--radius-md)] bg-brand-bg-soft/50 border border-brand-border">
+                  <div className="text-xs text-brand-muted font-medium">Accrued Earnings</div>
+                  <div className="text-2xl font-bold text-amber-600 dark:text-amber-400 mt-1">
+                    $689.85 USD
+                  </div>
+                  <div className="text-xs text-amber-600 dark:text-amber-400 mt-1 flex items-center gap-1">
+                    <DollarSign className="h-3 w-3" />
+                    <span>Available for payout</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Sample files grid */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase tracking-wider">
+                  <span>Recent Uploads</span>
+                  <span>3 of 1,482</span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {sampleFiles.map((file) => (
+                    <FileCard key={file.id} item={file} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* 3. The 3 Core Pillars: Storage, Video Streaming, Monetization */}
+      <section className="py-20 border-b border-brand-border bg-brand-bg">
+        <Container>
+          <SectionHeader
+            badge={<Badge variant="secondary">Architecture</Badge>}
+            title="Three powerful engines, one seamless home"
+            description="Playxim separates arbitrary storage from video streaming to deliver maximum performance and genuine creator economics."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Pillar 1 */}
+            <Card variant="interactive" className="p-6 space-y-4">
+              <div className="h-12 w-12 rounded-xl bg-brand-primary/10 text-brand-primary border border-brand-primary/20 flex items-center justify-center">
+                <HardDrive className="h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-bold text-brand-text">1. Arbitrary File Cloud</h3>
+              <p className="text-sm text-brand-muted leading-relaxed">
+                Powered by Cloudflare R2 object storage. Upload zip files, project archives, RAW photos,
+                and disk images. Zero egress charges for your audience to download.
+              </p>
+              <ul className="space-y-2 text-xs text-brand-muted pt-2 border-t border-brand-border/60">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-brand-primary" />
+                  <span>S3-compatible chunked multipart upload</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-brand-primary" />
+                  <span>Resume interrupted uploads seamlessly</span>
+                </li>
+              </ul>
+            </Card>
+
+            {/* Pillar 2 */}
+            <Card variant="interactive" className="p-6 space-y-4">
+              <div className="h-12 w-12 rounded-xl bg-brand-glow/10 text-brand-glow border border-brand-glow/20 flex items-center justify-center">
+                <Video className="h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-bold text-brand-text">2. Stream Processing</h3>
+              <p className="text-sm text-brand-muted leading-relaxed">
+                Videos are ingested via Cloudflare Stream, encoded into adaptive bitrate HLS/DASH,
+                and delivered instantly across the globe with zero buffering.
+              </p>
+              <ul className="space-y-2 text-xs text-brand-muted pt-2 border-t border-brand-border/60">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-brand-glow" />
+                  <span>Automated 1080p / 4K multi-bitrate ladder</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-brand-glow" />
+                  <span>Streamlined playback on future Flutter apps</span>
+                </li>
+              </ul>
+            </Card>
+
+            {/* Pillar 3 */}
+            <Card variant="interactive" className="p-6 space-y-4">
+              <div className="h-12 w-12 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20 flex items-center justify-center">
+                <DollarSign className="h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-bold text-brand-text">3. Creator Monetization</h3>
+              <p className="text-sm text-brand-muted leading-relaxed">
+                Earn revenue whenever eligible audiences watch your content in future consumer apps.
+                Track views, completion rates, and balance growth in real time.
+              </p>
+              <ul className="space-y-2 text-xs text-brand-muted pt-2 border-t border-brand-border/60">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-amber-500" />
+                  <span>Transparent per-view payout rates</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-3.5 w-3.5 text-amber-500" />
+                  <span>Audited double-entry ledger accounting</span>
+                </li>
+              </ul>
+            </Card>
+          </div>
+        </Container>
+      </section>
+
+      {/* 4. Interactive Monetization Calculator */}
+      <section className="py-20 border-b border-brand-border bg-brand-bg-soft/40">
+        <Container className="max-w-4xl mx-auto">
+          <SectionHeader
+            badge={<Badge variant="premium">Earnings Calculator</Badge>}
+            title="Transparent Creator Math"
+            description="See what your audience reach is worth. Adjust monthly view estimates to calculate your estimated creator earnings."
+          />
+
+          <Card className="p-6 sm:p-8 bg-brand-surface border border-brand-border shadow-xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div className="space-y-6">
+                <div>
+                  <div className="flex justify-between text-sm font-semibold mb-2">
+                    <span className="text-brand-text">Estimated Monthly Video Views</span>
+                    <span className="text-brand-primary font-mono font-bold">
+                      {formatCompactNumber(estimatedViews)} views
+                    </span>
+                  </div>
+                  <input
+                    type="range"
+                    min="10000"
+                    max="2000000"
+                    step="10000"
+                    value={estimatedViews}
+                    onChange={(e) => setEstimatedViews(Number(e.target.value))}
+                    className="w-full accent-brand-primary h-2 bg-brand-bg-soft rounded-lg cursor-pointer"
+                  />
+                  <div className="flex justify-between text-[11px] text-brand-muted mt-1 font-mono">
+                    <span>10K</span>
+                    <span>500K</span>
+                    <span>1M</span>
+                    <span>2M</span>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-sm font-semibold mb-2">
+                    <span className="text-brand-text">Platform CPM Rate</span>
+                    <span className="text-amber-600 dark:text-amber-400 font-mono font-bold">
+                      ${cpmRate.toFixed(2)} / 1K views
+                    </span>
+                  </div>
+                  <input
+                    type="range"
+                    min="1.0"
+                    max="4.0"
+                    step="0.25"
+                    value={cpmRate}
+                    onChange={(e) => setCpmRate(Number(e.target.value))}
+                    className="w-full accent-amber-500 h-2 bg-brand-bg-soft rounded-lg cursor-pointer"
+                  />
+                  <div className="flex justify-between text-[11px] text-brand-muted mt-1 font-mono">
+                    <span>$1.00</span>
+                    <span>$2.50</span>
+                    <span>$4.00</span>
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-lg bg-brand-bg-soft/80 border border-brand-border text-xs text-brand-muted">
+                  💡 Payouts are calculated from qualified application views. No minimum follower requirements or hidden fees.
+                </div>
+              </div>
+
+              {/* Calculated Earnings Card */}
+              <div className="p-6 rounded-[var(--radius-xl)] bg-gradient-to-br from-brand-bg-soft to-brand-surface border border-brand-border flex flex-col items-center justify-center text-center shadow-inner">
+                <span className="text-xs uppercase tracking-wider font-semibold text-brand-muted">
+                  Estimated Creator Accrual
+                </span>
+                <span className="text-4xl sm:text-5xl font-extrabold text-amber-600 dark:text-amber-400 font-mono mt-2 mb-1">
+                  {formatCurrency(estimatedEarnings)}
+                </span>
+                <span className="text-xs text-brand-muted">per month</span>
+
+                <div className="mt-6 w-full pt-4 border-t border-brand-border/60">
+                  <Link href="/auth/sign-up">
+                    <Button variant="primary" className="w-full justify-center shadow-md">
+                      Start Earning with Playxim
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </Container>
+      </section>
+
+      {/* 5. Sharing & Privacy Controls */}
+      <section className="py-20 border-b border-brand-border bg-brand-bg">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <Badge variant="default">Controlled Distribution</Badge>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-brand-text">
+                Share files on your exact terms
+              </h2>
+              <p className="text-base text-brand-muted leading-relaxed">
+                Generate instant public links, protect sensitive pre-releases with passcodes, or set
+                time-limited expiration sessions. Your audience gets a clean, fast download or stream
+                landing page without annoying popups.
+              </p>
+
+              <div className="space-y-3">
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-brand-surface border border-brand-border">
+                  <Share2 className="h-5 w-5 text-brand-primary shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="text-sm font-semibold text-brand-text">Instant Branded Shortlinks</h4>
+                    <p className="text-xs text-brand-muted mt-0.5">
+                      Clean URLs like <code className="text-brand-primary">playxim.com/watch/a8F9k2</code> ready to post to your community.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-brand-surface border border-brand-border">
+                  <Lock className="h-5 w-5 text-amber-500 shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="text-sm font-semibold text-brand-text">Password Protection</h4>
+                    <p className="text-xs text-brand-muted mt-0.5">
+                      Secure client deliverables or patron-only files with PBKDF2 hashed passcodes.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-brand-surface border border-brand-border">
+                  <FileCheck2 className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="text-sm font-semibold text-brand-text">Automated Malware Protection</h4>
+                    <p className="text-xs text-brand-muted mt-0.5">
+                      Background asynchronous scanning ensures your audience never downloads corrupted payloads.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Visual representation of share card */}
+            <div className="p-6 rounded-[var(--radius-xl)] bg-brand-surface border border-brand-border shadow-xl space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-brand-border">
+                <span className="text-xs font-semibold uppercase text-brand-muted">Share Link Details</span>
+                <Badge variant="success">Active Link</Badge>
+              </div>
+
+              <div className="p-3 rounded-lg bg-brand-bg-soft font-mono text-xs flex items-center justify-between text-brand-text">
+                <span>https://playxim.com/watch/v_tokyo_4k</span>
+                <Badge variant="outline" className="text-[10px]">Copy</Badge>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 text-xs">
+                <div className="p-2.5 rounded bg-brand-bg-soft/60">
+                  <div className="text-brand-muted">Password Required</div>
+                  <div className="font-semibold text-brand-text mt-0.5">Enabled (••••••••)</div>
+                </div>
+                <div className="p-2.5 rounded bg-brand-bg-soft/60">
+                  <div className="text-brand-muted">Expiration</div>
+                  <div className="font-semibold text-brand-text mt-0.5">7 Days</div>
+                </div>
+              </div>
+
+              <div className="pt-2 text-xs text-brand-muted text-center">
+                ✨ Directly hands off to Playxim iOS and Android streaming apps.
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* 6. Call to Action Banner */}
+      <CtaBanner />
+
+      {/* 7. Marketing Footer */}
+      <MarketingFooter />
     </div>
   );
 }
