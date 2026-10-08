@@ -8,9 +8,13 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-brand-bg transition-colors duration-200">
+    <div className="min-h-screen flex flex-col justify-between bg-brand-bg transition-colors duration-200 relative overflow-hidden">
+      {/* Background grid pattern & ambient glow */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none -z-20" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[350px] bg-brand-primary/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+
       {/* Auth Top Header */}
-      <header className="w-full px-6 py-6 flex items-center justify-between">
+      <header className="w-full px-6 py-6 flex items-center justify-between relative z-10">
         <Link href="/" className="flex items-center gap-2.5 group">
           <div className="relative h-9 w-9 overflow-hidden rounded-xl border border-brand-border bg-brand-surface shadow-sm transition-transform duration-200 group-hover:scale-105">
             <Image
@@ -21,7 +25,7 @@ export default function AuthLayout({
               priority
             />
           </div>
-          <span className="font-bold tracking-tight text-lg text-brand-text">
+          <span className="font-display font-bold tracking-tight text-lg text-brand-text">
             PLAYXIM
           </span>
         </Link>
@@ -32,8 +36,8 @@ export default function AuthLayout({
       </header>
 
       {/* Main Form Center */}
-      <main className="flex-1 flex items-center justify-center p-4 sm:p-6 my-auto">
-        <div className="w-full max-w-md">
+      <main className="flex-1 flex items-center justify-center p-4 sm:p-6 my-auto relative z-10">
+        <div className="w-full max-w-md double-bezel shadow-2xl">
           {children}
         </div>
       </main>

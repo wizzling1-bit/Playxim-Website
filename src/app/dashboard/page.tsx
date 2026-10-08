@@ -74,7 +74,7 @@ export default function DashboardOverviewPage() {
       {/* 4 Core Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Metric 1 */}
-        <Card className="p-5 space-y-3">
+        <Card className="p-5 space-y-3 hover:border-brand-primary/30 transition-all duration-200">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider">
               Storage Used
@@ -84,7 +84,7 @@ export default function DashboardOverviewPage() {
             </div>
           </div>
           <div>
-            <div className="text-2xl font-extrabold text-brand-text">142.8 GB</div>
+            <div className="text-2xl font-display font-extrabold text-brand-text">142.8 GB</div>
             <p className="text-xs text-brand-muted mt-1 flex items-center gap-1">
               <span>Policy:</span>
               <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Unlimited</span>
@@ -93,7 +93,7 @@ export default function DashboardOverviewPage() {
         </Card>
 
         {/* Metric 2 */}
-        <Card className="p-5 space-y-3">
+        <Card className="p-5 space-y-3 hover:border-brand-glow/30 transition-all duration-200">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider">
               Total Streams
@@ -103,7 +103,7 @@ export default function DashboardOverviewPage() {
             </div>
           </div>
           <div>
-            <div className="text-2xl font-extrabold text-brand-text">394,200</div>
+            <div className="text-2xl font-display font-extrabold text-brand-text">394,200</div>
             <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-1 flex items-center gap-1">
               <TrendingUp className="h-3 w-3" />
               <span>+14.2% from last week</span>
@@ -112,7 +112,7 @@ export default function DashboardOverviewPage() {
         </Card>
 
         {/* Metric 3 */}
-        <Card className="p-5 space-y-3">
+        <Card className="p-5 space-y-3 hover:border-amber-500/30 transition-all duration-200">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider">
               Accrued Earnings
@@ -122,7 +122,7 @@ export default function DashboardOverviewPage() {
             </div>
           </div>
           <div>
-            <div className="text-2xl font-extrabold text-amber-600 dark:text-amber-400 font-mono">
+            <div className="text-2xl font-display font-extrabold text-amber-600 dark:text-amber-400 font-mono">
               $689.85
             </div>
             <p className="text-xs text-brand-muted mt-1">
@@ -132,7 +132,7 @@ export default function DashboardOverviewPage() {
         </Card>
 
         {/* Metric 4 */}
-        <Card className="p-5 space-y-3">
+        <Card className="p-5 space-y-3 hover:border-indigo-500/30 transition-all duration-200">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider">
               Hosted Items
@@ -142,7 +142,7 @@ export default function DashboardOverviewPage() {
             </div>
           </div>
           <div>
-            <div className="text-2xl font-extrabold text-brand-text">1,482</div>
+            <div className="text-2xl font-display font-extrabold text-brand-text">1,482</div>
             <p className="text-xs text-brand-muted mt-1">
               Across 32 folders & 6 playlists
             </p>

@@ -4,12 +4,12 @@ import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/50 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none active:scale-[0.98]",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-all duration-250 ease-[cubic-bezier(0.16,1,0.3,1)] outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/50 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none active:scale-[0.98]",
   {
     variants: {
       variant: {
         primary:
-          "bg-brand-primary text-white shadow-sm hover:bg-brand-primary-hover hover:shadow-brand-glow/20 hover:shadow-md",
+          "bg-brand-primary text-white shadow-sm hover:bg-brand-primary-hover hover:shadow-brand-glow/25 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0",
         secondary:
           "bg-brand-bg-soft text-brand-text border border-brand-border hover:bg-brand-surface-2 hover:border-brand-primary/30",
         outline:
@@ -19,9 +19,9 @@ const buttonVariants = cva(
         destructive:
           "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500",
         glass:
-          "glass-panel text-brand-text hover:bg-white/20 dark:hover:bg-white/10 shadow-sm",
+          "glass-panel text-brand-text hover:bg-white/20 dark:hover:bg-white/10 hover:border-brand-primary/40 shadow-sm",
         accent:
-          "bg-amber-500 text-white hover:bg-amber-600 shadow-sm",
+          "bg-amber-500 text-white hover:bg-amber-600 shadow-sm hover:-translate-y-0.5 active:translate-y-0",
       },
       size: {
         xs: "relative h-7 rounded-[var(--radius-xs)] px-2.5 text-xs after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:min-w-full after:min-h-[44px] after:content-['']",

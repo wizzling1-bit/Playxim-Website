@@ -100,10 +100,12 @@ export default function FaqPage() {
 
       <main className="flex-1">
         {/* Header */}
-        <section className="py-20 border-b border-brand-border bg-gradient-to-b from-brand-bg to-brand-bg-soft/40">
-          <Container className="text-center max-w-3xl mx-auto space-y-4">
+        <section className="py-24 border-b border-brand-border bg-gradient-to-b from-brand-bg to-brand-bg-soft/40 relative overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand-primary/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+          <Container className="text-center max-w-3xl mx-auto space-y-5 relative z-10">
             <Badge variant="default">Frequently Asked Questions</Badge>
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-brand-text">
+            <h1 className="text-4xl sm:text-5xl font-display font-extrabold tracking-tight text-brand-text">
               Everything you need to know
             </h1>
             <p className="text-lg text-brand-muted leading-relaxed">
@@ -111,18 +113,21 @@ export default function FaqPage() {
             </p>
 
             <div className="pt-4 max-w-md mx-auto">
-              <Input
-                placeholder="Search questions or keywords..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                leftIcon={<Search className="h-4 w-4" />}
-              />
+              <div className="p-1 rounded-2xl bg-brand-surface/60 border border-brand-border shadow-sm">
+                <Input
+                  placeholder="Search questions or keywords..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  leftIcon={<Search className="h-4 w-4" />}
+                  className="border-0 bg-transparent focus-visible:ring-0 shadow-none"
+                />
+              </div>
             </div>
           </Container>
         </section>
 
         {/* FAQ Accordion List */}
-        <section className="py-20 border-b border-brand-border">
+        <section className="py-24 border-b border-brand-border">
           <Container className="max-w-3xl mx-auto">
             {filtered.length === 0 ? (
               <div className="text-center py-12 text-brand-muted">
@@ -136,19 +141,19 @@ export default function FaqPage() {
                     <Card
                       key={item.q}
                       variant="default"
-                      className="transition-all duration-200 overflow-hidden"
+                      className="transition-all duration-300 overflow-hidden hover:border-brand-primary/30"
                     >
                       <button
                         type="button"
                         onClick={() => toggleItem(idx)}
                         className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 select-none hover:bg-brand-bg-soft/40 transition-colors"
                       >
-                        <span className="font-semibold text-base sm:text-lg text-brand-text">
+                        <span className="font-display font-semibold text-base sm:text-lg text-brand-text">
                           {item.q}
                         </span>
                         <ChevronDown
                           className={cn(
-                            "h-5 w-5 text-brand-muted shrink-0 transition-transform duration-200",
+                            "h-5 w-5 text-brand-muted shrink-0 transition-transform duration-300",
                             isOpen && "rotate-180 text-brand-primary"
                           )}
                         />

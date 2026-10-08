@@ -58,10 +58,12 @@ export default function DownloadPage() {
 
       <main className="flex-1">
         {/* Header */}
-        <section className="py-20 border-b border-brand-border bg-gradient-to-b from-brand-bg to-brand-bg-soft/40">
-          <Container className="text-center max-w-3xl mx-auto space-y-4">
+        <section className="py-24 border-b border-brand-border bg-gradient-to-b from-brand-bg to-brand-bg-soft/40 relative overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand-primary/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+          <Container className="text-center max-w-3xl mx-auto space-y-5 relative z-10">
             <Badge variant="default">Cross-Platform Media Engine</Badge>
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-brand-text">
+            <h1 className="text-4xl sm:text-5xl font-display font-extrabold tracking-tight text-brand-text">
               Consumer apps for seamless playback
             </h1>
             <p className="text-lg text-brand-muted leading-relaxed">
@@ -72,11 +74,11 @@ export default function DownloadPage() {
         </section>
 
         {/* Platforms Grid */}
-        <section className="py-20 border-b border-brand-border">
+        <section className="py-24 border-b border-brand-border">
           <Container>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {PLATFORMS.map((plat) => (
-                <Card key={plat.name} variant="interactive" className="p-6 flex flex-col justify-between space-y-6">
+                <Card key={plat.name} variant="interactive" className="p-7 flex flex-col justify-between space-y-6 hover:border-brand-primary/40 hover:-translate-y-1 transition-all duration-300">
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div className="p-3 rounded-xl bg-brand-bg-soft border border-brand-border">
@@ -86,7 +88,7 @@ export default function DownloadPage() {
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-bold text-brand-text">{plat.name}</h3>
+                      <h3 className="text-lg font-display font-bold text-brand-text">{plat.name}</h3>
                       <p className="text-xs text-brand-muted mt-2 leading-relaxed">
                         {plat.desc}
                       </p>
@@ -102,7 +104,7 @@ export default function DownloadPage() {
                     </div>
                   </div>
 
-                  <Button variant="outline" size="sm" className="w-full justify-center">
+                  <Button variant="outline" size="sm" className="w-full justify-center rounded-full">
                     Get Early Beta Notification
                   </Button>
                 </Card>
@@ -112,10 +114,10 @@ export default function DownloadPage() {
         </section>
 
         {/* App Hand-off Architecture */}
-        <section className="py-20 border-b border-brand-border bg-brand-bg-soft/30">
+        <section className="py-24 border-b border-brand-border bg-brand-bg-soft/30">
           <Container className="max-w-4xl mx-auto text-center space-y-6">
             <Badge variant="secondary">Universal Deep Linking</Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-brand-text">
+            <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight text-brand-text">
               One link, any device
             </h2>
             <p className="text-base text-brand-muted max-w-2xl mx-auto leading-relaxed">
@@ -123,13 +125,15 @@ export default function DownloadPage() {
               opens the native player application if installed, or falls back to an instant web streaming experience.
             </p>
 
-            <div className="p-6 rounded-[var(--radius-xl)] bg-brand-surface border border-brand-border text-left shadow-lg max-w-2xl mx-auto space-y-3 font-mono text-xs">
-              <div className="text-brand-muted">{"// Universal Handoff Contract"}</div>
-              <div className="text-brand-primary">GET /watch/:shareCode</div>
-              <div className="pl-4 text-brand-text">
-                ↳ Detect Client Device Context<br />
-                ↳ If Playxim App installed: <span className="text-emerald-500">playxim://stream/:contentId</span><br />
-                ↳ Fallback: <span className="text-sky-500">Adaptive Web Player with HLS Stream</span>
+            <div className="double-bezel max-w-2xl mx-auto shadow-2xl">
+              <div className="p-6 sm:p-7 rounded-[calc(var(--radius-2xl)-6px)] bg-brand-surface border border-brand-border text-left space-y-3 font-mono text-xs">
+                <div className="text-brand-muted">{"// Universal Handoff Contract"}</div>
+                <div className="text-brand-primary font-bold">GET /watch/:shareCode</div>
+                <div className="pl-4 text-brand-text space-y-1">
+                  <div>↳ Detect Client Device Context</div>
+                  <div>↳ If Playxim App installed: <span className="text-emerald-500 font-semibold">playxim://stream/:contentId</span></div>
+                  <div>↳ Fallback: <span className="text-sky-500 font-semibold">Adaptive Web Player with HLS Stream</span></div>
+                </div>
               </div>
             </div>
           </Container>

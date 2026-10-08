@@ -59,10 +59,12 @@ export default function WhyPlayximPage() {
 
       <main className="flex-1">
         {/* Header */}
-        <section className="py-20 border-b border-brand-border bg-gradient-to-b from-brand-bg to-brand-bg-soft/40">
-          <Container className="text-center max-w-3xl mx-auto space-y-4">
+        <section className="py-24 border-b border-brand-border bg-gradient-to-b from-brand-bg to-brand-bg-soft/40 relative overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand-primary/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+          <Container className="text-center max-w-3xl mx-auto space-y-5 relative z-10">
             <Badge variant="default">The Creator Alternative</Badge>
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-brand-text">
+            <h1 className="text-4xl sm:text-5xl font-display font-extrabold tracking-tight text-brand-text">
               Why creators are choosing Playxim
             </h1>
             <p className="text-lg text-brand-muted leading-relaxed">
@@ -73,7 +75,7 @@ export default function WhyPlayximPage() {
         </section>
 
         {/* Feature Comparison Table */}
-        <section className="py-20 border-b border-brand-border">
+        <section className="py-24 border-b border-brand-border">
           <Container className="max-w-5xl mx-auto">
             <SectionHeader
               badge={<Badge variant="secondary">Side-by-Side Analysis</Badge>}
@@ -81,48 +83,50 @@ export default function WhyPlayximPage() {
               description="A clear breakdown of why Playxim is the superior choice for publishing and monetizing your media catalog."
             />
 
-            <div className="overflow-x-auto rounded-[var(--radius-xl)] border border-brand-border bg-brand-surface shadow-xl">
-              <table className="w-full text-left text-sm">
-                <thead>
-                  <tr className="border-b border-brand-border bg-brand-bg-soft/60">
-                    <th className="p-4 sm:p-5 font-semibold text-brand-text">Core Capability</th>
-                    <th className="p-4 sm:p-5 font-bold text-brand-primary bg-brand-primary/5">
-                      Playxim
-                    </th>
-                    <th className="p-4 sm:p-5 font-semibold text-brand-muted">
-                      Standard Cloud Drives
-                    </th>
-                    <th className="p-4 sm:p-5 font-semibold text-brand-muted">
-                      Generic File Hosts
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-brand-border/60">
-                  {COMPARISON_ROWS.map((row) => (
-                    <tr key={row.feature} className="hover:bg-brand-bg-soft/30 transition-colors">
-                      <td className="p-4 sm:p-5 font-medium text-brand-text">
-                        {row.feature}
-                      </td>
-                      <td className="p-4 sm:p-5 font-semibold text-brand-primary bg-brand-primary/5 flex items-center gap-1.5">
-                        <Check className="h-4 w-4 text-emerald-500 shrink-0" />
-                        <span>{row.playxim}</span>
-                      </td>
-                      <td className="p-4 sm:p-5 text-brand-muted">
-                        {row.genericDrives}
-                      </td>
-                      <td className="p-4 sm:p-5 text-brand-muted">
-                        {row.fileHosts}
-                      </td>
+            <div className="double-bezel shadow-2xl">
+              <div className="overflow-x-auto rounded-[calc(var(--radius-2xl)-6px)] border border-brand-border bg-brand-surface">
+                <table className="w-full text-left text-sm">
+                  <thead>
+                    <tr className="border-b border-brand-border bg-brand-bg-soft/60">
+                      <th className="p-4 sm:p-5 font-display font-semibold text-brand-text">Core Capability</th>
+                      <th className="p-4 sm:p-5 font-display font-bold text-brand-primary bg-brand-primary/5">
+                        Playxim
+                      </th>
+                      <th className="p-4 sm:p-5 font-display font-semibold text-brand-muted">
+                        Standard Cloud Drives
+                      </th>
+                      <th className="p-4 sm:p-5 font-display font-semibold text-brand-muted">
+                        Generic File Hosts
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-brand-border/60">
+                    {COMPARISON_ROWS.map((row) => (
+                      <tr key={row.feature} className="hover:bg-brand-bg-soft/30 transition-colors">
+                        <td className="p-4 sm:p-5 font-medium text-brand-text">
+                          {row.feature}
+                        </td>
+                        <td className="p-4 sm:p-5 font-semibold text-brand-primary bg-brand-primary/5 flex items-center gap-1.5">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0" />
+                          <span>{row.playxim}</span>
+                        </td>
+                        <td className="p-4 sm:p-5 text-brand-muted">
+                          {row.genericDrives}
+                        </td>
+                        <td className="p-4 sm:p-5 text-brand-muted">
+                          {row.fileHosts}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </Container>
         </section>
 
         {/* 3 Core Philosophical Tenets */}
-        <section className="py-20 border-b border-brand-border bg-brand-bg-soft/30">
+        <section className="py-24 border-b border-brand-border bg-brand-bg-soft/30">
           <Container>
             <SectionHeader
               badge={<Badge variant="premium">Our Philosophy</Badge>}
@@ -131,33 +135,33 @@ export default function WhyPlayximPage() {
             />
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <Card className="p-6 space-y-4">
-                <div className="h-10 w-10 rounded-lg bg-brand-primary/10 text-brand-primary flex items-center justify-center font-bold">
+              <Card className="p-7 space-y-4 hover:border-brand-primary/30 hover:-translate-y-1 transition-all duration-300">
+                <div className="h-10 w-10 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center font-bold font-mono">
                   01
                 </div>
-                <h3 className="text-lg font-bold text-brand-text">No Dark Patterns for Audiences</h3>
+                <h3 className="text-lg font-display font-bold text-brand-text">No Dark Patterns for Audiences</h3>
                 <p className="text-sm text-brand-muted leading-relaxed">
                   When you share a Playxim link, your community receives the file immediately.
                   We never subject your followers to deceptive countdown timers, captcha walls, or popunder ads.
                 </p>
               </Card>
 
-              <Card className="p-6 space-y-4">
-                <div className="h-10 w-10 rounded-lg bg-brand-glow/10 text-brand-glow flex items-center justify-center font-bold">
+              <Card className="p-7 space-y-4 hover:border-brand-glow/30 hover:-translate-y-1 transition-all duration-300">
+                <div className="h-10 w-10 rounded-xl bg-brand-glow/10 text-brand-glow flex items-center justify-center font-bold font-mono">
                   02
                 </div>
-                <h3 className="text-lg font-bold text-brand-text">Original Quality Preservation</h3>
+                <h3 className="text-lg font-display font-bold text-brand-text">Original Quality Preservation</h3>
                 <p className="text-sm text-brand-muted leading-relaxed">
                   We never recompress your uploaded zip files, project folders, or master video archives.
                   What you upload is bit-for-bit what your viewers download.
                 </p>
               </Card>
 
-              <Card className="p-6 space-y-4">
-                <div className="h-10 w-10 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold">
+              <Card className="p-7 space-y-4 hover:border-amber-500/30 hover:-translate-y-1 transition-all duration-300">
+                <div className="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center font-bold font-mono">
                   03
                 </div>
-                <h3 className="text-lg font-bold text-brand-text">Sovereign Creator Revenue</h3>
+                <h3 className="text-lg font-display font-bold text-brand-text">Sovereign Creator Revenue</h3>
                 <p className="text-sm text-brand-muted leading-relaxed">
                   You bring the audience, you should share in the upside. Every qualified view in our
                   mobile streaming network is credited directly to your creator balance.

@@ -10,7 +10,7 @@ const Card = React.forwardRef<
     raised: "bg-brand-surface-2 border border-brand-border shadow-md",
     glass: "glass-panel shadow-sm",
     interactive:
-      "bg-brand-surface border border-brand-border shadow-sm transition-all duration-200 hover:shadow-md hover:border-brand-primary/30 hover:-translate-y-0.5 cursor-pointer",
+      "bg-brand-surface border border-brand-border shadow-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-elevated hover:border-brand-primary/40 hover:-translate-y-1 cursor-pointer",
   };
 
   return (

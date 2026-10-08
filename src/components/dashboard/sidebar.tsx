@@ -96,9 +96,9 @@ export function DashboardSidebar({
           </Link>
 
           <Link
-            href="/@wizzling"
+            href={username ? `/c/${username}` : "/dashboard/branding"}
             target="_blank"
-            className="text-brand-muted hover:text-brand-text p-1 rounded hover:bg-brand-bg-soft transition-colors"
+            className="text-brand-muted hover:text-brand-text p-1.5 rounded-lg hover:bg-brand-bg-soft transition-colors"
             title="View Public Profile"
           >
             <ExternalLink className="h-3.5 w-3.5" />
