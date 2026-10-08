@@ -31,9 +31,10 @@ const PLATFORM_ITEMS = [
 ];
 
 const MAIN_NAV_LINKS = [
-  { href: "/creator", label: "Creators" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/faq", label: "FAQ" },
+  { href: "#features", label: "Features" },
+  { href: "#how-it-works", label: "How It Works" },
+  { href: "#monetization", label: "Earn $1/1K Views" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export function MarketingNavbar() {

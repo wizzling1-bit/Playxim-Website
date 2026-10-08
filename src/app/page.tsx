@@ -8,7 +8,6 @@ import { CreatorWorkflowsSection } from "@/components/marketing/creator-workflow
 import { ComparisonTableSection } from "@/components/marketing/comparison-table";
 import { HighlightBannersSection } from "@/components/marketing/highlight-banners";
 import { HowItWorksSection } from "@/components/marketing/how-it-works";
-import { CreatorPlansSection } from "@/components/marketing/creator-plans";
 import { FaqSection } from "@/components/marketing/faq-section";
 import { MobileAppBannerSection } from "@/components/marketing/mobile-app-banner";
 import { FinalCtaSection } from "@/components/marketing/final-cta";
@@ -56,7 +55,7 @@ export default function MarketingHomePage() {
       <MarketingNavbar />
 
       <main className="flex-1">
-        {/* 2. Hero Section: DiskWala structure with laptop & phone mockups, badges, app buttons */}
+        {/* 2. Hero Section: 3D Floating Mockup, badges, and $1 per 1K views */}
         <MarketingHero />
 
         {/* 3. Supported Formats Ribbon */}
@@ -68,26 +67,23 @@ export default function MarketingHomePage() {
         {/* 5. Direct Product Comparison Matrix: Playxim vs Google Drive, Terabox, Mega */}
         <ComparisonTableSection />
 
-        {/* 6. Two Highlight Value Banners: Unlimited Storage & $4.00 CPM Monetization */}
+        {/* 6. Two Highlight Value Banners: Unlimited Storage & $1.00 per 1K Views Monetization */}
         <HighlightBannersSection />
 
         {/* 7. How Playxim Works: 4 Connected circular step nodes */}
         <HowItWorksSection />
 
-        {/* 8. Creator Plans & Pricing: Free Creator vs Pro Partner */}
-        <CreatorPlansSection />
-
-        {/* 9. Frequently Asked Questions: Clean interactive accordion */}
+        {/* 8. Frequently Asked Questions: Clean interactive accordion */}
         <FaqSection />
 
-        {/* 10. Download Playxim Mobile App Banner */}
+        {/* 9. Download Playxim Mobile App Banner */}
         <MobileAppBannerSection />
 
-        {/* 11. Final Conversion CTA Banner */}
+        {/* 10. Final Conversion CTA Banner */}
         <FinalCtaSection />
       </main>
 
-      {/* 12. Structured Marketing Footer */}
+      {/* 11. Structured Marketing Footer */}
       <MarketingFooter />
     </div>
   );

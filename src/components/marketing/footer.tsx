@@ -55,9 +55,9 @@ export function MarketingFooter() {
                 </a>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-brand-text transition-colors">
-                  Pricing
-                </Link>
+                <a href="#monetization" className="hover:text-brand-text transition-colors">
+                  Earn $1 / 1K Views
+                </a>
               </li>
               <li>
                 <Link href="/dashboard" className="hover:text-brand-text transition-colors">

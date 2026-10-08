@@ -17,7 +17,7 @@ export function ComparisonTableSection() {
     },
     {
       feature: "Creator Monetization ($/views)",
-      playxim: "Yes (Up to $4.00+ CPM)",
+      playxim: "Yes ($1.00 per 1,000 Views)",
       gdrive: "No Monetization",
       terabox: "No Monetization",
       mega: "No Monetization",

@@ -42,13 +42,13 @@ export function FinalCtaSection() {
               <ArrowRight className="h-4 w-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
             </Button>
           </Link>
-          <a href="#pricing">
+          <a href="#how-it-works">
             <Button
               size="lg"
               variant="secondary"
               className="h-12 sm:h-13 px-7 text-sm sm:text-base font-semibold rounded-full border border-brand-border hover:bg-brand-bg-soft"
             >
-              Explore Partner Plans
+              See How It Works
             </Button>
           </a>
         </div>

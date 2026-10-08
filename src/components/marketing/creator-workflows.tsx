@@ -197,7 +197,7 @@ export function CreatorWorkflowsSection() {
               {/* Floating Earnings Tag */}
               <div className="absolute top-5 left-5 hidden sm:flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-brand-surface/95 border border-amber-500/30 shadow-lg text-xs font-bold text-amber-600 dark:text-amber-400">
                 <DollarSign className="h-4 w-4" />
-                <span>$4.20 Effective CPM</span>
+                <span>$1.00 / 1K Views</span>
               </div>
             </div>
           </div>
@@ -206,7 +206,7 @@ export function CreatorWorkflowsSection() {
           <div className="lg:col-span-5 space-y-5 text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
               <DollarSign className="h-3.5 w-3.5" />
-              <span>Transparent Creator Economics</span>
+              <span>Transparent Creator Monetization</span>
             </div>
 
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-brand-text tracking-tight leading-tight">
@@ -214,13 +214,13 @@ export function CreatorWorkflowsSection() {
             </h3>
 
             <p className="text-sm sm:text-base text-brand-muted leading-relaxed font-normal">
-              Earn competitive CPM rates on every file view and stream. With automated daily payouts and zero withdrawal commission fees, your creative work generates steady, predictable revenue.
+              Earn a flat $1.00 for every 1,000 views on your files and videos. With automated daily payouts and zero withdrawal commission fees, your shared links generate steady, predictable revenue.
             </p>
 
             <ul className="space-y-3 pt-1 text-xs sm:text-sm text-brand-text font-medium">
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                <span>Up to $4.00+ CPM rates tailored to your traffic geography</span>
+                <span>Flat $1.00 per 1,000 verified views on your shared links</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />

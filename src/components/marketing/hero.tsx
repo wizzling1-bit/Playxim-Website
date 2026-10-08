@@ -11,43 +11,53 @@ import {
   Share2,
   Download,
   Star,
-  ShieldCheck,
-  Zap,
+  Check,
+  Copy,
+  Play,
   HardDrive,
   DollarSign,
+  Smartphone,
+  ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/layout-primitives";
-import { AnimatedTextRotator } from "@/components/ui/animated-text-rotator";
 
 export function MarketingHero() {
+  const [copied, setCopied] = React.useState(false);
+
+  const handleCopyLink = () => {
+    setCopied(true);
+    navigator.clipboard?.writeText("https://playxim.com/watch/8XK92LM");
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <section className="relative overflow-hidden pt-10 sm:pt-16 pb-16 sm:pb-24 bg-gradient-to-b from-transparent via-brand-bg/40 to-transparent">
-      {/* Subtle background ambient mesh glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[850px] h-[380px] sm:h-[480px] bg-gradient-to-tr from-brand-primary/20 via-brand-glow/15 to-purple-500/10 blur-[130px] rounded-full pointer-events-none -z-10 animate-float-slow" />
-      <div className="absolute top-1/3 left-1/4 w-[340px] h-[340px] bg-brand-primary/12 blur-[100px] rounded-full pointer-events-none -z-10 animate-float-slow [animation-delay:3s]" />
+    <section className="relative overflow-hidden pt-8 sm:pt-14 pb-16 sm:pb-24 bg-gradient-to-b from-transparent via-brand-bg/40 to-transparent">
+      {/* Background ambient mesh glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[900px] h-[380px] sm:h-[480px] bg-gradient-to-tr from-brand-primary/20 via-brand-glow/15 to-purple-500/10 blur-[140px] rounded-full pointer-events-none -z-10 animate-float-slow" />
+      <div className="absolute top-1/3 left-1/4 w-[350px] h-[350px] bg-brand-primary/12 blur-[100px] rounded-full pointer-events-none -z-10 animate-float-slow [animation-delay:3s]" />
 
       <Container className="relative z-10 text-center max-w-5xl mx-auto space-y-7">
         {/* Eyebrow Pill */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-brand-surface/90 border border-brand-border shadow-xs backdrop-blur-md text-brand-primary">
           <Sparkles className="h-3.5 w-3.5 animate-pulse text-brand-primary shrink-0" />
           <span className="tracking-wide uppercase font-mono text-[11px] font-bold">
-            The #1 Creator Cloud Storage & Video Platform
+            Unlimited File & Video Storage • $1.00 per 1,000 Views
           </span>
         </div>
 
         {/* Main Headline */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[80px] font-display font-extrabold tracking-tight text-brand-text leading-[1.05] max-w-4xl mx-auto">
-          Upload, Share &{" "}
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-display font-extrabold tracking-tight text-brand-text leading-[1.06] max-w-4xl mx-auto">
+          Upload Files & Videos,{" "}
           <span className="bg-gradient-to-r from-brand-primary via-brand-glow to-blue-600 bg-clip-text text-transparent">
-            Monetize
+            Get Instant Links
           </span>{" "}
-          Your Content
+          to Share & Earn
         </h1>
 
         {/* Supporting Copy */}
         <p className="text-base sm:text-lg md:text-xl text-brand-muted max-w-2xl mx-auto leading-relaxed font-normal">
-          High-speed unlimited cloud storage for creators, publishers, and communities. Earn daily payouts on every view with lightning-fast global CDN delivery.
+          Upload videos and any files with zero storage limits. Get an instant direct share link for your audience to stream in 4K or download via web and mobile app — while you earn a flat <strong className="text-brand-text font-semibold">$1.00 for every 1,000 views</strong>.
         </p>
 
         {/* Dual Primary Action Buttons */}
@@ -81,24 +91,24 @@ export function MarketingHero() {
           </div>
           <div className="inline-flex items-center gap-1.5">
             <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-            <span>Up to $4.00+ CPM Payouts</span>
+            <span>Instant Share Links</span>
           </div>
           <div className="inline-flex items-center gap-1.5">
             <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-            <span>High-Speed Global CDN</span>
+            <span>$1.00 per 1,000 Views Payout</span>
           </div>
           <div className="inline-flex items-center gap-1.5">
             <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-            <span>Zero File Expiration</span>
+            <span>App for 4K Streaming & Fast Download</span>
           </div>
         </div>
 
         {/* Store Badges & Trust Metrics */}
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-3">
-          {/* Google Play Badge Button */}
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-2">
+          {/* Google Play */}
           <a
             href="#download-app"
-            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-brand-surface/90 border border-brand-border/80 shadow-xs hover:border-brand-primary/40 hover:bg-brand-bg-soft transition-all group"
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-brand-surface/90 border border-brand-border/80 shadow-xs hover:border-brand-primary/40 hover:bg-brand-bg-soft transition-all"
           >
             <div className="h-6 w-6 text-brand-primary flex items-center justify-center">
               <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
@@ -111,10 +121,10 @@ export function MarketingHero() {
             </div>
           </a>
 
-          {/* App Store Badge Button */}
+          {/* App Store */}
           <a
             href="#download-app"
-            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-brand-surface/90 border border-brand-border/80 shadow-xs hover:border-brand-primary/40 hover:bg-brand-bg-soft transition-all group"
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl bg-brand-surface/90 border border-brand-border/80 shadow-xs hover:border-brand-primary/40 hover:bg-brand-bg-soft transition-all"
           >
             <div className="h-6 w-6 text-brand-primary flex items-center justify-center">
               <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
@@ -127,8 +137,8 @@ export function MarketingHero() {
             </div>
           </a>
 
-          {/* Trust Rating Strip */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-brand-surface/70 border border-brand-border/60 text-xs">
+          {/* Rating */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-brand-surface/70 border border-brand-border/60 text-xs">
             <div className="flex items-center text-amber-500">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="h-3.5 w-3.5 fill-current" />
@@ -139,56 +149,95 @@ export function MarketingHero() {
           </div>
         </div>
 
-        {/* Central Device Mockup: Laptop & Phone Composition */}
-        <div className="pt-8 sm:pt-12 relative max-w-5xl mx-auto">
-          {/* Ambient rim light under mockup */}
-          <div className="absolute inset-x-12 bottom-6 h-48 bg-gradient-to-t from-brand-primary/20 via-brand-glow/15 to-transparent blur-[90px] rounded-full pointer-events-none -z-10" />
+        {/* ============================================================
+            3D FLOATING HARDWARE STAGE (Background Removed & Premium 3D)
+           ============================================================ */}
+        <div className="pt-8 sm:pt-14 relative max-w-5xl mx-auto">
+          {/* Multi-layered atmospheric radial glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-gradient-to-r from-brand-primary/25 via-brand-glow/20 to-purple-500/15 blur-[120px] rounded-full pointer-events-none -z-10" />
 
-          {/* Floating Live Badge 1: High-Speed Upload */}
-          <div className="hidden lg:flex absolute top-6 -left-4 z-20 items-center gap-2.5 px-3.5 py-2 rounded-xl bg-brand-surface/95 border border-brand-border/80 shadow-xl backdrop-blur-xl animate-float-slow">
-            <div className="h-7 w-7 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
-              <CheckCircle2 className="h-4 w-4" />
+          {/* Floating 3D Device Container */}
+          <div className="relative group flex flex-col items-center justify-center">
+            {/* FLOATING GLASS CARD 1 (Top Left): Upload Complete */}
+            <div className="hidden md:flex absolute top-4 -left-4 lg:-left-8 z-30 items-center gap-3 px-4 py-2.5 rounded-2xl bg-brand-surface/90 border border-brand-border/80 shadow-2xl backdrop-blur-xl animate-float-slow text-left">
+              <div className="h-8 w-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+                <CheckCircle2 className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="text-xs font-bold text-brand-text flex items-center gap-1.5">
+                  <span>Upload Complete</span>
+                  <span className="text-[10px] bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-mono px-1.5 py-0.2 rounded">100%</span>
+                </div>
+                <div className="text-[11px] text-brand-muted font-mono truncate max-w-[170px]">
+                  Episode_04_4K.mp4 (4.2 GB)
+                </div>
+              </div>
             </div>
-            <div className="text-left">
-              <div className="text-xs font-semibold text-brand-text">Upload Complete ✓</div>
-              <div className="text-[11px] text-brand-muted font-mono">Project_Alpha_4K.mp4 (14.2 GB)</div>
-            </div>
-          </div>
 
-          {/* Floating Live Badge 2: Stream Views Spike */}
-          <div className="hidden lg:flex absolute top-10 -right-4 z-20 items-center gap-2.5 px-3.5 py-2 rounded-xl bg-brand-surface/95 border border-brand-border/80 shadow-xl backdrop-blur-xl animate-float-slow [animation-delay:1.5s]">
-            <div className="h-7 w-7 rounded-lg bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-brand-primary">
-              <TrendingUp className="h-4 w-4" />
+            {/* FLOATING GLASS CARD 2 (Top Right): Get Instant Share Link */}
+            <div className="hidden md:flex absolute top-6 -right-4 lg:-right-8 z-30 items-center gap-3 px-4 py-2.5 rounded-2xl bg-brand-surface/90 border border-brand-border/80 shadow-2xl backdrop-blur-xl animate-float-slow [animation-delay:1.5s] text-left">
+              <div className="h-8 w-8 rounded-xl bg-brand-primary/15 border border-brand-primary/30 flex items-center justify-center text-brand-primary shrink-0">
+                <Share2 className="h-4 w-4" />
+              </div>
+              <div>
+                <div className="text-xs font-bold text-brand-text">Instant Share Link</div>
+                <div className="flex items-center gap-2 mt-0.5">
+                  <span className="text-[11px] font-mono text-brand-primary">playxim.com/watch/8XK92</span>
+                  <button
+                    onClick={handleCopyLink}
+                    className="p-1 rounded hover:bg-brand-bg-soft text-brand-muted hover:text-brand-text transition-colors"
+                    title="Copy Link"
+                  >
+                    {copied ? <Check className="h-3 w-3 text-emerald-500" /> : <Copy className="h-3 w-3" />}
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="text-left">
-              <div className="text-xs font-semibold text-brand-text">+48,920 Views</div>
-              <div className="text-[11px] text-brand-muted">Buffer-Free 1080p 60fps</div>
-            </div>
-          </div>
 
-          {/* Floating Live Badge 3: Daily Creator Earnings */}
-          <div className="hidden lg:flex absolute -bottom-3 left-8 z-20 items-center gap-2.5 px-3.5 py-2 rounded-xl bg-brand-surface/95 border border-amber-500/30 shadow-xl backdrop-blur-xl animate-float-slow [animation-delay:2.5s]">
-            <div className="h-7 w-7 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-600 dark:text-amber-400 font-bold">
-              $
+            {/* FLOATING GLASS CARD 3 (Bottom Left): $1.00 per 1K Views Payout */}
+            <div className="hidden md:flex absolute bottom-6 -left-2 lg:-left-6 z-30 items-center gap-3 px-4 py-2.5 rounded-2xl bg-brand-surface/90 border border-amber-500/30 shadow-2xl backdrop-blur-xl animate-float-slow [animation-delay:2.5s] text-left">
+              <div className="h-8 w-8 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-600 dark:text-amber-400 font-bold shrink-0">
+                $
+              </div>
+              <div>
+                <div className="text-xs font-bold text-amber-600 dark:text-amber-400">
+                  $1.00 / 1K Views
+                </div>
+                <div className="text-[11px] text-brand-muted">
+                  +$48.92 Earned (48,920 Views)
+                </div>
+              </div>
             </div>
-            <div className="text-left">
-              <div className="text-xs font-semibold text-amber-600 dark:text-amber-400">+$320.50 Today</div>
-              <div className="text-[11px] text-brand-muted">Direct CPM Accrual</div>
-            </div>
-          </div>
 
-          {/* Device Showcase Frame */}
-          <div className="relative rounded-2xl sm:rounded-3xl p-2 sm:p-3 bg-gradient-to-b from-brand-border/80 via-brand-border/30 to-brand-border/10 border border-brand-border shadow-2xl backdrop-blur-sm overflow-hidden group">
-            <div className="relative w-full aspect-[16/9] sm:aspect-[16/9] rounded-xl sm:rounded-2xl overflow-hidden bg-brand-bg-soft">
+            {/* FLOATING GLASS CARD 4 (Bottom Right): App Stream & Download */}
+            <div className="hidden md:flex absolute bottom-8 -right-2 lg:-right-6 z-30 items-center gap-3 px-4 py-2.5 rounded-2xl bg-brand-surface/90 border border-brand-border/80 shadow-2xl backdrop-blur-xl animate-float-slow [animation-delay:3.5s] text-left">
+              <div className="h-8 w-8 rounded-xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-brand-glow shrink-0">
+                <Play className="h-4 w-4 fill-current" />
+              </div>
+              <div>
+                <div className="text-xs font-bold text-brand-text">
+                  Stream & Fast Download
+                </div>
+                <div className="text-[11px] text-brand-muted">
+                  Web & Mobile App · 1080p 60fps
+                </div>
+              </div>
+            </div>
+
+            {/* The 3D Isolated Hardware Object */}
+            <div className="relative w-full max-w-4xl aspect-[16/9] select-none filter drop-shadow-[0_25px_35px_rgba(0,0,0,0.18)] dark:drop-shadow-[0_25px_45px_rgba(14,165,233,0.15)] transition-transform duration-700 hover:scale-[1.015]">
               <Image
-                src="/images/hero-devices.jpg"
-                alt="Playxim Cloud Storage Web Dashboard on MacBook and Mobile Streaming App on iPhone"
+                src="/images/hero-3d-devices.png"
+                alt="Playxim 3D Floating Hardware: MacBook Pro Cloud Dashboard and iPhone Pro Mobile Video Player"
                 fill
                 priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1100px"
-                className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.01]"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1000px"
+                className="object-contain object-center"
               />
             </div>
+
+            {/* Realistic 3D Soft Shadow underneath floating devices */}
+            <div className="w-3/4 h-8 bg-black/15 dark:bg-black/50 blur-2xl rounded-full -mt-6 pointer-events-none" />
           </div>
         </div>
       </Container>

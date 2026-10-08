@@ -19,7 +19,7 @@ import { Container } from "@/components/ui/layout-primitives";
 
 export function HighlightBannersSection() {
   return (
-    <section className="py-16 sm:py-24 border-t border-brand-border/60 bg-transparent relative space-y-10">
+    <section id="monetization" className="py-16 sm:py-24 border-t border-brand-border/60 bg-transparent relative space-y-10">
       <Container className="max-w-6xl mx-auto space-y-8">
         {/* Banner 1: Unlimited Storage for Every Creator */}
         <div className="relative rounded-3xl p-6 sm:p-10 lg:p-12 border border-brand-border bg-gradient-to-br from-brand-surface via-brand-surface/90 to-brand-primary/5 shadow-xl overflow-hidden group">
@@ -38,7 +38,7 @@ export function HighlightBannersSection() {
               </h3>
 
               <p className="text-sm sm:text-base text-brand-muted leading-relaxed max-w-2xl">
-                Never worry about disk quotas or running out of hard drive space again. Store all your raw master files, episodic video series, and large software archives safely in Playxim cloud with multi-region redundancy and zero monthly storage bills.
+                Never worry about disk quotas or running out of space. Upload all your raw videos, master archives, and documents safely with multi-region redundancy and permanent link preservation.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-medium text-brand-text">
@@ -48,11 +48,11 @@ export function HighlightBannersSection() {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                  <span>99.99% multi-region uptime</span>
+                  <span>Instant share link on upload</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                  <span>Permanent link preservation</span>
+                  <span>Zero bandwidth caps</span>
                 </div>
               </div>
 
@@ -89,14 +89,14 @@ export function HighlightBannersSection() {
                   <div className="h-full bg-gradient-to-r from-brand-primary to-brand-glow w-1/4 rounded-full" />
                 </div>
                 <div className="text-[11px] text-brand-muted">
-                  No billing tiers • No sudden account lockouts
+                  No artificial caps • Free for all creators
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Banner 2: High-Yield Creator Monetization Program */}
+        {/* Banner 2: $1.00 per 1,000 Views Program */}
         <div className="relative rounded-3xl p-6 sm:p-10 lg:p-12 border border-brand-border bg-gradient-to-br from-brand-surface via-brand-surface/90 to-amber-500/5 shadow-xl overflow-hidden group">
           {/* Subtle glow background */}
           <div className="absolute top-0 left-0 w-[450px] h-[350px] bg-amber-500/10 blur-[100px] rounded-full pointer-events-none -z-10" />
@@ -107,7 +107,7 @@ export function HighlightBannersSection() {
               <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-brand-border shadow-lg bg-brand-bg-soft">
                 <Image
                   src="/images/creator-monetization-3d.jpg"
-                  alt="Playxim High Yield Creator Monetization Program"
+                  alt="Playxim $1.00 per 1000 Views Creator Monetization"
                   fill
                   sizes="(max-width: 768px) 100vw, 450px"
                   className="object-cover transition-transform duration-500 group-hover:scale-102"
@@ -119,36 +119,36 @@ export function HighlightBannersSection() {
             <div className="lg:col-span-7 space-y-4 text-left order-1 lg:order-2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
                 <DollarSign className="h-3.5 w-3.5" />
-                <span>Creator Monetization Program</span>
+                <span>Transparent Creator Monetization</span>
               </div>
 
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-brand-text tracking-tight">
-                Earn Up to $4.00 per 1,000 Views
+                Earn $1.00 for Every 1,000 Views
               </h3>
 
               <p className="text-sm sm:text-base text-brand-muted leading-relaxed">
-                Turn your content distribution into a reliable revenue stream. Whenever your audience watches videos or downloads files from your links, you earn leading CPM rates with daily payouts and zero hidden fees.
+                Upload your files and videos, share your link, and get paid a flat <strong className="text-brand-text font-semibold">$1.00 for every 1,000 views</strong>. Your audience enjoys instant 4K playback and high-speed downloads via web or mobile app, and you get dependable daily payouts.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-medium text-brand-text">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <span>$1.00 flat per 1K views</span>
+                </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
                   <span>Daily automated payouts</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                  <span>$5.00 low withdrawal minimum</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                  <span>Bank, PayPal, UPI, Crypto</span>
+                  <span>Bank, UPI, PayPal, USDT</span>
                 </div>
               </div>
 
               <div className="pt-2">
                 <Link href="/auth/sign-up">
                   <Button variant="primary" size="md" className="rounded-full shadow-md shadow-brand-primary/20">
-                    <span>Join Creator Program</span>
+                    <span>Start Earning $1 / 1K Views</span>
                     <ArrowRight className="h-4 w-4 ml-1.5" />
                   </Button>
                 </Link>

@@ -27,7 +27,7 @@ export function FaqSection() {
     },
     {
       q: "How does creator monetization work?",
-      a: "Whenever eligible viewers stream your video content through Playxim consumer applications, views are verified and calculated at platform CPM rates. Accrued revenue is logged in your transparent creator ledger.",
+      a: "Playxim pays a flat, guaranteed $1.00 for every 1,000 views and downloads on your shared links. As your audience streams your 4K videos or downloads files via our web and mobile app, earnings accumulate live in your dashboard. You can withdraw daily with a low $5.00 minimum threshold via Bank, UPI, PayPal, or Crypto.",
     },
     {
       q: "How do share links work?",
