@@ -68,11 +68,11 @@ export default function MarketingHomePage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-brand-bg transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-transparent transition-colors duration-300">
       <MarketingNavbar />
 
       {/* 1. Hero Section with Ambient Glow Mesh & Animated Typography */}
-      <section className="relative overflow-hidden pt-16 sm:pt-24 pb-24 sm:pb-32 border-b border-brand-border bg-gradient-to-b from-brand-bg via-brand-bg to-brand-bg-soft/30">
+      <section className="relative overflow-hidden pt-16 sm:pt-24 pb-24 sm:pb-32 border-b border-brand-border bg-gradient-to-b from-transparent via-brand-bg/40 to-brand-bg-soft/30">
         {/* Subtle grid pattern background */}
         <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
 

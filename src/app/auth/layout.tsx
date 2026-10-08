@@ -8,7 +8,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-brand-bg transition-colors duration-200 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col justify-between bg-transparent transition-colors duration-200 relative overflow-hidden">
       {/* Background grid pattern & ambient glow */}
       <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none -z-20" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[350px] bg-brand-primary/10 blur-[130px] rounded-full pointer-events-none -z-10" />

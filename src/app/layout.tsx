@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@/components/auth-provider";
+import { WebsiteBackground } from "@/components/ui/website-background";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-heading",
@@ -41,10 +42,13 @@ export default function RootLayout({
       className={`${plusJakartaSans.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-brand-bg text-brand-text">
+      <body className="min-h-full flex flex-col bg-brand-bg text-brand-text relative">
         <ThemeProvider defaultTheme="light">
           <AuthProvider>
-            {children}
+            <WebsiteBackground />
+            <div className="relative z-10 flex-1 flex flex-col">
+              {children}
+            </div>
           </AuthProvider>
         </ThemeProvider>
       </body>

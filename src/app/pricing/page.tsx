@@ -30,7 +30,7 @@ const PLAN_FEATURES = [
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-brand-bg transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-transparent transition-colors duration-200">
       <MarketingNavbar />
 
       <main className="flex-1">
