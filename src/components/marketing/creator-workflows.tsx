@@ -2,333 +2,243 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   UploadCloud,
   CheckCircle2,
   ArrowRight,
   Share2,
-  Lock,
-  Globe,
   DollarSign,
   TrendingUp,
   Play,
-  FileVideo,
-  FileArchive,
-  Copy,
-  Check,
   ShieldCheck,
+  Zap,
+  HardDrive,
+  Smartphone,
+  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Container } from "@/components/ui/layout-primitives";
+import { Container, SectionHeader } from "@/components/ui/layout-primitives";
+import { Badge } from "@/components/ui/badge";
 
 export function CreatorWorkflowsSection() {
-  const [copied, setCopied] = React.useState(false);
-  const [shareMode, setShareMode] = React.useState<"public" | "private" | "password">("public");
-
-  const handleCopy = () => {
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
-    <section className="py-24 sm:py-32 border-t border-brand-border/60 bg-transparent relative space-y-28 sm:space-y-36">
-      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" />
-      <Container>
-        {/* BLOCK 1: Ingestion (Visual Left, Content Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Visual Left: Ingestion Dropper */}
-          <div className="lg:col-span-7">
-            <div className="rounded-2xl p-1.5 bg-gradient-to-br from-brand-border/80 to-transparent border border-brand-border shadow-xl">
-              <div className="rounded-xl border border-brand-border bg-brand-surface p-6 sm:p-8 space-y-5">
-                <div className="flex items-center justify-between pb-3 border-b border-brand-border/70">
-                  <div className="flex items-center gap-2.5">
-                    <div className="h-8 w-8 rounded-lg bg-brand-primary/10 text-brand-primary flex items-center justify-center">
-                      <UploadCloud className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-bold text-brand-text">Active Transfer Stream</div>
-                      <div className="text-xs text-brand-muted font-mono">Chunk 8 of 12 · 48.2 MB/s</div>
-                    </div>
-                  </div>
-                  <span className="text-xs px-2.5 py-0.5 rounded-full font-semibold bg-blue-50 text-blue-900 border border-blue-200 dark:bg-brand-primary/20 dark:text-brand-glow">
-                    Uploading
-                  </span>
-                </div>
+    <section id="features" className="py-20 sm:py-28 border-t border-brand-border/60 bg-transparent relative space-y-24 sm:space-y-32">
+      <Container className="max-w-6xl mx-auto">
+        <SectionHeader
+          badge={<Badge variant="default">Core Features</Badge>}
+          title="Engineered to Power Your Digital Content"
+          description="A comprehensive creator ecosystem combining high-speed cloud ingestion, native mobile playback, and daily automated monetization."
+        />
 
-                {/* Transfer Item 1 */}
-                <div className="p-4 rounded-xl bg-brand-bg-soft/70 border border-brand-border/80 space-y-2.5">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-semibold text-brand-text truncate">
-                      Documentary_Tokyo_Reel_ProRes_Master.mov
-                    </span>
-                    <span className="font-mono text-brand-primary font-bold">78%</span>
-                  </div>
-                  <div className="w-full h-2 rounded-full bg-brand-border/60 overflow-hidden">
-                    <div className="h-full bg-brand-primary rounded-full w-[78%] transition-all" />
-                  </div>
-                  <div className="flex items-center justify-between text-[11px] text-brand-muted font-mono">
-                    <span>1.82 GB of 2.34 GB</span>
-                    <span>Remaining: 11s</span>
-                  </div>
-                </div>
+        {/* ============================================================
+            ROW 1: Web Creator Dashboard (Laptop on Left | Copy on Right)
+           ============================================================ */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Visual: Laptop Mockup */}
+          <div className="lg:col-span-7 relative group">
+            {/* Ambient Back Glow */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-brand-primary/20 via-brand-glow/15 to-transparent blur-2xl rounded-3xl -z-10 opacity-70 group-hover:opacity-100 transition-opacity" />
 
-                {/* Transfer Item 2 */}
-                <div className="p-4 rounded-xl bg-brand-bg-soft/70 border border-brand-border/80 space-y-2.5">
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-semibold text-brand-text truncate">
-                      Sound_FX_Stems_Complete_Library.zip
-                    </span>
-                    <span className="font-mono text-emerald-800 dark:text-emerald-400 font-bold">100% Complete</span>
-                  </div>
-                  <div className="w-full h-2 rounded-full bg-brand-border/60 overflow-hidden">
-                    <div className="h-full bg-emerald-500 rounded-full w-full" />
-                  </div>
-                  <div className="flex items-center justify-between text-[11px] text-brand-muted font-mono">
-                    <span>940 MB Master Archive</span>
-                    <span className="text-emerald-800 dark:text-emerald-400 font-medium">Verified SHA-256</span>
-                  </div>
+            <div className="relative rounded-2xl p-2 bg-brand-surface/80 border border-brand-border shadow-xl backdrop-blur-sm overflow-hidden">
+              <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-brand-bg-soft">
+                <Image
+                  src="/images/dashboard-laptop.jpg"
+                  alt="Playxim Web Creator Dashboard on MacBook Pro"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 650px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-102"
+                />
+              </div>
+
+              {/* Floating Mini Overlay Badge */}
+              <div className="absolute bottom-5 left-5 hidden sm:flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-brand-surface/95 border border-brand-border/80 shadow-lg backdrop-blur-md">
+                <div className="h-6 w-6 rounded-md bg-brand-primary/10 text-brand-primary flex items-center justify-center">
+                  <UploadCloud className="h-3.5 w-3.5" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs font-bold text-brand-text">Multi-Threaded Uploads</div>
+                  <div className="text-[11px] text-brand-muted font-mono">1.2 Gbps Transfer Rate</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Content Right */}
+          {/* Copy: Web Dashboard */}
           <div className="lg:col-span-5 space-y-5 text-left">
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-primary">
-              Step 01 — Frictionless Ingestion
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-brand-text leading-tight">
-              Upload without friction
-            </h2>
-            <p className="text-base text-brand-muted leading-relaxed">
-              Drop massive files up to 200 GB. With S3-compatible chunked multipart uploads, connection drops never restart from zero. Master files remain untouched without downscaling.
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-primary/10 text-brand-primary border border-brand-primary/20">
+              <Zap className="h-3.5 w-3.5" />
+              <span>Web Creator Control Center</span>
+            </div>
+
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-brand-text tracking-tight leading-tight">
+              Manage Your Digital Assets with Zero Friction
+            </h3>
+
+            <p className="text-sm sm:text-base text-brand-muted leading-relaxed font-normal">
+              Upload multi-gigabyte 4K master videos, software archives, and creative assets directly from your browser. Enjoy resilient chunked uploads with automatic resume and zero storage limits.
             </p>
-            <ul className="space-y-2.5 text-sm text-brand-muted">
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                <span>Large multi-gigabyte video and project files</span>
+
+            <ul className="space-y-3 pt-1 text-xs sm:text-sm text-brand-text font-medium">
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>Drag-and-drop web uploader with parallel multi-part streams</span>
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                <span>Seamless automatic upload resumption</span>
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>Remote URL upload & instant Telegram bot synchronization</span>
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-brand-primary shrink-0" />
-                <span>Background encoding and hash validation</span>
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>Hierarchical folder organization with instant one-click link generation</span>
               </li>
             </ul>
+
             <div className="pt-2">
               <Link href="/auth/sign-up">
-                <Button variant="primary" size="lg" className="rounded-full px-6 group font-semibold shadow-sm">
-                  <span>Start Uploading</span>
-                  <ArrowRight className="h-4 w-4 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
+                <Button variant="primary" size="md" className="rounded-full shadow-md shadow-brand-primary/20">
+                  <span>Start Uploading Now</span>
+                  <ArrowRight className="h-4 w-4 ml-1.5" />
                 </Button>
               </Link>
             </div>
           </div>
         </div>
 
-        {/* BLOCK 2: Sharing (Content Left, Visual Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Content Left */}
+        {/* ============================================================
+            ROW 2: Mobile Video Player (Copy on Left | Phone on Right)
+           ============================================================ */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Copy: Video Streaming */}
           <div className="lg:col-span-5 space-y-5 text-left order-2 lg:order-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-glow">
-              Step 02 — Access Control
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-brand-text leading-tight">
-              Share exactly how you want
-            </h2>
-            <p className="text-base text-brand-muted leading-relaxed">
-              Create instant public shortlinks, lock sensitive pre-releases with hashed passcodes, or set expiration dates. Your audience gets a clean download and streaming experience with no ads.
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-brand-glow border border-blue-500/20">
+              <Play className="h-3.5 w-3.5 fill-current" />
+              <span>Mobile-First Streaming</span>
+            </div>
+
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-brand-text tracking-tight leading-tight">
+              Buffer-Free 4K Streaming on Any Screen
+            </h3>
+
+            <p className="text-sm sm:text-base text-brand-muted leading-relaxed font-normal">
+              Playxim automatically transcodes your videos into adaptive HLS streams (1080p, 720p, 480p). Your audience enjoys immediate, silky-smooth playback on smartphones and desktops without third-party app requirements.
             </p>
-            <div className="flex flex-wrap gap-2 pt-1">
-              <button
-                type="button"
-                onClick={() => setShareMode("public")}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${
-                  shareMode === "public"
-                    ? "bg-brand-primary text-white border-brand-primary shadow-xs"
-                    : "bg-brand-surface text-brand-muted border-brand-border"
-                }`}
-              >
-                Public Link
-              </button>
-              <button
-                type="button"
-                onClick={() => setShareMode("password")}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${
-                  shareMode === "password"
-                    ? "bg-brand-primary text-white border-brand-primary shadow-xs"
-                    : "bg-brand-surface text-brand-muted border-brand-border"
-                }`}
-              >
-                Password Protected
-              </button>
-              <button
-                type="button"
-                onClick={() => setShareMode("private")}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${
-                  shareMode === "private"
-                    ? "bg-brand-primary text-white border-brand-primary shadow-xs"
-                    : "bg-brand-surface text-brand-muted border-brand-border"
-                }`}
-              >
-                Private Link
-              </button>
-            </div>
-            <div className="pt-2">
-              <Link href="/auth/sign-up">
-                <Button variant="primary" size="lg" className="rounded-full px-6 group font-semibold shadow-sm">
-                  <span>Create a Share Link</span>
-                  <ArrowRight className="h-4 w-4 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
-                </Button>
-              </Link>
-            </div>
-          </div>
 
-          {/* Visual Right: Share Management UI */}
-          <div className="lg:col-span-7 order-1 lg:order-2">
-            <div className="rounded-2xl p-1.5 bg-gradient-to-br from-brand-border/80 to-transparent border border-brand-border shadow-xl">
-              <div className="rounded-xl border border-brand-border bg-brand-surface p-6 sm:p-8 space-y-5">
-                <div className="flex items-center justify-between pb-3 border-b border-brand-border/70">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-brand-muted uppercase tracking-wider">
-                    <Share2 className="h-4 w-4 text-brand-primary" />
-                    <span>Link Settings: Tokyo_Nightlife_4K</span>
-                  </div>
-                  <span className="text-xs px-2.5 py-0.5 rounded-full font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 dark:bg-emerald-500/15 dark:text-emerald-400">
-                    {shareMode === "public"
-                      ? "Public Link"
-                      : shareMode === "password"
-                      ? "Password Protected"
-                      : "Private Only"}
-                  </span>
-                </div>
-
-                {/* Branded Link Bar */}
-                <div className="p-3.5 rounded-xl bg-brand-bg-soft border border-brand-border flex items-center justify-between gap-3 font-mono text-xs text-brand-text">
-                  <span className="truncate">https://playxim.com/watch/8XK92LM</span>
-                  <Button
-                    onClick={handleCopy}
-                    size="sm"
-                    variant="secondary"
-                    className="h-8 px-3 text-xs rounded-lg shrink-0 gap-1.5"
-                  >
-                    {copied ? (
-                      <>
-                        <Check className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-                        <span>Copied!</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="h-3.5 w-3.5" />
-                        <span>Copy URL</span>
-                      </>
-                    )}
-                  </Button>
-                </div>
-
-                {/* Parameters Matrix */}
-                <div className="grid grid-cols-2 gap-3 text-xs">
-                  <div className="p-3.5 rounded-xl bg-brand-bg-soft/70 border border-brand-border/60">
-                    <div className="text-brand-muted">Passcode Security</div>
-                    <div className="font-semibold text-brand-text mt-1">
-                      {shareMode === "password" ? "PBKDF2 Encrypted" : "Disabled"}
-                    </div>
-                  </div>
-                  <div className="p-3.5 rounded-xl bg-brand-bg-soft/70 border border-brand-border/60">
-                    <div className="text-brand-muted">Link Expiration</div>
-                    <div className="font-semibold text-brand-text mt-1">Never expires</div>
-                  </div>
-                </div>
-
-                <div className="text-[11px] text-brand-muted text-center pt-1">
-                  ✓ Clean download page without banner popups or tracking pixels
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* BLOCK 3: Revenue (Visual Left, Content Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Visual Left: Earnings Ticker */}
-          <div className="lg:col-span-7">
-            <div className="rounded-2xl p-1.5 bg-gradient-to-br from-amber-500/20 via-brand-border/40 to-transparent border border-brand-border shadow-xl">
-              <div className="rounded-xl border border-brand-border bg-brand-surface p-6 sm:p-8 space-y-6">
-                <div className="flex items-center justify-between pb-3 border-b border-brand-border/70">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-brand-muted uppercase tracking-wider">
-                    <DollarSign className="h-4 w-4 text-amber-600 dark:text-amber-400" />
-                    <span>Real-time Stream Monetization</span>
-                  </div>
-                  <span className="text-xs px-2.5 py-0.5 rounded-full font-semibold bg-amber-50 text-amber-900 border border-amber-200 dark:bg-amber-500/15 dark:text-amber-400">
-                    Daily Accrual
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-4 rounded-xl bg-brand-bg-soft/70 border border-brand-border/70">
-                    <div className="text-xs text-brand-muted font-medium">Monthly Views</div>
-                    <div className="text-2xl font-display font-extrabold text-brand-text mt-1">
-                      394,200
-                    </div>
-                    <div className="text-xs text-blue-800 dark:text-brand-glow font-mono mt-1">
-                      +18.4% vs last cycle
-                    </div>
-                  </div>
-
-                  <div className="p-4 rounded-xl bg-brand-bg-soft/70 border border-amber-500/30">
-                    <div className="text-xs text-brand-muted font-medium">Estimated Accrual</div>
-                    <div className="text-2xl font-display font-extrabold text-amber-900 dark:text-amber-400 font-mono mt-1">
-                      $689.85 USD
-                    </div>
-                    <div className="text-xs text-amber-900 dark:text-amber-400 font-mono mt-1">
-                      $1.75 CPM avg
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-brand-bg-soft/50 border border-brand-border/60 flex items-center justify-between text-xs text-brand-muted">
-                  <span>Ledger Status: Verified double-entry audit</span>
-                  <span className="text-emerald-800 dark:text-emerald-400 font-medium font-mono">
-                    Eligible for next payout
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Content Right */}
-          <div className="lg:col-span-5 space-y-5 text-left">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-              Step 03 — Creator Monetization
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-display font-extrabold tracking-tight text-brand-text leading-tight">
-              Turn views into earnings
-            </h2>
-            <p className="text-base text-brand-muted leading-relaxed">
-              Earn reliable revenue whenever qualified audiences stream your video content. With verified CPM calculations and transparent ledger records, you know exactly what your work earns.
-            </p>
-            <ul className="space-y-2.5 text-sm text-brand-muted">
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0" />
-                <span>Transparent payouts based on qualified stream views</span>
+            <ul className="space-y-3 pt-1 text-xs sm:text-sm text-brand-text font-medium">
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>Instant playback with zero buffering across 300+ edge CDN locations</span>
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0" />
-                <span>No minimum subscriber or follower requirements</span>
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>Built-in speed controls, playback scrubber, and multi-track audio</span>
               </li>
-              <li className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0" />
-                <span>Audited double-entry ledger balance updates</span>
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>Responsive embed codes ready for Discord, blogs, and creator communities</span>
               </li>
             </ul>
+
             <div className="pt-2">
-              <a href="#calculator">
-                <Button variant="primary" size="lg" className="rounded-full px-6 group font-semibold shadow-sm">
-                  <span>Calculate Your Earnings</span>
-                  <ArrowRight className="h-4 w-4 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
+              <a href="#how-it-works">
+                <Button variant="secondary" size="md" className="rounded-full border border-brand-border">
+                  <span>Explore Player Capabilities</span>
+                  <ArrowRight className="h-4 w-4 ml-1.5" />
                 </Button>
               </a>
+            </div>
+          </div>
+
+          {/* Visual: Phone Video Player Mockup */}
+          <div className="lg:col-span-7 relative group order-1 lg:order-2 flex justify-center">
+            {/* Ambient Glow */}
+            <div className="absolute inset-8 bg-gradient-to-tr from-brand-glow/20 to-brand-primary/20 blur-3xl rounded-full -z-10 opacity-70 group-hover:opacity-100 transition-opacity" />
+
+            <div className="relative w-full max-w-md rounded-2xl p-2 bg-brand-surface/80 border border-brand-border shadow-xl backdrop-blur-sm overflow-hidden">
+              <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-brand-bg-soft">
+                <Image
+                  src="/images/mobile-player.jpg"
+                  alt="Playxim 4K Video Player on iPhone"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 450px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-102"
+                />
+              </div>
+
+              {/* Floating Stream Tag */}
+              <div className="absolute bottom-5 right-5 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-brand-surface/95 border border-brand-border shadow-lg text-xs font-semibold text-brand-text">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>1080p 60fps Active Stream</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ============================================================
+            ROW 3: Creator Monetization (Phone on Left | Copy on Right)
+           ============================================================ */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Visual: Phone Wallet Mockup */}
+          <div className="lg:col-span-7 relative group flex justify-center">
+            {/* Ambient Glow */}
+            <div className="absolute inset-8 bg-gradient-to-tr from-amber-500/20 to-emerald-500/20 blur-3xl rounded-full -z-10 opacity-70 group-hover:opacity-100 transition-opacity" />
+
+            <div className="relative w-full max-w-md rounded-2xl p-2 bg-brand-surface/80 border border-brand-border shadow-xl backdrop-blur-sm overflow-hidden">
+              <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-brand-bg-soft">
+                <Image
+                  src="/images/mobile-wallet.jpg"
+                  alt="Playxim Creator Wallet & Monetization on iPhone"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 450px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-102"
+                />
+              </div>
+
+              {/* Floating Earnings Tag */}
+              <div className="absolute top-5 left-5 hidden sm:flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-brand-surface/95 border border-amber-500/30 shadow-lg text-xs font-bold text-amber-600 dark:text-amber-400">
+                <DollarSign className="h-4 w-4" />
+                <span>$4.20 Effective CPM</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Copy: Monetization */}
+          <div className="lg:col-span-5 space-y-5 text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+              <DollarSign className="h-3.5 w-3.5" />
+              <span>Transparent Creator Economics</span>
+            </div>
+
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-brand-text tracking-tight leading-tight">
+              Turn Your Audience Views into Real Income
+            </h3>
+
+            <p className="text-sm sm:text-base text-brand-muted leading-relaxed font-normal">
+              Earn competitive CPM rates on every file view and stream. With automated daily payouts and zero withdrawal commission fees, your creative work generates steady, predictable revenue.
+            </p>
+
+            <ul className="space-y-3 pt-1 text-xs sm:text-sm text-brand-text font-medium">
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>Up to $4.00+ CPM rates tailored to your traffic geography</span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>Daily automated withdrawals to Bank Account, PayPal, UPI, or Crypto</span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                <span>Live real-time ledger tracking views, completion rates, and balance</span>
+              </li>
+            </ul>
+
+            <div className="pt-2">
+              <Link href="/auth/sign-up">
+                <Button variant="primary" size="md" className="rounded-full shadow-md shadow-brand-primary/20">
+                  <span>Start Earning Today</span>
+                  <ArrowRight className="h-4 w-4 ml-1.5" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

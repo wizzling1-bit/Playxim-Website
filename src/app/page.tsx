@@ -3,18 +3,14 @@
 import * as React from "react";
 import { MarketingNavbar } from "@/components/marketing/navbar";
 import { MarketingHero } from "@/components/marketing/hero";
-import { ProductStorySection } from "@/components/marketing/product-story";
-import { CreatorDashboardShowcase } from "@/components/marketing/creator-dashboard-showcase";
-import { ThreeEnginesSection } from "@/components/marketing/three-engines";
+import { SupportedFormatsStrip } from "@/components/marketing/supported-formats";
 import { CreatorWorkflowsSection } from "@/components/marketing/creator-workflows";
-import { HowItWorksSection } from "@/components/marketing/how-it-works";
-import { CreatorEconomicsSection } from "@/components/marketing/creator-economics";
-import { ControlledSharingSection } from "@/components/marketing/controlled-sharing";
-import { CreatorProfileShowcase } from "@/components/marketing/creator-profile-showcase";
 import { ComparisonTableSection } from "@/components/marketing/comparison-table";
-import { AnalyticsShowcaseSection } from "@/components/marketing/analytics-showcase";
-import { InfrastructureTrustSection } from "@/components/marketing/infrastructure-trust";
+import { HighlightBannersSection } from "@/components/marketing/highlight-banners";
+import { HowItWorksSection } from "@/components/marketing/how-it-works";
+import { CreatorPlansSection } from "@/components/marketing/creator-plans";
 import { FaqSection } from "@/components/marketing/faq-section";
+import { MobileAppBannerSection } from "@/components/marketing/mobile-app-banner";
 import { FinalCtaSection } from "@/components/marketing/final-cta";
 import { MarketingFooter } from "@/components/marketing/footer";
 
@@ -60,50 +56,38 @@ export default function MarketingHomePage() {
       <MarketingNavbar />
 
       <main className="flex-1">
-        {/* 2. Hero Section + Interactive Product Visual + Value Strip */}
+        {/* 2. Hero Section: DiskWala structure with laptop & phone mockups, badges, app buttons */}
         <MarketingHero />
 
-        {/* 3. Product Story: Creator Command Center Showcase */}
-        <ProductStorySection />
+        {/* 3. Supported Formats Ribbon */}
+        <SupportedFormatsStrip />
 
-        {/* 4. Creator Dashboard Showcase: Alternating Storytelling */}
-        <CreatorDashboardShowcase />
-
-        {/* 5. Three Core Engines: Storage, Delivery, Monetization */}
-        <ThreeEnginesSection />
-
-        {/* 6. Multiple Creator Workflows: Ingestion, Sharing, Revenue */}
+        {/* 4. Core Features: 3 Alternating rows with Laptop and Phone mockups */}
         <CreatorWorkflowsSection />
 
-        {/* 7. How Playxim Works: 4 Sequential Steps */}
-        <HowItWorksSection />
-
-        {/* 8. Creator Economics: Interactive Earnings Calculator */}
-        <CreatorEconomicsSection />
-
-        {/* 9. Controlled Sharing: Live Link Matrix & Security States */}
-        <ControlledSharingSection />
-
-        {/* 10. Creator Profile: Public Verified Creator Hub */}
-        <CreatorProfileShowcase />
-
-        {/* 11. Product Differentiation: Comparison Table */}
+        {/* 5. Direct Product Comparison Matrix: Playxim vs Google Drive, Terabox, Mega */}
         <ComparisonTableSection />
 
-        {/* 12. Intelligence & Analytics: Metric Cards & Activity Stream */}
-        <AnalyticsShowcaseSection />
+        {/* 6. Two Highlight Value Banners: Unlimited Storage & $4.00 CPM Monetization */}
+        <HighlightBannersSection />
 
-        {/* 13. Infrastructure & Reliability: Cloud Primitives */}
-        <InfrastructureTrustSection />
+        {/* 7. How Playxim Works: 4 Connected circular step nodes */}
+        <HowItWorksSection />
 
-        {/* 14. Frequently Asked Questions: Accordion */}
+        {/* 8. Creator Plans & Pricing: Free Creator vs Pro Partner */}
+        <CreatorPlansSection />
+
+        {/* 9. Frequently Asked Questions: Clean interactive accordion */}
         <FaqSection />
 
-        {/* 15. Final Immersive CTA */}
+        {/* 10. Download Playxim Mobile App Banner */}
+        <MobileAppBannerSection />
+
+        {/* 11. Final Conversion CTA Banner */}
         <FinalCtaSection />
       </main>
 
-      {/* 16. Marketing Footer */}
+      {/* 12. Structured Marketing Footer */}
       <MarketingFooter />
     </div>
   );
