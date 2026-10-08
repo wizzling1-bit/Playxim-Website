@@ -8,23 +8,23 @@ const badgeVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-brand-primary/10 text-brand-primary dark:bg-brand-primary/20 dark:text-brand-glow border border-brand-primary/20",
+          "bg-blue-50 text-blue-900 border-blue-200 dark:bg-brand-primary/20 dark:text-brand-glow dark:border-brand-primary/20",
         secondary:
           "bg-brand-bg-soft text-brand-muted border border-brand-border",
         outline:
           "border border-brand-border text-brand-muted",
         success:
-          "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20",
+          "bg-emerald-50 text-emerald-800 border-emerald-200 dark:bg-emerald-500/15 dark:text-emerald-400 dark:border-emerald-500/20",
         warning:
-          "bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20",
+          "bg-amber-50 text-amber-900 border-amber-200 dark:bg-amber-500/15 dark:text-amber-300 dark:border-amber-500/20",
         destructive:
-          "bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20",
+          "bg-red-50 text-red-800 border-red-200 dark:bg-red-500/15 dark:text-red-400 dark:border-red-500/20",
         glow:
-          "bg-brand-primary/15 text-brand-primary dark:text-brand-glow border border-brand-primary/30 shadow-[0_0_12px_rgba(30,107,255,0.25)]",
+          "bg-blue-50 text-blue-900 border-blue-200 dark:bg-brand-primary/20 dark:text-brand-glow dark:border-brand-primary/30 shadow-sm",
         glass:
           "glass-panel text-brand-text shadow-none backdrop-blur-md",
         premium:
-          "bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/30",
+          "bg-amber-50 text-amber-900 border-amber-200 dark:bg-amber-500/15 dark:text-amber-300 dark:border-amber-500/30",
       },
     },
     defaultVariants: {

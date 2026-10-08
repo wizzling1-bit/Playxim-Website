@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function CtaBanner({
   title = "Ready to own your content infrastructure?",
-  subtitle = "Join creators worldwide uploading without storage caps and earning from qualified video streams.",
+  subtitle = "Join creators around the world uploading without limits and getting paid for their videos.",
 }: {
   title?: string;
   subtitle?: string;

@@ -1,16 +1,19 @@
+"use client";
+
+import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/layout-primitives";
 
 export function MarketingFooter() {
   return (
-    <footer className="border-t border-brand-border bg-brand-surface text-brand-muted text-sm pt-16 pb-12 transition-colors">
+    <footer className="border-t border-brand-border bg-brand-surface text-brand-muted text-xs sm:text-sm pt-16 pb-12 transition-colors">
       <Container>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12 text-left">
           {/* Brand info */}
           <div className="col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="relative h-8 w-8 overflow-hidden rounded-lg border border-brand-border bg-brand-surface shadow-sm">
+              <div className="relative h-8 w-8 overflow-hidden rounded-lg border border-brand-border bg-brand-surface shadow-xs">
                 <Image
                   src="/logo.webp"
                   alt="Playxim Logo"
@@ -23,10 +26,10 @@ export function MarketingFooter() {
               </span>
             </Link>
             <p className="text-xs text-brand-muted max-w-sm leading-relaxed">
-              Playxim is a creator-first platform providing unlimited-by-policy content storage,
-              zero-compression file delivery, and application video streaming monetization.
+              Playxim gives creators unlimited file storage, fast downloads with zero compression,
+              and video monetization.
             </p>
-            <div className="flex items-center gap-2 text-xs font-mono text-emerald-600 dark:text-emerald-400">
+            <div className="flex items-center gap-2 text-xs font-mono text-emerald-800 dark:text-emerald-400">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -37,9 +40,9 @@ export function MarketingFooter() {
 
           {/* Product links */}
           <div className="space-y-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-brand-text">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-brand-text">
               Product
-            </h4>
+            </h3>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/features" className="hover:text-brand-text transition-colors">
@@ -47,18 +50,18 @@ export function MarketingFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/why-playxim" className="hover:text-brand-text transition-colors">
-                  Why Playxim
-                </Link>
+                <a href="#how-it-works" className="hover:text-brand-text transition-colors">
+                  How It Works
+                </a>
               </li>
               <li>
                 <Link href="/pricing" className="hover:text-brand-text transition-colors">
-                  Pricing & Limits
+                  Pricing
                 </Link>
               </li>
               <li>
-                <Link href="/download" className="hover:text-brand-text transition-colors">
-                  Consumer Apps
+                <Link href="/dashboard" className="hover:text-brand-text transition-colors">
+                  Dashboard
                 </Link>
               </li>
             </ul>
@@ -66,9 +69,9 @@ export function MarketingFooter() {
 
           {/* Creators links */}
           <div className="space-y-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-brand-text">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-brand-text">
               Creators
-            </h4>
+            </h3>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/creator" className="hover:text-brand-text transition-colors">
@@ -76,37 +79,37 @@ export function MarketingFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/creator#monetization" className="hover:text-brand-text transition-colors">
-                  View Earnings Math
+                <a href="#calculator" className="hover:text-brand-text transition-colors">
+                  Earnings
+                </a>
+              </li>
+              <li>
+                <Link href="/creator" className="hover:text-brand-text transition-colors">
+                  Creator Profile
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="hover:text-brand-text transition-colors">
-                  Creator FAQ
-                </Link>
-              </li>
-              <li>
-                <Link href="/auth/sign-up" className="hover:text-brand-text transition-colors">
-                  Create Account
+                <Link href="/dashboard/analytics" className="hover:text-brand-text transition-colors">
+                  Analytics
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Legal links */}
+          {/* Resources & Legal links */}
           <div className="space-y-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-brand-text">
-              Legal & Trust
-            </h4>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-brand-text">
+              Legal
+            </h3>
             <ul className="space-y-2 text-xs">
-              <li>
-                <Link href="/terms" className="hover:text-brand-text transition-colors">
-                  Terms of Service
-                </Link>
-              </li>
               <li>
                 <Link href="/privacy" className="hover:text-brand-text transition-colors">
                   Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-brand-text transition-colors">
+                  Terms of Service
                 </Link>
               </li>
               <li>
@@ -134,7 +137,7 @@ export function MarketingFooter() {
           <p className="flex items-center gap-4">
             <span>Domain: playxim.com</span>
             <span>•</span>
-            <span>Apple × Linear Precision</span>
+            <span>Creator Infrastructure</span>
           </p>
         </div>
       </Container>

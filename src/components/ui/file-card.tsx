@@ -60,9 +60,12 @@ export function FileCard({
               {getIcon()}
             </div>
             <div className="min-w-0">
-              <h4 className="text-sm font-semibold text-brand-text truncate group-hover:text-brand-primary transition-colors">
+              <h3
+                title={item.name}
+                className="text-sm font-semibold text-brand-text break-all line-clamp-2 group-hover:text-brand-primary transition-colors"
+              >
                 {item.name}
-              </h4>
+              </h3>
               <p className="text-xs text-brand-muted mt-0.5 capitalize">
                 {item.type} · {formatBytes(item.size)}
               </p>
