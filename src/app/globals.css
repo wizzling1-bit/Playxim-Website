@@ -54,23 +54,23 @@
   }
 
   .dark {
-    /* Playxim Apple x Linear Design System Tokens - Premium Dark Mode */
-    --bg: #060B18;
-    --bg-soft: #0A1226;
-    --surface: #0F1A33;
-    --surface-raised: #162347;
-    --surface-2: #162347;
-    --border: rgba(255, 255, 255, 0.08);
+    /* Playxim Luxury Obsidian Dark Mode Tokens */
+    --bg: #07090E;
+    --bg-soft: #0D121F;
+    --surface: #111728;
+    --surface-raised: #161F36;
+    --surface-2: #1C2744;
+    --border: rgba(255, 255, 255, 0.09);
     --border-subtle: rgba(255, 255, 255, 0.04);
-    --border-highlight: rgba(255, 255, 255, 0.16);
-    --text: #F2F6FF;
-    --muted: #9DACCB;
-    --primary: #1E6BFF;
-    --primary-hover: #3CC8FF;
-    --primary-text: #3CC8FF;
-    --glow: #3CC8FF;
-    --accent: #F3C77B;
-    --band: #0A1226;
+    --border-highlight: rgba(56, 189, 248, 0.28);
+    --text: #F8FAFC;
+    --muted: #94A3B8;
+    --primary: #2563EB;
+    --primary-hover: #38BDF8;
+    --primary-text: #38BDF8;
+    --glow: #38BDF8;
+    --accent: #E2B357;
+    --band: #0D121F;
 
     /* Semantic Mappings */
     --background: var(--bg);
@@ -91,9 +91,9 @@
 
     /* Shadows with Luminous Rim Occlusion */
     --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.5);
-    --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 4px 24px -2px rgba(0, 0, 0, 0.7);
-    --shadow-elevated: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 20px 48px -8px rgba(0, 0, 0, 0.85);
-    --shadow-glow: 0 0 40px -4px rgba(60, 200, 255, 0.25);
+    --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.07), 0 8px 30px -4px rgba(0, 0, 0, 0.7);
+    --shadow-elevated: 0 0 0 1px rgba(255, 255, 255, 0.09), 0 20px 48px -8px rgba(0, 0, 0, 0.85);
+    --shadow-glow: 0 0 40px -4px rgba(56, 189, 248, 0.25);
   }
 }
 

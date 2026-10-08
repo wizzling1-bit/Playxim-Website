@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Container, SectionHeader } from "@/components/ui/layout-primitives";
 import { Badge } from "@/components/ui/badge";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function HowItWorksSection() {
   const steps = [
@@ -41,58 +42,61 @@ export function HowItWorksSection() {
 
   return (
     <section id="how-it-works" className="py-20 sm:py-28 border-t border-brand-border/60 bg-transparent relative">
-      <Container className="max-w-6xl mx-auto">
-        <SectionHeader
-          badge={<Badge variant="default">Simple Workflow</Badge>}
-          title="Start Earning in 4 Simple Steps"
-          description="From initial upload to daily bank deposits in under five minutes. No complicated technical configurations."
-        />
+      <Container className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+        <ScrollReveal duration={600}>
+          <SectionHeader
+            badge={<Badge variant="default">Simple Workflow</Badge>}
+            title="Start Earning in 4 Simple Steps"
+            description="From initial upload to daily bank deposits in under five minutes. No complicated technical configurations."
+          />
+        </ScrollReveal>
 
         {/* 4 Connected Circular Steps */}
         <div className="relative mt-12 sm:mt-16">
           {/* Desktop Connecting Line */}
           <div className="hidden lg:block absolute top-12 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-brand-primary via-emerald-500 to-amber-500/80 -z-0" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
-            {steps.map((item) => (
-              <div
-                key={item.step}
-                className="flex flex-col items-center text-center p-6 rounded-2xl bg-brand-surface border border-brand-border shadow-xs hover:border-brand-primary/40 hover:-translate-y-1 transition-all duration-300 group"
-              >
-                {/* Step Circle with Icon */}
-                <div className="relative mb-5">
-                  <div
-                    className={`h-20 w-20 rounded-full border-2 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 ${item.color}`}
-                  >
-                    {item.icon}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 relative z-10">
+            {steps.map((item, idx) => (
+              <ScrollReveal key={item.step} delay={idx * 120} duration={700}>
+                <div className="flex flex-col items-center text-center p-7 rounded-2xl bg-brand-surface/90 dark:bg-[#111728]/90 border border-brand-border shadow-xs hover:border-brand-primary/40 hover:-translate-y-1 transition-all duration-300 group h-full">
+                  {/* Step Circle with Icon */}
+                  <div className="relative mb-5">
+                    <div
+                      className={`h-20 w-20 rounded-full border-2 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 ${item.color}`}
+                    >
+                      {item.icon}
+                    </div>
+                    <span className="absolute -bottom-2 -right-1 font-mono text-xs font-black bg-brand-surface dark:bg-[#161F36] text-brand-text border border-brand-border px-2 py-0.5 rounded-full shadow-xs">
+                      {item.step}
+                    </span>
                   </div>
-                  <span className="absolute -bottom-2 -right-1 font-mono text-xs font-black bg-brand-surface text-brand-text border border-brand-border px-2 py-0.5 rounded-full shadow-xs">
-                    {item.step}
-                  </span>
+
+                  {/* Title */}
+                  <h3 className="text-lg font-display font-bold text-brand-text mb-2">
+                    {item.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-brand-muted leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-lg font-display font-bold text-brand-text mb-2">
-                  {item.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-xs sm:text-sm text-brand-muted leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
 
-        <div className="mt-12 text-center">
-          <Link href="/auth/sign-up">
-            <Button size="lg" variant="primary" className="rounded-full shadow-lg shadow-brand-primary/20">
-              <span>Create Free Account Now</span>
-              <ArrowRight className="h-4 w-4 ml-1.5" />
-            </Button>
-          </Link>
-        </div>
+        <ScrollReveal delay={300} duration={600}>
+          <div className="mt-12 text-center">
+            <Link href="/auth/sign-up">
+              <Button size="lg" variant="primary" className="rounded-full shadow-lg shadow-brand-primary/20">
+                <span>Create Free Account Now</span>
+                <ArrowRight className="h-4 w-4 ml-1.5" />
+              </Button>
+            </Link>
+          </div>
+        </ScrollReveal>
       </Container>
     </section>
   );

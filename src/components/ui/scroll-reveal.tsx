@@ -5,128 +5,110 @@ import { cn } from "@/lib/utils";
 
 export interface ScrollRevealProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  animation?: "fade-up" | "fade-down" | "fade-in" | "zoom-in" | "slide-left" | "slide-right";
+  delay?: number;
   delayMs?: number;
-  durationMs?: number;
-  threshold?: number;
-  once?: boolean;
+  direction?: "up" | "down" | "left" | "right" | "none";
+  animation?: string;
+  distance?: number;
+  duration?: number;
   className?: string;
+  once?: boolean;
 }
 
 export function ScrollReveal({
   children,
-  animation = "fade-up",
-  delayMs = 0,
-  durationMs = 650,
-  threshold = 0.1,
-  once = true,
+  delay = 0,
+  delayMs,
+  direction = "up",
+  animation,
+  distance = 32,
+  duration = 750,
   className,
-  style,
+  once = true,
   ...props
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = React.useState(false);
-  const domRef = React.useRef<HTMLDivElement>(null);
+  const elementRef = React.useRef<HTMLDivElement>(null);
+
+  const effectiveDelay = delayMs !== undefined ? delayMs : delay;
+  const effectiveDirection = animation?.includes("down")
+    ? "down"
+    : animation?.includes("left")
+    ? "left"
+    : animation?.includes("right")
+    ? "right"
+    : direction;
 
   React.useEffect(() => {
-    // If user prefers reduced motion, show immediately without animation
+    // Respect reduced motion
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setIsVisible(true);
       return;
     }
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            if (once && domRef.current) {
-              observer.unobserve(domRef.current);
-            }
-          } else if (!once) {
-            setIsVisible(false);
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          if (once && elementRef.current) {
+            observer.unobserve(entry.target);
           }
-        });
+        } else if (!once) {
+          setIsVisible(false);
+        }
       },
       {
-        threshold,
+        threshold: 0.08,
         rootMargin: "0px 0px -40px 0px",
       }
     );
 
-    const currentElem = domRef.current;
-    if (currentElem) {
-      observer.observe(currentElem);
+    const currentEl = elementRef.current;
+    if (currentEl) {
+      observer.observe(currentEl);
     }
 
     return () => {
-      if (currentElem) {
-        observer.unobserve(currentElem);
+      if (currentEl) {
+        observer.unobserve(currentEl);
       }
     };
-  }, [threshold, once]);
+  }, [once]);
 
-  // Initial vs target transforms per animation style
-  const getTransformStyles = () => {
-    if (isVisible) {
-      return {
-        opacity: 1,
-        transform: "none",
-      };
-    }
-
-    switch (animation) {
-      case "fade-up":
-        return {
-          opacity: 0,
-          transform: "translateY(24px)",
-        };
-      case "fade-down":
-        return {
-          opacity: 0,
-          transform: "translateY(-24px)",
-        };
-      case "zoom-in":
-        return {
-          opacity: 0,
-          transform: "scale(0.95)",
-        };
-      case "slide-left":
-        return {
-          opacity: 0,
-          transform: "translateX(24px)",
-        };
-      case "slide-right":
-        return {
-          opacity: 0,
-          transform: "translateX(-24px)",
-        };
-      case "fade-in":
+  const getTransform = () => {
+    if (isVisible) return "translate3d(0, 0, 0) scale(1)";
+    switch (effectiveDirection) {
+      case "up":
+        return `translate3d(0, ${distance}px, 0) scale(0.99)`;
+      case "down":
+        return `translate3d(0, -${distance}px, 0) scale(0.99)`;
+      case "left":
+        return `translate3d(${distance}px, 0, 0) scale(0.99)`;
+      case "right":
+        return `translate3d(-${distance}px, 0, 0) scale(0.99)`;
       default:
-        return {
-          opacity: 0,
-          transform: "none",
-        };
+        return "translate3d(0, 0, 0) scale(0.99)";
     }
-  };
-
-  const dynamicStyles: React.CSSProperties = {
-    ...getTransformStyles(),
-    transitionProperty: "opacity, transform",
-    transitionDuration: `${durationMs}ms`,
-    transitionDelay: `${delayMs}ms`,
-    transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)", // Apple-like decelerated spring
-    willChange: isVisible ? "auto" : "opacity, transform",
-    ...style,
   };
 
   return (
     <div
-      ref={domRef}
+      ref={elementRef}
+      style={{
+        transform: getTransform(),
+        opacity: isVisible ? 1 : 0,
+        transitionProperty: "opacity, transform",
+        transitionDuration: `${duration}ms`,
+        transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+        transitionDelay: `${effectiveDelay}ms`,
+        willChange: "opacity, transform",
+      }}
       className={cn("w-full", className)}
-      style={dynamicStyles}
       {...props}
     >
       {children}
     </div>
   );
 }
+
+export default ScrollReveal;

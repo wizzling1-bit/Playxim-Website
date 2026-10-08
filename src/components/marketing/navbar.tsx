@@ -75,13 +75,18 @@ export function MarketingNavbar() {
     pathname === "/features" || pathname === "/why-playxim" || pathname === "/download";
 
   return (
-    <div className="sticky top-3.5 sm:top-5 z-50 w-full px-3 sm:px-6 pointer-events-none transition-all duration-300">
+    <div
+      className={cn(
+        "sticky top-0 z-50 w-full pointer-events-none transition-all duration-400",
+        isScrolled ? "pt-3 sm:pt-4 px-3 sm:px-6" : "pt-0 px-0"
+      )}
+    >
       <header
         className={cn(
-          "pointer-events-auto mx-auto max-w-5xl rounded-full border transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          "pointer-events-auto mx-auto transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]",
           isScrolled
-            ? "bg-brand-surface/92 backdrop-blur-2xl border-brand-border/90 shadow-lg shadow-black/5 dark:shadow-black/35 py-1.5 px-3.5 sm:px-5 scale-[0.99]"
-            : "bg-brand-surface/75 backdrop-blur-xl border-brand-border/60 shadow-sm py-2 px-4 sm:px-6"
+            ? "max-w-5xl rounded-full bg-brand-surface/92 dark:bg-[#111728]/92 backdrop-blur-2xl border border-brand-border/90 shadow-xl shadow-black/5 dark:shadow-black/40 py-1.5 px-4 sm:px-6 scale-[0.99]"
+            : "max-w-7xl border-b border-brand-border/40 bg-brand-bg/60 dark:bg-[#07090E]/60 backdrop-blur-md py-3.5 sm:py-4 px-4 sm:px-8 lg:px-10 rounded-none shadow-none"
         )}
       >
         <div className="flex h-10 sm:h-11 items-center justify-between gap-3">

@@ -7,8 +7,8 @@ import { Container } from "@/components/ui/layout-primitives";
 
 export function MarketingFooter() {
   return (
-    <footer className="border-t border-brand-border bg-brand-surface text-brand-muted text-xs sm:text-sm pt-16 pb-12 transition-colors">
-      <Container>
+    <footer className="border-t border-brand-border bg-brand-surface dark:bg-[#07090E] text-brand-muted text-xs sm:text-sm pt-16 pb-12 transition-colors">
+      <Container className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12 text-left">
           {/* Brand info */}
           <div className="col-span-2 space-y-4">
@@ -26,8 +26,7 @@ export function MarketingFooter() {
               </span>
             </Link>
             <p className="text-xs text-brand-muted max-w-sm leading-relaxed">
-              Playxim gives creators unlimited file storage, fast downloads with zero compression,
-              and video monetization.
+              Upload videos and files without limits. Get instant share links, stream in 4K or download via web and mobile app, and earn $1.00 for every 1,000 views.
             </p>
             <div className="flex items-center gap-2 text-xs font-mono text-emerald-800 dark:text-emerald-400">
               <span className="relative flex h-2 w-2">
@@ -45,9 +44,9 @@ export function MarketingFooter() {
             </h3>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/features" className="hover:text-brand-text transition-colors">
+                <a href="#features" className="hover:text-brand-text transition-colors">
                   Features
-                </Link>
+                </a>
               </li>
               <li>
                 <a href="#how-it-works" className="hover:text-brand-text transition-colors">
@@ -60,9 +59,15 @@ export function MarketingFooter() {
                 </a>
               </li>
               <li>
-                <Link href="/dashboard" className="hover:text-brand-text transition-colors">
-                  Dashboard
-                </Link>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.playxim.app&pcampaignid=web_share"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-text transition-colors inline-flex items-center gap-1 text-brand-primary"
+                >
+                  <span>Google Play App</span>
+                  <span className="text-[10px]">↗</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -70,27 +75,27 @@ export function MarketingFooter() {
           {/* Creators links */}
           <div className="space-y-3">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-brand-text">
-              Creators
+              Platform
             </h3>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/creator" className="hover:text-brand-text transition-colors">
-                  Creator Program
+                <Link href="/auth/sign-up" className="hover:text-brand-text transition-colors">
+                  Create Account
                 </Link>
               </li>
               <li>
-                <a href="#calculator" className="hover:text-brand-text transition-colors">
-                  Earnings
+                <a href="#comparison" className="hover:text-brand-text transition-colors">
+                  Why Playxim
                 </a>
               </li>
               <li>
-                <Link href="/creator" className="hover:text-brand-text transition-colors">
-                  Creator Profile
-                </Link>
+                <a href="#faq" className="hover:text-brand-text transition-colors">
+                  FAQ & Rules
+                </a>
               </li>
               <li>
-                <Link href="/dashboard/analytics" className="hover:text-brand-text transition-colors">
-                  Analytics
+                <Link href="/dashboard" className="hover:text-brand-text transition-colors">
+                  Dashboard
                 </Link>
               </li>
             </ul>
@@ -137,7 +142,7 @@ export function MarketingFooter() {
           <p className="flex items-center gap-4">
             <span>Domain: playxim.com</span>
             <span>•</span>
-            <span>Creator Infrastructure</span>
+            <span>Unlimited Cloud & Stream Platform</span>
           </p>
         </div>
       </Container>

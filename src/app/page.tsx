@@ -14,7 +14,7 @@ import { FinalCtaSection } from "@/components/marketing/final-cta";
 import { MarketingFooter } from "@/components/marketing/footer";
 
 export default function MarketingHomePage() {
-  // Smooth scroll initialization with Lenis
+  // Enhanced smooth scroll initialization with Lenis
   React.useEffect(() => {
     // Respect user's reduced-motion preference
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -27,11 +27,13 @@ export default function MarketingHomePage() {
     import("lenis").then((LenisModule) => {
       const Lenis = LenisModule.default;
       lenisInstance = new Lenis({
-        duration: 1.1,
+        duration: 1.35,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         orientation: "vertical",
         gestureOrientation: "vertical",
         smoothWheel: true,
+        wheelMultiplier: 1.1,
+        touchMultiplier: 1.6,
       });
 
       function raf(time: number) {
@@ -39,6 +41,29 @@ export default function MarketingHomePage() {
         animationFrameId = requestAnimationFrame(raf);
       }
       animationFrameId = requestAnimationFrame(raf);
+
+      // Smooth anchor scroll interception for silky navigation jumps
+      const handleAnchorClick = (e: MouseEvent) => {
+        const target = (e.target as HTMLElement)?.closest("a");
+        if (!target) return;
+        const href = target.getAttribute("href");
+        if (href && href.startsWith("#") && href.length > 1) {
+          const targetElement = document.querySelector(href);
+          if (targetElement) {
+            e.preventDefault();
+            lenisInstance.scrollTo(targetElement, {
+              offset: -75,
+              duration: 1.2,
+            });
+          }
+        }
+      };
+
+      document.addEventListener("click", handleAnchorClick);
+
+      return () => {
+        document.removeEventListener("click", handleAnchorClick);
+      };
     });
 
     return () => {
@@ -51,17 +76,17 @@ export default function MarketingHomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-transparent text-brand-text selection:bg-brand-primary selection:text-white transition-colors duration-300">
-      {/* 1. Floating Capsule Navigation */}
+      {/* 1. Header: Wide at top, animated floating capsule when scrolling */}
       <MarketingNavbar />
 
       <main className="flex-1">
-        {/* 2. Hero Section: 3D Floating Mockup, badges, and $1 per 1K views */}
+        {/* 2. Hero Section: 3D Floating Hardware with background removed, store badges, and $1 per 1K views */}
         <MarketingHero />
 
         {/* 3. Supported Formats Ribbon */}
         <SupportedFormatsStrip />
 
-        {/* 4. Core Features: 3 Alternating rows with Laptop and Phone mockups */}
+        {/* 4. Core Features: 3 Alternating rows with isolated 3D hardware elements */}
         <CreatorWorkflowsSection />
 
         {/* 5. Direct Product Comparison Matrix: Playxim vs Google Drive, Terabox, Mega */}
@@ -76,7 +101,7 @@ export default function MarketingHomePage() {
         {/* 8. Frequently Asked Questions: Clean interactive accordion */}
         <FaqSection />
 
-        {/* 9. Download Playxim Mobile App Banner */}
+        {/* 9. Download Playxim Mobile App Banner (Live Play Store Link) */}
         <MobileAppBannerSection />
 
         {/* 10. Final Conversion CTA Banner */}
