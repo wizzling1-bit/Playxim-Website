@@ -4,8 +4,11 @@ import * as React from "react";
 import { MarketingNavbar } from "@/components/marketing/navbar";
 import { MarketingHero } from "@/components/marketing/hero";
 import { SupportedFormatsStrip } from "@/components/marketing/supported-formats";
+import { UploadMethodsSection } from "@/components/marketing/upload-methods";
 import { CreatorWorkflowsSection } from "@/components/marketing/creator-workflows";
 import { ComparisonTableSection } from "@/components/marketing/comparison-table";
+import { CreatorAudienceCardsSection } from "@/components/marketing/creator-audience-cards";
+import { EarningsCalculatorSection } from "@/components/marketing/earnings-calculator";
 import { HighlightBannersSection } from "@/components/marketing/highlight-banners";
 import { HowItWorksSection } from "@/components/marketing/how-it-works";
 import { FaqSection } from "@/components/marketing/faq-section";
@@ -81,32 +84,41 @@ export default function MarketingHomePage() {
         {/* 2. Hero Section: 3D Floating Hardware with background removed, store badges, and $1 per 1K views */}
         <MarketingHero />
 
-        {/* 3. Supported Formats Ribbon */}
+        {/* 3. Supported Formats Ribbon: Upload Any File Type */}
         <SupportedFormatsStrip />
 
-        {/* 4. Core Features: 3 Alternating rows with isolated 3D hardware elements */}
+        {/* 4. 3 Simple Ways to Upload: Web Dashboard, Telegram Bot, Link Converter + Community */}
+        <UploadMethodsSection />
+
+        {/* 5. Core Features: 3 Alternating rows with isolated 3D hardware elements */}
         <CreatorWorkflowsSection />
 
-        {/* 5. Direct Product Comparison Matrix: Playxim vs Google Drive, Terabox, Mega */}
+        {/* 6. Direct Product Comparison Matrix: Playxim vs Google Drive, Terabox, Mega */}
         <ComparisonTableSection />
 
-        {/* 6. Two Highlight Value Banners: Unlimited Storage & $1.00 per 1K Views Monetization */}
+        {/* 7. Platform Benefits: For Creators vs For Viewers dual cards */}
+        <CreatorAudienceCardsSection />
+
+        {/* 8. Interactive Earnings Calculator ($1.00 / 1K views slider + UPI, Bank, PayPal, Crypto methods) */}
+        <EarningsCalculatorSection />
+
+        {/* 9. Two Highlight Value Banners: Unlimited Storage & $1.00 per 1K Views Monetization */}
         <HighlightBannersSection />
 
-        {/* 7. How Playxim Works: 4 Connected circular step nodes */}
+        {/* 10. How Playxim Works: 4 Connected circular step nodes */}
         <HowItWorksSection />
 
-        {/* 8. Frequently Asked Questions: Clean interactive accordion */}
-        <FaqSection />
-
-        {/* 9. Download Playxim Mobile App Banner (Live Play Store Link) */}
+        {/* 11. Download Playxim Mobile App Banner (Live Play Store Link) */}
         <MobileAppBannerSection />
 
-        {/* 10. Final Conversion CTA Banner */}
+        {/* 12. Frequently Asked Questions: Clean interactive accordion + 24/7 Support */}
+        <FaqSection />
+
+        {/* 13. Final Conversion CTA Banner */}
         <FinalCtaSection />
       </main>
 
-      {/* 11. Structured Marketing Footer */}
+      {/* 14. Structured Marketing Footer */}
       <MarketingFooter />
     </div>
   );

@@ -12,29 +12,29 @@ export function HowItWorksSection() {
   const steps = [
     {
       step: "01",
-      title: "Upload Files",
-      description: "Drop your 4K videos, heavy archives, or documents to your secure cloud bucket.",
+      title: "Upload Your File",
+      description: "Upload any video, APK, or document via web dashboard or our Telegram bot.",
       icon: <UploadCloud className="h-6 w-6 text-brand-primary" />,
       color: "border-brand-primary/40 bg-brand-primary/10 text-brand-primary",
     },
     {
       step: "02",
-      title: "Get Share Link",
-      description: "Generate instant high-speed sharing links with optional password protection.",
+      title: "Get Instant Link",
+      description: "Get a clean, direct share link ready to send with a single click.",
       icon: <LinkIcon className="h-6 w-6 text-brand-glow" />,
       color: "border-blue-500/40 bg-blue-500/10 text-brand-glow",
     },
     {
       step: "03",
-      title: "Stream & Download",
-      description: "Audience streams 4K video instantly or downloads full files via web & mobile app.",
+      title: "Share with Viewers",
+      description: "Post your link on Telegram channels, WhatsApp groups, YouTube, or forums.",
       icon: <Share2 className="h-6 w-6 text-emerald-500" />,
       color: "border-emerald-500/40 bg-emerald-500/10 text-emerald-500",
     },
     {
       step: "04",
-      title: "Earn $1.00 / 1K Views",
-      description: "Collect a flat $1.00 for every 1,000 views and cash out daily with zero fees.",
+      title: "Earn & Cash Out",
+      description: "Earn $1.00 for every 1,000 views and withdraw daily to UPI, Bank, or Crypto.",
       icon: <DollarSign className="h-6 w-6 text-amber-500" />,
       color: "border-amber-500/40 bg-amber-500/10 text-amber-500",
     },
@@ -47,7 +47,7 @@ export function HowItWorksSection() {
           <SectionHeader
             badge={<Badge variant="default">Simple Workflow</Badge>}
             title="Start Earning in 4 Simple Steps"
-            description="From initial upload to daily bank deposits in under five minutes. No complicated technical configurations."
+            description="From uploading your first file to receiving your first payout in under 5 minutes. No complicated setup."
           />
         </ScrollReveal>
 

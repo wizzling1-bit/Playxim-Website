@@ -9,58 +9,60 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 export function ComparisonTableSection() {
   const comparisonData = [
     {
-      feature: "Cloud Storage Space",
-      playxim: "Unlimited (No Caps)",
-      gdrive: "15 GB Free",
+      feature: "Free Cloud Storage",
+      playxim: "Unlimited (100% Free)",
+      gdrive: "15 GB Free limit",
       terabox: "1 TB (Ad-heavy)",
-      mega: "20 GB Free",
+      mega: "20 GB Free limit",
       playximCheck: true,
     },
     {
-      feature: "Creator Monetization ($/views)",
-      playxim: "Yes ($1.00 per 1,000 Views)",
-      gdrive: "No Monetization",
-      terabox: "No Monetization",
-      mega: "No Monetization",
+      feature: "Creator Monetization",
+      playxim: "Earn $1.00 / 1,000 Views",
+      gdrive: "No ($0)",
+      terabox: "No ($0)",
+      mega: "No ($0)",
       playximCheck: true,
       othersCross: true,
     },
     {
-      feature: "Maximum File Upload Size",
-      playxim: "50 GB+ per file",
-      gdrive: "15 GB limit",
-      terabox: "4 GB limit",
-      mega: "5 GB limit",
-      playximCheck: true,
-    },
-    {
-      feature: "4K Video Streaming Speed",
-      playxim: "Instant 60fps (Adaptive)",
-      gdrive: "Buffering & Processing Delay",
-      terabox: "Aggressive Ads & Slow Buffering",
-      mega: "Slow Browser Player",
-      playximCheck: true,
-    },
-    {
-      feature: "Download Bandwidth Limits",
-      playxim: "Unlimited (Zero Throttling)",
-      gdrive: "Strict 24h Quota Caps",
-      terabox: "Severely Throttled (50 KB/s)",
-      mega: "5 GB per 6 hours cap",
-      playximCheck: true,
-    },
-    {
-      feature: "Telegram & API Ingestion",
-      playxim: "Instant Bot & Free API",
-      gdrive: "Complex Paid Cloud Console",
-      terabox: "Not Supported",
-      mega: "Restricted",
+      feature: "Viewer Sign-Up Needed",
+      playxim: "No (Watch & download directly)",
+      gdrive: "Requires Google login",
+      terabox: "Forces account & app install",
+      mega: "Account required",
       playximCheck: true,
       othersCross: false,
     },
     {
-      feature: "Automated Daily Payouts",
-      playxim: "Bank, PayPal, UPI, USDT",
+      feature: "Telegram Upload Bot",
+      playxim: "Yes (@PlayximBot uploader)",
+      gdrive: "No",
+      terabox: "No",
+      mega: "No",
+      playximCheck: true,
+      othersCross: true,
+    },
+    {
+      feature: "Download Speed Limits",
+      playxim: "Super Fast (No speed caps)",
+      gdrive: "24-hour quota limits",
+      terabox: "Throttled to 50 KB/s",
+      mega: "Daily bandwidth caps",
+      playximCheck: true,
+    },
+    {
+      feature: "Daily Payout Methods",
+      playxim: "UPI, Bank, PayPal & Crypto",
+      gdrive: "None",
+      terabox: "None",
+      mega: "None",
+      playximCheck: true,
+      othersCross: true,
+    },
+    {
+      feature: "Minimum Withdrawal",
+      playxim: "Only $5.00 (Daily cashout)",
       gdrive: "N/A",
       terabox: "N/A",
       mega: "N/A",
@@ -74,9 +76,9 @@ export function ComparisonTableSection() {
       <Container className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <ScrollReveal duration={600}>
           <SectionHeader
-            badge={<Badge variant="secondary">Direct Comparison</Badge>}
+            badge={<Badge variant="secondary">Platform Comparison</Badge>}
             title="Why Playxim is the Better Choice"
-            description="See how Playxim outclasses conventional cloud storage and file sharing platforms designed in the pre-creator era."
+            description="See how Playxim gives you unlimited free storage and daily creator earnings, while conventional platforms limit your space and pay you nothing."
           />
 
           <div className="rounded-2xl border border-slate-200/80 dark:border-brand-border bg-white dark:bg-[#111728]/95 shadow-xl shadow-slate-900/5 dark:shadow-black/40 overflow-hidden text-left mt-8">

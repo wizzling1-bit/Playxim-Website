@@ -22,9 +22,9 @@ export function CreatorWorkflowsSection() {
       <Container className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <ScrollReveal duration={600}>
           <SectionHeader
-            badge={<Badge variant="default">Core Features</Badge>}
-            title="Engineered to Power Your Digital Content"
-            description="A comprehensive creator ecosystem combining high-speed cloud ingestion, native mobile playback, and daily automated monetization."
+            badge={<Badge variant="default">Key Features</Badge>}
+            title="Everything You Need to Share and Earn"
+            description="A simple, fast platform built for creators: upload files with zero limits, give your viewers a buffer-free player, and collect daily payouts."
           />
         </ScrollReveal>
 
@@ -57,8 +57,8 @@ export function CreatorWorkflowsSection() {
                   <UploadCloud className="h-3.5 w-3.5" />
                 </div>
                 <div className="text-left">
-                  <div className="text-xs font-bold text-slate-900 dark:text-brand-text">Multi-Threaded Uploads</div>
-                  <div className="text-[11px] text-slate-500 dark:text-brand-muted font-mono">1.2 Gbps Transfer Rate</div>
+                  <div className="text-xs font-bold text-slate-900 dark:text-brand-text">Fast File Uploads</div>
+                  <div className="text-[11px] text-slate-500 dark:text-brand-muted font-mono">Drag & Drop in Browser</div>
                 </div>
               </div>
             </div>
@@ -67,36 +67,36 @@ export function CreatorWorkflowsSection() {
             <div className="lg:col-span-5 space-y-5 text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-primary/10 text-brand-primary border border-brand-primary/20">
                 <Zap className="h-3.5 w-3.5" />
-                <span>Web Creator Control Center</span>
+                <span>Simple Web Dashboard</span>
               </div>
 
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-brand-text tracking-tight leading-tight">
-                Manage Your Digital Assets with Zero Friction
+                Upload & Organize Files with Zero Limits
               </h3>
 
               <p className="text-sm sm:text-base text-brand-muted leading-relaxed font-normal">
-                Upload multi-gigabyte 4K master videos, software archives, and creative assets directly from your browser. Enjoy resilient chunked uploads with automatic resume and zero storage limits.
+                Upload 4K videos, mobile apps (APKs), ZIP archives, and documents directly from your computer or phone. Enjoy unlimited cloud storage space with no file size headaches.
               </p>
 
               <ul className="space-y-3 pt-1 text-xs sm:text-sm text-brand-text font-medium">
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <span>Drag-and-drop web uploader with parallel multi-part streams</span>
+                  <span>Drag & drop uploading with live progress tracking</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <span>Remote URL upload & instant Telegram bot synchronization</span>
+                  <span>Unlimited cloud storage space for all active creators</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <span>Hierarchical folder organization with instant one-click link generation</span>
+                  <span>Create folders and copy instant share links with 1 click</span>
                 </li>
               </ul>
 
               <div className="pt-2">
                 <Link href="/auth/sign-up">
                   <Button variant="primary" size="md" className="rounded-full shadow-md shadow-brand-primary/20">
-                    <span>Start Uploading Now</span>
+                    <span>Start Uploading Free</span>
                     <ArrowRight className="h-4 w-4 ml-1.5" />
                   </Button>
                 </Link>
@@ -114,36 +114,36 @@ export function CreatorWorkflowsSection() {
             <div className="lg:col-span-5 space-y-5 text-left order-2 lg:order-1">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-brand-primary dark:text-brand-glow border border-blue-500/20">
                 <Play className="h-3.5 w-3.5 fill-current" />
-                <span>Mobile-First Streaming</span>
+                <span>Fast Video Streaming</span>
               </div>
 
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-brand-text tracking-tight leading-tight">
-                Buffer-Free 4K Streaming on Any Screen
+                Smooth 1080p Video Player for Your Audience
               </h3>
 
               <p className="text-sm sm:text-base text-brand-muted leading-relaxed font-normal">
-                Playxim automatically transcodes your videos into adaptive HLS streams (1080p, 720p, 480p). Your audience enjoys immediate, silky-smooth playback on smartphones and desktops without third-party app requirements.
+                Your audience can watch videos instantly in HD with zero lag or buffering. Viewers can also download full files at top speed with no sign-up or app installation needed.
               </p>
 
               <ul className="space-y-3 pt-1 text-xs sm:text-sm text-brand-text font-medium">
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <span>Instant playback with zero buffering across 300+ edge CDN locations</span>
+                  <span>Buffer-free video playback on all phones, tablets, and laptops</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <span>Built-in speed controls, playback scrubber, and multi-track audio</span>
+                  <span>No login or account required for your viewers</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <span>Fast direct download option for offline viewing</span>
+                  <span>1-click super-fast direct download option</span>
                 </li>
               </ul>
 
               <div className="pt-2">
-                <a href="#how-it-works">
+                <a href="#for-who">
                   <Button variant="secondary" size="md" className="rounded-full bg-white dark:bg-transparent text-brand-text border border-slate-200 dark:border-brand-border shadow-xs hover:bg-slate-50 dark:hover:bg-brand-bg-soft">
-                    <span>Explore Player Capabilities</span>
+                    <span>See Viewer Experience</span>
                     <ArrowRight className="h-4 w-4 ml-1.5" />
                   </Button>
                 </a>
@@ -171,7 +171,7 @@ export function CreatorWorkflowsSection() {
               {/* Floating Stream Tag */}
               <div className="absolute bottom-4 right-4 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/95 dark:bg-[#111728]/95 border border-slate-200/80 dark:border-white/10 shadow-lg text-xs font-semibold text-slate-900 dark:text-white">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>1080p 60fps Active Stream</span>
+                <span>1080p HD Buffer-Free</span>
               </div>
             </div>
           </div>
@@ -211,29 +211,29 @@ export function CreatorWorkflowsSection() {
             <div className="lg:col-span-5 space-y-5 text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
                 <DollarSign className="h-3.5 w-3.5" />
-                <span>Transparent Creator Monetization</span>
+                <span>Guaranteed Monetization</span>
               </div>
 
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-brand-text tracking-tight leading-tight">
-                Turn Your Audience Views into Real Income
+                Earn $1.00 for Every 1,000 Views
               </h3>
 
               <p className="text-sm sm:text-base text-brand-muted leading-relaxed font-normal">
-                Earn a flat <strong className="text-brand-text font-semibold">$1.00 for every 1,000 views</strong> on your files and videos. With automated daily payouts and zero withdrawal commission fees, your shared links generate steady, predictable revenue.
+                Every view and download earns you money. We pay a flat <strong className="text-brand-text font-semibold">$1.00 for every 1,000 views</strong>. Track your balance live and cash out daily starting at just $5 with 0% fees.
               </p>
 
               <ul className="space-y-3 pt-1 text-xs sm:text-sm text-brand-text font-medium">
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <span>Flat $1.00 per 1,000 verified views on your shared links</span>
+                  <span>Monetize from the 1st view — no subscriber requirements</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <span>Daily automated withdrawals to Bank Account, PayPal, UPI, or Crypto</span>
+                  <span>Daily payouts to UPI, Bank Account, PayPal, or Crypto (USDT)</span>
                 </li>
                 <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <span>Live real-time ledger tracking views, completion rates, and balance</span>
+                  <span>Low $5.00 minimum cashout with 0% withdrawal fees</span>
                 </li>
               </ul>
 

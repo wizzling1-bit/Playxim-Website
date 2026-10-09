@@ -15,39 +15,39 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 const FORMAT_CATEGORIES = [
   {
     icon: <FileVideo className="h-4 w-4 text-brand-primary" />,
-    label: "Video Formats",
+    label: "Video Files",
     formats: "MP4 · MKV · MOV · WEBM",
-    tag: "Adaptive Bitrate",
+    tag: "1080p Streaming",
   },
   {
     icon: <FileAudio className="h-4 w-4 text-brand-glow" />,
-    label: "Audio & Podcasts",
+    label: "Audio & Music",
     formats: "MP3 · WAV · FLAC · AAC",
-    tag: "Lossless Master",
+    tag: "Original Audio",
   },
   {
     icon: <FileArchive className="h-4 w-4 text-amber-500" />,
-    label: "Compressed Archives",
+    label: "Zip & Archives",
     formats: "ZIP · RAR · 7Z · TAR",
-    tag: "High-Speed Chunking",
+    tag: "Fast Download",
   },
   {
     icon: <FileText className="h-4 w-4 text-emerald-500" />,
     label: "Documents & Books",
     formats: "PDF · DOCX · PPTX · EPUB",
-    tag: "Instant Viewer",
+    tag: "Instant Open",
   },
   {
     icon: <Binary className="h-4 w-4 text-purple-500" />,
     label: "Apps & Software",
     formats: "APK · IPA · ISO · EXE",
-    tag: "Zero Malware Scan",
+    tag: "Virus Scanned",
   },
   {
     icon: <Layers className="h-4 w-4 text-cyan-500" />,
-    label: "Design & Project RAW",
+    label: "Design & Project Files",
     formats: "PSD · BLEND · AI · RAW",
-    tag: "Byte-for-Byte",
+    tag: "100% Quality",
   },
 ];
 
@@ -60,11 +60,11 @@ export function SupportedFormatsStrip() {
             <div className="flex items-center gap-2">
               <span className="flex h-2 w-2 rounded-full bg-brand-primary animate-pulse" />
               <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-600 dark:text-brand-muted">
-                Supported Formats & Multi-Platform Ingestion
+                Upload Any File Type · Unlimited Storage
               </h2>
             </div>
             <span className="text-xs font-mono text-brand-primary bg-brand-primary/10 px-3 py-1 rounded-full border border-brand-primary/20">
-              50 GB+ Single File Limit
+              Up to 50 GB per file
             </span>
           </div>
 

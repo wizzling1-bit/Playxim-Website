@@ -16,6 +16,7 @@ import {
   HardDrive,
   DollarSign,
   Smartphone,
+  Send,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/layout-primitives";
@@ -65,7 +66,7 @@ export function MarketingHero() {
           </p>
         </ScrollReveal>
 
-        {/* Dual Primary Action Buttons */}
+        {/* Primary Action Buttons */}
         <ScrollReveal delay={200} duration={700}>
           <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
             <Link href="/auth/sign-up">
@@ -78,11 +79,25 @@ export function MarketingHero() {
                 <ArrowRight className="h-4 w-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
               </Button>
             </Link>
+            <a
+              href="https://t.me/playxim"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                size="lg"
+                variant="secondary"
+                className="h-12 sm:h-13 px-6 text-sm sm:text-base font-semibold rounded-full bg-blue-50/80 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-900/50 shadow-xs hover:bg-blue-100/80 dark:hover:bg-blue-900/40 transition-all duration-200"
+              >
+                <Send className="h-4 w-4 mr-2" />
+                <span>Upload via Telegram</span>
+              </Button>
+            </a>
             <a href="#how-it-works">
               <Button
                 size="lg"
                 variant="secondary"
-                className="h-12 sm:h-13 px-7 text-sm sm:text-base font-semibold rounded-full bg-white dark:bg-transparent text-brand-text border border-slate-200 dark:border-brand-border shadow-xs hover:bg-slate-50 dark:hover:bg-brand-bg-soft transition-all duration-200"
+                className="h-12 sm:h-13 px-6 text-sm sm:text-base font-semibold rounded-full bg-white dark:bg-transparent text-brand-text border border-slate-200 dark:border-brand-border shadow-xs hover:bg-slate-50 dark:hover:bg-brand-bg-soft transition-all duration-200"
               >
                 See How It Works
               </Button>
@@ -99,15 +114,15 @@ export function MarketingHero() {
             </div>
             <div className="inline-flex items-center gap-1.5">
               <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-              <span>Instant Share Links</span>
+              <span>Monetize from 1st View</span>
             </div>
             <div className="inline-flex items-center gap-1.5">
               <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-              <span>$1.00 per 1,000 Views Payout</span>
+              <span>$1.00 per 1,000 Views</span>
             </div>
             <div className="inline-flex items-center gap-1.5">
               <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-              <span>App for 4K Streaming & Fast Download</span>
+              <span>Daily Payouts from $5</span>
             </div>
           </div>
         </ScrollReveal>

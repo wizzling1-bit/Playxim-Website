@@ -27,15 +27,15 @@ export function HighlightBannersSection() {
               <div className="lg:col-span-8 space-y-4 text-left">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-brand-primary/10 text-brand-primary border border-brand-primary/20">
                   <HardDrive className="h-3.5 w-3.5" />
-                  <span>Zero Storage Quotas</span>
+                  <span>Unlimited Cloud Storage</span>
                 </div>
 
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-brand-text tracking-tight">
-                  Unlimited Cloud Storage for Every Creator
+                  Unlimited Free Storage for Every Creator
                 </h3>
 
                 <p className="text-sm sm:text-base text-brand-muted leading-relaxed max-w-2xl">
-                  Never worry about disk quotas or running out of space. Upload all your raw videos, master archives, and documents safely with multi-region redundancy and permanent link preservation.
+                  Never worry about disk limits or running out of room. Store all your videos, files, and APKs safely with zero storage limits and keep your share links active forever.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-medium text-brand-text">
@@ -120,7 +120,7 @@ export function HighlightBannersSection() {
               <div className="lg:col-span-7 space-y-4 text-left order-1 lg:order-2">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
                   <DollarSign className="h-3.5 w-3.5" />
-                  <span>Transparent Creator Monetization</span>
+                  <span>Guaranteed Monetization</span>
                 </div>
 
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-brand-text tracking-tight">
@@ -128,21 +128,21 @@ export function HighlightBannersSection() {
                 </h3>
 
                 <p className="text-sm sm:text-base text-brand-muted leading-relaxed">
-                  Upload your files and videos, share your link, and get paid a flat <strong className="text-brand-text font-semibold">$1.00 for every 1,000 views</strong>. Your audience enjoys instant 4K playback and high-speed downloads via web or mobile app, and you get dependable daily payouts.
+                  Upload your files, share your link, and get paid a flat <strong className="text-brand-text font-semibold">$1.00 for every 1,000 views</strong>. Your audience enjoys instant 1080p playback, and you collect reliable daily payouts with a low $5 minimum cashout.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-medium text-brand-text">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                    <span>$1.00 flat per 1K views</span>
+                    <span>Flat $1.00 per 1,000 views</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                    <span>Daily automated payouts</span>
+                    <span>Cash out daily starting at $5</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                    <span>Bank, UPI, PayPal, USDT</span>
+                    <span>UPI, Bank, PayPal & Crypto</span>
                   </div>
                 </div>
 

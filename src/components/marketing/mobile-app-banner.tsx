@@ -17,39 +17,39 @@ export function MobileAppBannerSection() {
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-brand-primary/10 text-brand-primary border border-brand-primary/20 mb-4">
               <Smartphone className="h-3.5 w-3.5" />
-              <span>Mobile & Web App Ecosystem</span>
+              <span>Free Official Mobile App</span>
             </div>
 
             {/* Heading */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-brand-text tracking-tight max-w-3xl mx-auto">
-              View & Download Any Link with the Playxim App
+              Stream & Download Faster with the Playxim App
             </h2>
 
             <p className="text-sm sm:text-base text-brand-muted max-w-2xl mx-auto mt-3 leading-relaxed">
-              Your audience can open your shared links to stream buffer-free 4K videos or download full files at maximum speed on Android, iOS, and Web.
+              Open shared links to stream buffer-free HD videos, save files directly to your phone for offline watching, and track your creator earnings anywhere.
             </p>
 
             {/* Feature Highlights Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto mt-8 text-left">
               <div className="p-4.5 rounded-2xl bg-slate-50/90 dark:bg-[#0D121F]/80 border border-slate-200/80 dark:border-brand-border/70 shadow-2xs">
                 <Play className="h-5 w-5 text-brand-primary mb-2 fill-current" />
-                <div className="text-xs font-bold text-slate-900 dark:text-brand-text">4K Video Player</div>
-                <div className="text-[11px] text-slate-500 dark:text-brand-muted mt-0.5">Buffer-free mobile streaming</div>
+                <div className="text-xs font-bold text-slate-900 dark:text-brand-text">HD Video Player</div>
+                <div className="text-[11px] text-slate-500 dark:text-brand-muted mt-0.5">Smooth buffer-free streaming</div>
               </div>
               <div className="p-4.5 rounded-2xl bg-slate-50/90 dark:bg-[#0D121F]/80 border border-slate-200/80 dark:border-brand-border/70 shadow-2xs">
                 <Download className="h-5 w-5 text-brand-primary dark:text-brand-glow mb-2" />
                 <div className="text-xs font-bold text-slate-900 dark:text-brand-text">Fast Downloader</div>
-                <div className="text-[11px] text-slate-500 dark:text-brand-muted mt-0.5">Direct high-speed downloads</div>
+                <div className="text-[11px] text-slate-500 dark:text-brand-muted mt-0.5">Save files to phone in 1 click</div>
               </div>
               <div className="p-4.5 rounded-2xl bg-slate-50/90 dark:bg-[#0D121F]/80 border border-slate-200/80 dark:border-brand-border/70 shadow-2xs">
                 <HardDrive className="h-5 w-5 text-emerald-500 mb-2" />
-                <div className="text-xs font-bold text-slate-900 dark:text-brand-text">Mobile Uploads</div>
-                <div className="text-[11px] text-slate-500 dark:text-brand-muted mt-0.5">Upload straight from gallery</div>
+                <div className="text-xs font-bold text-slate-900 dark:text-brand-text">Offline Mode</div>
+                <div className="text-[11px] text-slate-500 dark:text-brand-muted mt-0.5">Watch videos without internet</div>
               </div>
               <div className="p-4.5 rounded-2xl bg-slate-50/90 dark:bg-[#0D121F]/80 border border-slate-200/80 dark:border-brand-border/70 shadow-2xs">
                 <DollarSign className="h-5 w-5 text-amber-500 mb-2" />
                 <div className="text-xs font-bold text-slate-900 dark:text-brand-text">$1 / 1K Wallet</div>
-                <div className="text-[11px] text-slate-500 dark:text-brand-muted mt-0.5">Live view tracker & payouts</div>
+                <div className="text-[11px] text-slate-500 dark:text-brand-muted mt-0.5">Live view tracker & cashouts</div>
               </div>
             </div>
 

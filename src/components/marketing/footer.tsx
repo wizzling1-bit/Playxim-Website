@@ -49,13 +49,18 @@ export function MarketingFooter() {
                 </a>
               </li>
               <li>
-                <a href="#how-it-works" className="hover:text-brand-text transition-colors">
-                  How It Works
+                <a href="#upload-methods" className="hover:text-brand-text transition-colors">
+                  Ways to Upload
                 </a>
               </li>
               <li>
-                <a href="#monetization" className="hover:text-brand-text transition-colors">
-                  Earn $1 / 1K Views
+                <a href="#for-who" className="hover:text-brand-text transition-colors">
+                  Creators vs Viewers
+                </a>
+              </li>
+              <li>
+                <a href="#earnings-calculator" className="hover:text-brand-text transition-colors">
+                  Earnings Calculator
                 </a>
               </li>
               <li>
@@ -65,7 +70,7 @@ export function MarketingFooter() {
                   rel="noopener noreferrer"
                   className="hover:text-brand-text transition-colors inline-flex items-center gap-1 text-brand-primary"
                 >
-                  <span>Google Play App</span>
+                  <span>Play Store App</span>
                   <span className="text-[10px]">↗</span>
                 </a>
               </li>
@@ -75,13 +80,19 @@ export function MarketingFooter() {
           {/* Creators links */}
           <div className="space-y-3">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-brand-text">
-              Platform
+              Community & Help
             </h3>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/auth/sign-up" className="hover:text-brand-text transition-colors">
-                  Create Account
-                </Link>
+                <a
+                  href="https://t.me/playxim"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-text transition-colors text-blue-500 font-semibold inline-flex items-center gap-1"
+                >
+                  <span>Official Telegram</span>
+                  <span className="text-[10px]">↗</span>
+                </a>
               </li>
               <li>
                 <a href="#comparison" className="hover:text-brand-text transition-colors">
@@ -94,8 +105,8 @@ export function MarketingFooter() {
                 </a>
               </li>
               <li>
-                <Link href="/dashboard" className="hover:text-brand-text transition-colors">
-                  Dashboard
+                <Link href="/auth/sign-up" className="hover:text-brand-text transition-colors">
+                  Create Free Account
                 </Link>
               </li>
             </ul>

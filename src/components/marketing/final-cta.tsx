@@ -24,12 +24,12 @@ export function FinalCtaSection() {
 
           {/* Heading */}
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-display font-extrabold tracking-tight text-brand-text leading-[1.08] mt-4 max-w-3xl mx-auto">
-            Ready to Monetize Your Content?
+            Ready to Start Earning from Your Videos?
           </h2>
 
           {/* Supporting Line */}
           <p className="text-base sm:text-xl text-brand-muted max-w-2xl mx-auto leading-relaxed mt-4">
-            Join over 500,000 creators who trust Playxim for unlimited cloud storage, high-speed streaming, and <strong className="text-brand-text font-semibold">$1.00 per 1,000 views</strong> daily payouts.
+            Join over 500,000 creators who use Playxim for unlimited cloud storage, instant share links, and guaranteed <strong className="text-brand-text font-semibold">$1.00 per 1,000 views</strong> daily payouts.
           </p>
 
           {/* Buttons */}
@@ -44,13 +44,13 @@ export function FinalCtaSection() {
                 <ArrowRight className="h-4 w-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
               </Button>
             </Link>
-            <a href="#how-it-works">
+            <a href="https://t.me/playxim" target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
                 variant="secondary"
                 className="h-12 sm:h-13 px-7 text-sm sm:text-base font-semibold rounded-full bg-white dark:bg-transparent text-brand-text border border-slate-200 dark:border-brand-border shadow-xs hover:bg-slate-50 dark:hover:bg-brand-bg-soft"
               >
-                See How It Works
+                Open Telegram Bot
               </Button>
             </a>
           </div>
@@ -59,11 +59,15 @@ export function FinalCtaSection() {
           <div className="pt-6 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-brand-muted font-medium">
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-              <span>Zero Credit Card Required</span>
+              <span>No Credit Card Needed</span>
             </div>
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-              <span>Instant Cloud Bucket Provisioning</span>
+              <span>Unlimited Free Storage</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+              <span>Daily Payouts from $5</span>
             </div>
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="h-4 w-4 text-emerald-500" />

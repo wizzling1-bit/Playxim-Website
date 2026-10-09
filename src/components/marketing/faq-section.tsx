@@ -1,54 +1,47 @@
 "use client";
 
 import * as React from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, MessageSquare, Mail, HelpCircle } from "lucide-react";
 import { Container, SectionHeader } from "@/components/ui/layout-primitives";
 import { Badge } from "@/components/ui/badge";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { Button } from "@/components/ui/button";
 
 export function FaqSection() {
   const [openIndex, setOpenIndex] = React.useState<number | null>(0);
 
   const faqs = [
     {
-      q: "What is Playxim?",
-      a: "Playxim is an all-in-one creator content platform. It combines high-speed cloud storage, instant shareable links, 4K video transcoding, and direct creator monetization ($1.00 per 1,000 views) into a unified platform.",
+      q: "What is Playxim and how does it work?",
+      a: "Playxim is a file hosting and creator monetization platform. You upload videos, apps, or files (via website or Telegram bot), get a direct link, share it with your audience, and earn money for every view. Viewers can watch or download with no sign-up needed.",
     },
     {
-      q: "Is Playxim free to use?",
-      a: "Yes. You can create a free creator account, begin uploading your content immediately, and generate shareable links. There are no fees or credit card requirements to get started.",
+      q: "How much money can I earn?",
+      a: "You earn a flat, guaranteed $1.00 for every 1,000 views and downloads on your links. Unlike YouTube, there are no subscriber counts or 4,000 watch-hour prerequisites — your content starts earning from the very 1st view.",
     },
     {
-      q: "What file types can I upload?",
-      a: "You can upload virtually any digital media: 4K/8K video footage (ProRes, MP4, MKV), audio masters (WAV, FLAC, MP3), compressed archives (ZIP, RAR, 7Z), and documents or software files (PDF, APK, IPA, EXE).",
+      q: "What is the minimum payout and how do I withdraw?",
+      a: "The minimum payout is only $5.00. Once your balance reaches $5, you can withdraw daily via UPI (Google Pay, PhonePe, Paytm), direct Bank Transfer (IMPS/NEFT), PayPal (USD), or Crypto (Binance USDT). There are 0% withdrawal fees.",
     },
     {
-      q: "Is storage really unlimited?",
-      a: "Playxim operates on an unlimited-by-policy model for creators. We do not impose artificial storage quotas or sudden subscription paywalls on creator accounts complying with our terms of service.",
+      q: "Do viewers need to create an account to watch or download?",
+      a: "No! Your audience does not need to register or create an account. When they open your Playxim link, they can stream the video immediately in 1080p or download the file at top speed without annoying popups or forced apps.",
     },
     {
-      q: "How does creator monetization work?",
-      a: "Playxim pays a flat, guaranteed $1.00 for every 1,000 views and downloads on your shared links. As your audience streams your 4K videos or downloads files via our web and mobile app, earnings accumulate live in your dashboard. You can withdraw daily with a low $5.00 minimum threshold via Bank, UPI, PayPal, or Crypto.",
+      q: "How can I upload files?",
+      a: "You have 3 easy options: (1) Use the Web Dashboard directly in your browser, (2) Send files to our Telegram Upload Bot (@PlayximBot), or (3) Forward links from other platforms into our Link Converter Bot to automatically create your own Playxim links.",
     },
     {
-      q: "How do share links work?",
-      a: "Every upload generates an instant branded shortlink (e.g., playxim.com/watch/8XK92LM). You can distribute these links on YouTube, Telegram, Discord, Patreon, or blogs. Visitors get a clean, high-speed landing page to view or download.",
+      q: "Is storage really 100% free and unlimited?",
+      a: "Yes. Active creators enjoy unlimited cloud storage space with zero monthly subscription fees. You can upload single files up to 50 GB with automatic resume.",
     },
     {
-      q: "Can I password-protect my content?",
-      a: "Yes. You can enable passcode security on any link. Anyone accessing the link must enter your custom password before viewing or downloading the content.",
+      q: "Can I upload files other than videos?",
+      a: "Yes! You can upload any digital file: videos (MP4, MKV), Android APKs, compressed archives (ZIP, RAR, 7Z), documents (PDF, DOCX), audio files (MP3, WAV), and software.",
     },
     {
-      q: "Does Playxim compress my files?",
-      a: "No. Your master files, raw footage, and downloadable archives are stored with byte-for-byte fidelity without quality degradation or lossy recompression.",
-    },
-    {
-      q: "How do audience members watch or download?",
-      a: "Anyone with your link can view your video directly in the browser or via our free Playxim mobile app for Android and iOS, with buffer-free adaptive streaming or direct fast download.",
-    },
-    {
-      q: "How do payout withdrawals work?",
-      a: "Once your balance reaches the $5.00 threshold, you can request daily withdrawals directly to your linked bank account, UPI, PayPal, or Crypto. All earnings are logged with transparent accounting records.",
+      q: "Is there a mobile app available?",
+      a: "Yes. Playxim has a free official Android mobile app available on Google Play. Viewers and creators can use it for smooth HD video streaming, background playback, and fast offline downloads.",
     },
   ];
 
@@ -58,19 +51,18 @@ export function FaqSection() {
         <ScrollReveal duration={600}>
           <SectionHeader
             badge={<Badge variant="default">FAQ</Badge>}
-            title="Frequently asked questions"
-            description="Everything you need to know about Playxim file storage, share links, mobile app streaming, and the $1.00 / 1K views payout program."
+            title="Frequently Asked Questions"
+            description="Everything you need to know about Playxim file storage, Telegram bots, video streaming, and our $1.00 / 1K views payout program."
           />
         </ScrollReveal>
 
-        <div className="space-y-3.5 pt-2 text-left">
+        {/* Accordion List */}
+        <div className="space-y-3.5 pt-4 text-left">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <ScrollReveal key={idx} delay={idx * 40} duration={500}>
-                <div
-                  className="rounded-2xl border border-slate-200/80 dark:border-brand-border bg-white dark:bg-[#111728]/90 overflow-hidden transition-all shadow-xs hover:border-brand-primary/40"
-                >
+              <ScrollReveal key={idx} delay={idx * 30} duration={500}>
+                <div className="rounded-2xl border border-slate-200/80 dark:border-brand-border bg-white dark:bg-[#111728]/90 overflow-hidden transition-all shadow-xs hover:border-brand-primary/40">
                   <button
                     type="button"
                     onClick={() => setOpenIndex(isOpen ? null : idx)}
@@ -98,6 +90,48 @@ export function FaqSection() {
             );
           })}
         </div>
+
+        {/* Still Have Questions Box (DiskWala Style) */}
+        <ScrollReveal delay={300} duration={600}>
+          <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-slate-50/90 dark:bg-[#0D121F]/90 border border-slate-200/80 dark:border-brand-border flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
+            <div className="flex items-center gap-4">
+              <div className="h-12 w-12 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0">
+                <HelpCircle className="h-6 w-6" />
+              </div>
+              <div>
+                <h4 className="text-base font-bold text-slate-900 dark:text-brand-text">
+                  Still have questions?
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-brand-muted mt-0.5">
+                  Our creator support team is here to help you 24 hours a day, 7 days a week.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-wrap items-center gap-3 shrink-0 w-full sm:w-auto">
+              <a
+                href="https://t.me/playxim"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <Button variant="primary" size="sm" className="w-full sm:w-auto rounded-full">
+                  <MessageSquare className="h-3.5 w-3.5 mr-1.5" />
+                  <span>Ask on Telegram</span>
+                </Button>
+              </a>
+              <a href="mailto:support@playxim.com" className="w-full sm:w-auto">
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="w-full sm:w-auto rounded-full bg-white dark:bg-transparent border border-slate-300 dark:border-brand-border text-slate-700 dark:text-brand-muted"
+                >
+                  <Mail className="h-3.5 w-3.5 mr-1.5" />
+                  <span>Email Support</span>
+                </Button>
+              </a>
+            </div>
+          </div>
+        </ScrollReveal>
       </Container>
     </section>
   );

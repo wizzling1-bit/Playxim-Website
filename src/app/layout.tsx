@@ -23,9 +23,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Playxim — Unlimited Content Infrastructure & Creator Platform",
+  title: "Playxim — Upload Files, Share Links & Earn Money",
   description:
-    "Store unlimited files and videos, generate instant high-speed share links, view in-depth creator analytics, and monetize your content with Playxim.",
+    "Playxim offers unlimited cloud storage for creators. Upload videos and files via website or Telegram Bot, share links with your viewers, and earn $1.00 for every 1,000 views with daily payouts.",
   icons: {
     icon: "/logo.webp",
   },

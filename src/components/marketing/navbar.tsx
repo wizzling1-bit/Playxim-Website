@@ -11,29 +11,31 @@ import { cn } from "@/lib/utils";
 
 const PLATFORM_ITEMS = [
   {
-    href: "/features",
-    label: "Features & Architecture",
-    description: "Cloudflare R2 storage, adaptive Stream encoding, edge delivery.",
+    href: "#features",
+    label: "Upload & Cloud Storage",
+    description: "Unlimited storage, drag-and-drop uploader, and no file size limits.",
     icon: <Sparkles className="h-4 w-4 text-brand-primary" />,
   },
   {
-    href: "/why-playxim",
-    label: "Why Playxim",
-    description: "Zero egress fees, no artificial storage tiers, pure creator cloud.",
+    href: "#earnings-calculator",
+    label: "Monetization ($1/1K Views)",
+    description: "Earn $1.00 per 1,000 views with daily payouts to UPI & Bank.",
     icon: <HardDrive className="h-4 w-4 text-brand-glow" />,
   },
   {
-    href: "/download",
-    label: "Apps & Ecosystem",
-    description: "Seamless player handoffs for iOS, Android, and Web.",
+    href: "#download-app",
+    label: "Android App & Streaming",
+    description: "Buffer-free 1080p video player, offline downloads, and dark mode.",
     icon: <Smartphone className="h-4 w-4 text-emerald-500" />,
   },
 ];
 
 const MAIN_NAV_LINKS = [
   { href: "#features", label: "Features" },
-  { href: "#how-it-works", label: "How It Works" },
-  { href: "#monetization", label: "Earn $1/1K Views" },
+  { href: "#upload-methods", label: "Ways to Upload" },
+  { href: "#for-who", label: "Creators vs Viewers" },
+  { href: "#earnings-calculator", label: "Calculator" },
+  { href: "#comparison", label: "Why Playxim" },
   { href: "#faq", label: "FAQ" },
 ];
 
