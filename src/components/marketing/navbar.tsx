@@ -87,8 +87,8 @@ export function MarketingNavbar() {
         className={cn(
           "pointer-events-auto mx-auto transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]",
           isScrolled
-            ? "max-w-5xl rounded-full bg-white/92 dark:bg-[#111728]/92 backdrop-blur-2xl border border-slate-200/90 dark:border-brand-border/90 shadow-xl shadow-slate-900/5 dark:shadow-black/40 py-1.5 px-4 sm:px-6 scale-[0.99]"
-            : "max-w-7xl border-b border-slate-200/60 dark:border-brand-border/40 bg-white/60 dark:bg-[#07090E]/60 backdrop-blur-md py-3.5 sm:py-4 px-4 sm:px-8 lg:px-10 rounded-none shadow-none"
+            ? "max-w-5xl rounded-full bg-brand-surface/92 backdrop-blur-2xl border border-brand-border shadow-xl shadow-slate-900/5 dark:shadow-black/50 py-1.5 px-4 sm:px-6 scale-[0.99]"
+            : "max-w-7xl border-b border-brand-border/60 bg-brand-bg/70 backdrop-blur-md py-3.5 sm:py-4 px-4 sm:px-8 lg:px-10 rounded-none shadow-none"
         )}
       >
         <div className="flex h-10 sm:h-11 items-center justify-between gap-3">
@@ -99,6 +99,7 @@ export function MarketingNavbar() {
                 src="/logo.webp"
                 alt="Playxim Logo"
                 fill
+                sizes="(max-width: 640px) 28px, 32px"
                 className="object-contain p-0.5"
                 priority
               />
@@ -177,7 +178,7 @@ export function MarketingNavbar() {
                     "px-3 py-1.5 rounded-full transition-all duration-200 text-xs font-semibold",
                     isActive
                       ? "text-brand-primary bg-brand-primary/10"
-                      : "text-slate-600 dark:text-brand-muted hover:text-slate-900 dark:hover:text-brand-text hover:bg-slate-100 dark:hover:bg-brand-bg-soft"
+                      : "text-brand-muted hover:text-brand-text hover:bg-brand-bg-soft"
                   )}
                 >
                   {link.label}
@@ -190,7 +191,7 @@ export function MarketingNavbar() {
           <div className="hidden md:flex items-center gap-2 shrink-0">
             <ThemeToggle />
             <Link href="/auth/sign-in">
-              <Button variant="ghost" size="sm" className="h-8 px-3 text-xs font-semibold rounded-full text-slate-700 dark:text-brand-text hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-brand-bg-soft">
+              <Button variant="ghost" size="sm" className="h-8 px-3 text-xs font-semibold rounded-full text-brand-text hover:bg-brand-bg-soft">
                 Sign In
               </Button>
             </Link>
@@ -198,7 +199,7 @@ export function MarketingNavbar() {
               <Button
                 variant="primary"
                 size="sm"
-                className="h-8 px-3.5 text-xs font-semibold group rounded-full shadow-sm hover:shadow-brand-glow/20"
+                className="h-8 px-3.5 text-xs font-semibold group rounded-full shadow-sm hover:shadow-brand-glow/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
                 <span>Start Uploading</span>
                 <ArrowRight className="h-3 w-3 ml-1 transition-transform duration-200 group-hover:translate-x-0.5" />

@@ -21,6 +21,7 @@ export default function AuthLayout({
               src="/logo.webp"
               alt="Playxim Logo"
               fill
+              sizes="36px"
               className="object-contain p-1"
               priority
             />

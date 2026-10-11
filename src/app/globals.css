@@ -4,24 +4,31 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
-  :root {
-    /* Playxim Apple x Linear Design System Tokens - Light Mode (Default) */
-    --bg: #F8FAFC;
-    --bg-soft: #F1F5F9;
-    --surface: #FFFFFF;
+  :root, [data-theme="light"] {
+    /* Playxim Apple x Linear Design System Tokens - Soft Premium Light Mode */
+    --bg: #F0F3F9;
+    --bg-soft: #E8EEF7;
+    --surface: #FAFBFE;
     --surface-raised: #FFFFFF;
-    --surface-2: #F8FAFC;
-    --border: #E2E8F0;
-    --border-subtle: rgba(15, 23, 42, 0.06);
-    --border-highlight: rgba(30, 107, 255, 0.20);
-    --text: #0F172A;
-    --muted: #64748B;
+    --surface-2: #F5F7FC;
+    --surface-glass: rgba(250, 251, 254, 0.82);
+
+    --border: #D8E0EF;
+    --border-strong: #C7D3E7;
+    --border-subtle: rgba(17, 24, 43, 0.05);
+    --border-highlight: rgba(30, 107, 255, 0.22);
+
+    --text: #11182B;
+    --text-secondary: #45536D;
+    --muted: #67758D;
+
     --primary: #1E6BFF;
-    --primary-hover: #1557D6;
+    --primary-hover: #1557DB;
     --primary-text: #1E6BFF;
-    --glow: #0284C7;
-    --accent: #D97706;
-    --band: #0F172A;
+    --secondary: #087FAE;
+    --glow: #087FAE;
+    --accent: #96651D;
+    --band: #E8EEF7;
 
     /* Semantic Mappings */
     --background: var(--bg);
@@ -31,7 +38,6 @@
     --popover: var(--surface);
     --popover-foreground: var(--text);
     --primary-foreground: #FFFFFF;
-    --secondary: var(--bg-soft);
     --secondary-foreground: var(--text);
     --muted-foreground: var(--muted);
     --accent-foreground: var(--text);
@@ -50,30 +56,37 @@
     --radius-pill: 999px;
 
     /* Shadows */
-    --shadow-subtle: 0 1px 2px rgba(10, 19, 48, 0.04), 0 2px 6px rgba(10, 19, 48, 0.02);
-    --shadow-card: 0 1px 3px rgba(10, 19, 48, 0.05), 0 8px 24px -4px rgba(10, 19, 48, 0.05);
-    --shadow-elevated: 0 20px 40px -8px rgba(10, 19, 48, 0.08), 0 1px 3px rgba(10, 19, 48, 0.03);
-    --shadow-glow: 0 0 32px -4px rgba(30, 107, 255, 0.20);
+    --shadow-subtle: 0 1px 2px rgba(17, 24, 43, 0.04), 0 2px 6px rgba(17, 24, 43, 0.02);
+    --shadow-card: 0 1px 3px rgba(17, 24, 43, 0.04), 0 8px 24px -4px rgba(17, 24, 43, 0.04);
+    --shadow-elevated: 0 20px 40px -8px rgba(17, 24, 43, 0.07), 0 1px 3px rgba(17, 24, 43, 0.03);
+    --shadow-glow: 0 0 32px -4px rgba(30, 107, 255, 0.18);
   }
 
-  .dark {
-    /* Playxim Luxury Obsidian Dark Mode Tokens */
-    --bg: #07090E;
-    --bg-soft: #0D121F;
-    --surface: #111728;
-    --surface-raised: #161F36;
-    --surface-2: #1C2744;
-    --border: rgba(255, 255, 255, 0.09);
-    --border-subtle: rgba(255, 255, 255, 0.04);
-    --border-highlight: rgba(56, 189, 248, 0.28);
-    --text: #F8FAFC;
-    --muted: #94A3B8;
-    --primary: #2563EB;
-    --primary-hover: #38BDF8;
-    --primary-text: #38BDF8;
-    --glow: #38BDF8;
-    --accent: #E2B357;
-    --band: #0D121F;
+  .dark, [data-theme="dark"] {
+    /* Playxim Luxury Deep Blue Dark Mode Tokens */
+    --bg: #070A12;
+    --bg-soft: #0B1120;
+    --surface: #101829;
+    --surface-raised: #151F34;
+    --surface-2: #151F34;
+    --surface-glass: rgba(16, 24, 41, 0.78);
+
+    --border: rgba(174, 194, 232, 0.12);
+    --border-strong: rgba(174, 194, 232, 0.20);
+    --border-subtle: rgba(174, 194, 232, 0.06);
+    --border-highlight: rgba(67, 213, 255, 0.30);
+
+    --text: #EEF3FF;
+    --text-secondary: #B0BED7;
+    --muted: #8493AD;
+
+    --primary: #3478F6;
+    --primary-hover: #4B8AFF;
+    --primary-text: #43D5FF;
+    --secondary: #43D5FF;
+    --glow: #43D5FF;
+    --accent: #F0C779;
+    --band: #0B1120;
 
     /* Semantic Mappings */
     --background: var(--bg);
@@ -83,7 +96,6 @@
     --popover: var(--surface);
     --popover-foreground: var(--text);
     --primary-foreground: #FFFFFF;
-    --secondary: var(--bg-soft);
     --secondary-foreground: var(--text);
     --muted-foreground: var(--muted);
     --accent-foreground: var(--text);
@@ -94,9 +106,9 @@
 
     /* Shadows with Luminous Rim Occlusion */
     --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.5);
-    --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.07), 0 8px 30px -4px rgba(0, 0, 0, 0.7);
-    --shadow-elevated: 0 0 0 1px rgba(255, 255, 255, 0.09), 0 20px 48px -8px rgba(0, 0, 0, 0.85);
-    --shadow-glow: 0 0 40px -4px rgba(56, 189, 248, 0.25);
+    --shadow-card: 0 0 0 1px rgba(174, 194, 232, 0.08), 0 8px 30px -4px rgba(0, 0, 0, 0.7);
+    --shadow-elevated: 0 0 0 1px rgba(174, 194, 232, 0.12), 0 20px 48px -8px rgba(0, 0, 0, 0.85);
+    --shadow-glow: 0 0 40px -4px rgba(67, 213, 255, 0.22);
   }
 }
 
@@ -107,13 +119,17 @@
   --color-brand-surface-raised: var(--surface-raised);
   --color-brand-surface-2: var(--surface-2);
   --color-brand-border: var(--border);
+  --color-brand-border-strong: var(--border-strong);
   --color-brand-border-subtle: var(--border-subtle);
   --color-brand-border-highlight: var(--border-highlight);
+  --color-brand-surface-glass: var(--surface-glass);
   --color-brand-text: var(--text);
+  --color-brand-text-secondary: var(--text-secondary);
   --color-brand-muted: var(--muted);
   --color-brand-primary: var(--primary);
   --color-brand-primary-hover: var(--primary-hover);
   --color-brand-primary-text: var(--primary-text);
+  --color-brand-secondary: var(--secondary);
   --color-brand-glow: var(--glow);
   --color-brand-accent: var(--accent);
   --color-brand-band: var(--band);

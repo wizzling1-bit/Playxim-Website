@@ -41,3 +41,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# ide / local agent artifacts
+.gemini/
+.agents/skills/motion-web/assets/
+.agents/skills/motion-web/cases/

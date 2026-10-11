@@ -7,12 +7,12 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function MobileAppBannerSection() {
   return (
-    <section id="download-app" className="py-20 sm:py-28 border-t border-brand-border/60 bg-transparent relative">
+    <section id="download-app" className="py-20 sm:py-28 border-t border-brand-border bg-transparent relative">
       <Container className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        <ScrollReveal duration={800}>
-          <div className="relative rounded-3xl p-8 sm:p-12 lg:p-16 bg-gradient-to-br from-white via-white to-blue-50/50 dark:from-[#111728] dark:via-[#111728]/95 dark:to-brand-primary/15 border border-slate-200/80 dark:border-brand-border shadow-2xl shadow-slate-900/5 dark:shadow-black/50 overflow-hidden text-center group">
-            {/* Ambient Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-brand-primary/10 dark:bg-brand-primary/15 blur-[130px] rounded-full pointer-events-none -z-10" />
+        <ScrollReveal duration={800} variant="scale">
+          <div className="relative rounded-3xl p-8 sm:p-12 lg:p-16 bg-gradient-to-br from-brand-surface via-brand-surface to-brand-primary/[0.08] border border-brand-border shadow-2xl overflow-hidden text-center group">
+            {/* Ambient Lighting */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-brand-primary/10 blur-[130px] rounded-full pointer-events-none -z-10" />
 
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-brand-primary/10 text-brand-primary border border-brand-primary/20 mb-4">
@@ -31,25 +31,25 @@ export function MobileAppBannerSection() {
 
             {/* Feature Highlights Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto mt-8 text-left">
-              <div className="p-4.5 rounded-2xl bg-slate-50/90 dark:bg-[#0D121F]/80 border border-slate-200/80 dark:border-brand-border/70 shadow-2xs">
+              <div className="p-4.5 rounded-2xl bg-brand-bg-soft border border-brand-border shadow-2xs transition-colors hover:border-brand-primary/40">
                 <Play className="h-5 w-5 text-brand-primary mb-2 fill-current" />
-                <div className="text-xs font-bold text-slate-900 dark:text-brand-text">HD Video Player</div>
-                <div className="text-[11px] text-slate-500 dark:text-brand-muted mt-0.5">Smooth buffer-free streaming</div>
+                <div className="text-xs font-bold text-brand-text">HD Video Player</div>
+                <div className="text-[11px] text-brand-muted mt-0.5">Smooth buffer-free streaming</div>
               </div>
-              <div className="p-4.5 rounded-2xl bg-slate-50/90 dark:bg-[#0D121F]/80 border border-slate-200/80 dark:border-brand-border/70 shadow-2xs">
-                <Download className="h-5 w-5 text-brand-primary dark:text-brand-glow mb-2" />
-                <div className="text-xs font-bold text-slate-900 dark:text-brand-text">Fast Downloader</div>
-                <div className="text-[11px] text-slate-500 dark:text-brand-muted mt-0.5">Save files to phone in 1 click</div>
+              <div className="p-4.5 rounded-2xl bg-brand-bg-soft border border-brand-border shadow-2xs transition-colors hover:border-brand-primary/40">
+                <Download className="h-5 w-5 text-brand-secondary mb-2" />
+                <div className="text-xs font-bold text-brand-text">Fast Downloader</div>
+                <div className="text-[11px] text-brand-muted mt-0.5">Save files to phone in 1 click</div>
               </div>
-              <div className="p-4.5 rounded-2xl bg-slate-50/90 dark:bg-[#0D121F]/80 border border-slate-200/80 dark:border-brand-border/70 shadow-2xs">
+              <div className="p-4.5 rounded-2xl bg-brand-bg-soft border border-brand-border shadow-2xs transition-colors hover:border-brand-primary/40">
                 <HardDrive className="h-5 w-5 text-emerald-500 mb-2" />
-                <div className="text-xs font-bold text-slate-900 dark:text-brand-text">Offline Mode</div>
-                <div className="text-[11px] text-slate-500 dark:text-brand-muted mt-0.5">Watch videos without internet</div>
+                <div className="text-xs font-bold text-brand-text">Offline Mode</div>
+                <div className="text-[11px] text-brand-muted mt-0.5">Watch videos without internet</div>
               </div>
-              <div className="p-4.5 rounded-2xl bg-slate-50/90 dark:bg-[#0D121F]/80 border border-slate-200/80 dark:border-brand-border/70 shadow-2xs">
+              <div className="p-4.5 rounded-2xl bg-brand-bg-soft border border-brand-border shadow-2xs transition-colors hover:border-brand-primary/40">
                 <DollarSign className="h-5 w-5 text-amber-500 mb-2" />
-                <div className="text-xs font-bold text-slate-900 dark:text-brand-text">$1 / 1K Wallet</div>
-                <div className="text-[11px] text-slate-500 dark:text-brand-muted mt-0.5">Live view tracker & cashouts</div>
+                <div className="text-xs font-bold text-brand-text">$1 / 1K Wallet</div>
+                <div className="text-[11px] text-brand-muted mt-0.5">Live view tracker & cashouts</div>
               </div>
             </div>
 
@@ -60,7 +60,7 @@ export function MobileAppBannerSection() {
                 href="https://play.google.com/store/apps/details?id=com.playxim.app&pcampaignid=web_share"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white dark:bg-[#161F36] border border-slate-200/80 dark:border-brand-border shadow-xs hover:border-brand-primary/50 hover:bg-slate-50 dark:hover:bg-[#1C2744] hover:-translate-y-0.5 transition-all text-left group"
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-brand-surface border border-brand-border shadow-xs hover:border-brand-primary/50 hover:bg-brand-bg-soft hover:-translate-y-0.5 transition-all text-left group"
               >
                 <div className="h-7 w-7 text-brand-primary flex items-center justify-center">
                   <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
@@ -68,15 +68,15 @@ export function MobileAppBannerSection() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-[10px] uppercase font-bold text-slate-500 dark:text-brand-muted leading-tight">GET IT ON</div>
-                  <div className="text-sm font-bold text-slate-900 dark:text-brand-text leading-tight">Google Play</div>
+                  <div className="text-[10px] uppercase font-bold text-brand-muted leading-tight">GET IT ON</div>
+                  <div className="text-sm font-bold text-brand-text leading-tight">Google Play</div>
                 </div>
               </a>
 
               {/* App Store */}
               <a
                 href="#download-app"
-                className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white dark:bg-[#161F36] border border-slate-200/80 dark:border-brand-border shadow-xs hover:border-brand-primary/50 hover:bg-slate-50 dark:hover:bg-[#1C2744] hover:-translate-y-0.5 transition-all text-left group"
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-brand-surface border border-brand-border shadow-xs hover:border-brand-primary/50 hover:bg-brand-bg-soft hover:-translate-y-0.5 transition-all text-left group"
               >
                 <div className="h-7 w-7 text-brand-primary flex items-center justify-center">
                   <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
@@ -84,20 +84,21 @@ export function MobileAppBannerSection() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-[10px] uppercase font-bold text-slate-500 dark:text-brand-muted leading-tight">DOWNLOAD ON THE</div>
-                  <div className="text-sm font-bold text-slate-900 dark:text-brand-text leading-tight">App Store</div>
+                  <div className="text-[10px] uppercase font-bold text-brand-muted leading-tight">DOWNLOAD ON THE</div>
+                  <div className="text-sm font-bold text-brand-text leading-tight">App Store</div>
                 </div>
               </a>
-            </div>
 
-            <div className="mt-6 flex items-center justify-center gap-2 text-xs text-brand-muted">
-              <div className="flex text-amber-500">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-3.5 w-3.5 fill-current" />
-                ))}
+              {/* Rating Pill */}
+              <div className="inline-flex items-center gap-2 px-4 py-3 rounded-2xl bg-brand-surface border border-brand-border text-xs shadow-xs">
+                <div className="flex items-center text-amber-500">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-current" />
+                  ))}
+                </div>
+                <span className="font-bold text-brand-text">4.9 / 5</span>
+                <span className="text-brand-muted">• 50,000+ Downloads</span>
               </div>
-              <span className="font-bold text-brand-text">4.9 / 5</span>
-              <span>• 500,000+ Downloads Worldwide</span>
             </div>
           </div>
         </ScrollReveal>
@@ -105,3 +106,5 @@ export function MobileAppBannerSection() {
     </section>
   );
 }
+
+export default MobileAppBannerSection;

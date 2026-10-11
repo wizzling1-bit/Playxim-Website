@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/layout-primitives";
 
 export function MarketingFooter() {
   return (
-    <footer className="border-t border-slate-200/80 dark:border-brand-border bg-slate-50 dark:bg-[#07090E] text-slate-600 dark:text-brand-muted text-xs sm:text-sm pt-16 pb-12 transition-colors">
+    <footer className="border-t border-brand-border bg-brand-bg-soft/60 text-brand-muted text-xs sm:text-sm pt-16 pb-12 transition-colors">
       <Container className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12 text-left">
           {/* Brand info */}
@@ -18,6 +18,7 @@ export function MarketingFooter() {
                   src="/logo.webp"
                   alt="Playxim Logo"
                   fill
+                  sizes="32px"
                   className="object-contain p-1"
                 />
               </div>

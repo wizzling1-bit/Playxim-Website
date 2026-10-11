@@ -1,17 +1,7 @@
 "use client";
 
 import * as React from "react";
-import dynamic from "next/dynamic";
 import { useTheme } from "@/components/theme-provider";
-
-// Dynamically import CursorRingField with SSR disabled to prevent WebGL canvas hydration errors
-const CursorRingField = dynamic(
-  () => import("@/components/ui/cursor-ring-field"),
-  { ssr: false }
-);
-
-const DARK_COLORS = ["#38BDF8", "#1E6BFF", "#818CF8", "#00D2FF", "#6366F1"];
-const LIGHT_COLORS = ["#1E6BFF", "#0284C7", "#2563EB", "#3B82F6", "#4F46E5"];
 
 export function WebsiteBackground() {
   const { resolvedTheme } = useTheme();
@@ -26,28 +16,27 @@ export function WebsiteBackground() {
   }
 
   const isDark = resolvedTheme === "dark";
-  const colors = isDark ? DARK_COLORS : LIGHT_COLORS;
 
   return (
     <div
-      className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-75 dark:opacity-90 transition-opacity duration-700"
+      className="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none transition-colors duration-500"
       aria-hidden="true"
     >
-      <CursorRingField
-        background="transparent"
-        colors={colors}
-        density={180}
-        dotSize={100}
-        speed={4.5}
-        cameraDistance={160}
-        ring={{
-          push: 35,
-          width: 9,
-          radius: 13,
-          turbulence: 80,
-        }}
-        className="w-full h-full pointer-events-none"
-      />
+      {isDark ? (
+        <>
+          {/* Subtle top ambient radial lighting */}
+          <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[1200px] h-[700px] bg-[radial-gradient(ellipse_at_top,rgba(30,107,255,0.12)_0%,rgba(60,200,255,0.03)_45%,transparent_70%)] pointer-events-none" />
+          {/* Mid subtle accent glow */}
+          <div className="absolute top-[40%] right-[-10%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(30,107,255,0.06)_0%,transparent_65%)] pointer-events-none" />
+          {/* Lower accent */}
+          <div className="absolute bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(60,200,255,0.04)_0%,transparent_65%)] pointer-events-none" />
+        </>
+      ) : (
+        <>
+          {/* Light mode top soft illumination */}
+          <div className="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-[radial-gradient(ellipse_at_top,rgba(30,107,255,0.06)_0%,rgba(14,165,233,0.02)_40%,transparent_70%)] pointer-events-none" />
+        </>
+      )}
     </div>
   );
 }

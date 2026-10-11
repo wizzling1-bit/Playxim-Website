@@ -79,6 +79,7 @@ export function DashboardSidebar({
                 src="/logo.webp"
                 alt="Logo"
                 fill
+                sizes="32px"
                 className="object-contain p-1"
               />
             </div>

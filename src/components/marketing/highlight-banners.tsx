@@ -15,13 +15,13 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function HighlightBannersSection() {
   return (
-    <section id="monetization" className="py-16 sm:py-24 border-t border-brand-border/60 bg-transparent relative space-y-10">
+    <section id="monetization" className="py-16 sm:py-24 border-t border-brand-border bg-transparent relative space-y-10">
       <Container className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 space-y-10">
         {/* Banner 1: Unlimited Storage for Every Creator */}
-        <ScrollReveal duration={750}>
-          <div className="relative rounded-3xl p-6 sm:p-10 lg:p-12 border border-slate-200/80 dark:border-brand-border bg-gradient-to-br from-white via-white to-blue-50/50 dark:from-[#111728] dark:via-[#111728]/90 dark:to-brand-primary/10 shadow-xl shadow-slate-900/5 dark:shadow-black/40 overflow-hidden group">
+        <ScrollReveal duration={750} variant="scale">
+          <div className="relative rounded-3xl p-6 sm:p-10 lg:p-12 border border-brand-border bg-gradient-to-br from-brand-surface via-brand-surface to-brand-primary/[0.06] shadow-xl overflow-hidden group">
             {/* Subtle glow background */}
-            <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-brand-primary/10 dark:bg-brand-primary/12 blur-[100px] rounded-full pointer-events-none -z-10" />
+            <div className="absolute top-0 right-0 w-[450px] h-[300px] bg-brand-primary/10 blur-[90px] rounded-full pointer-events-none -z-10" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4 text-left">
@@ -55,7 +55,7 @@ export function HighlightBannersSection() {
 
                 <div className="pt-2">
                   <Link href="/auth/sign-up">
-                    <Button variant="primary" size="md" className="rounded-full shadow-md shadow-brand-primary/20">
+                    <Button variant="primary" size="md" className="rounded-full shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
                       <span>Claim Free Storage</span>
                       <ArrowRight className="h-4 w-4 ml-1.5" />
                     </Button>
@@ -65,9 +65,9 @@ export function HighlightBannersSection() {
 
               {/* Quick Stat Card on Right */}
               <div className="lg:col-span-4 flex justify-center lg:justify-end">
-                <div className="w-full max-w-sm p-6 rounded-2xl bg-slate-50/90 dark:bg-[#0D121F]/90 border border-slate-200/80 dark:border-brand-border/80 shadow-md text-left space-y-4">
+                <div className="w-full max-w-sm p-6 rounded-2xl bg-brand-bg-soft border border-brand-border shadow-md text-left space-y-4 transition-colors">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold text-slate-500 dark:text-brand-muted uppercase font-mono">
+                    <span className="text-xs font-semibold text-brand-muted uppercase font-mono">
                       Storage Capacity
                     </span>
                     <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full">
@@ -75,17 +75,17 @@ export function HighlightBannersSection() {
                     </span>
                   </div>
                   <div>
-                    <div className="text-3xl sm:text-4xl font-display font-extrabold text-slate-900 dark:text-brand-text">
+                    <div className="text-3xl sm:text-4xl font-display font-extrabold text-brand-text">
                       ∞ UNLIMITED
                     </div>
-                    <div className="text-xs text-slate-500 dark:text-brand-muted mt-1 font-mono">
+                    <div className="text-xs text-brand-muted mt-1 font-mono">
                       0 GB Used / Infinite Cloud Available
                     </div>
                   </div>
-                  <div className="h-2 w-full rounded-full bg-slate-200 dark:bg-brand-border/60 overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-brand-primary to-brand-glow w-1/4 rounded-full" />
+                  <div className="h-2 w-full rounded-full bg-brand-surface border border-brand-border overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-brand-primary to-brand-secondary w-1/4 rounded-full" />
                   </div>
-                  <div className="text-[11px] text-slate-500 dark:text-brand-muted">
+                  <div className="text-[11px] text-brand-muted">
                     No artificial caps • Free for all creators
                   </div>
                 </div>
@@ -95,15 +95,15 @@ export function HighlightBannersSection() {
         </ScrollReveal>
 
         {/* Banner 2: $1.00 per 1,000 Views Program */}
-        <ScrollReveal delay={150} duration={750}>
-          <div className="relative rounded-3xl p-6 sm:p-10 lg:p-12 border border-slate-200/80 dark:border-brand-border bg-gradient-to-br from-white via-white to-amber-50/50 dark:from-[#111728] dark:via-[#111728]/90 dark:to-amber-500/10 shadow-xl shadow-slate-900/5 dark:shadow-black/40 overflow-hidden group">
+        <ScrollReveal delay={150} duration={750} variant="scale">
+          <div className="relative rounded-3xl p-6 sm:p-10 lg:p-12 border border-brand-border bg-gradient-to-br from-brand-surface via-brand-surface to-amber-500/[0.06] shadow-xl overflow-hidden group">
             {/* Subtle glow background */}
-            <div className="absolute top-0 left-0 w-[500px] h-[350px] bg-amber-500/10 blur-[100px] rounded-full pointer-events-none -z-10" />
+            <div className="absolute top-0 left-0 w-[450px] h-[300px] bg-amber-500/10 blur-[90px] rounded-full pointer-events-none -z-10" />
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Visual: Isolated 3D Monetization Graphic */}
               <div className="lg:col-span-5 relative order-2 lg:order-1 flex flex-col items-center justify-center">
-                <div className="relative w-full max-w-md aspect-[16/9] select-none filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.18)] dark:drop-shadow-[0_20px_35px_rgba(245,158,11,0.25)] transition-transform duration-500 hover:scale-[1.03]">
+                <div className="relative w-full max-w-md aspect-[16/9] select-none filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.12)] dark:drop-shadow-[0_20px_35px_rgba(243,199,123,0.22)] transition-transform duration-500 group-hover:scale-[1.03]">
                   <Image
                     src="/images/creator-3d-monetization.png"
                     alt="Playxim $1.00 per 1000 Views 3D Digital Wallet & Growth"
@@ -118,7 +118,7 @@ export function HighlightBannersSection() {
 
               {/* Copy on Right */}
               <div className="lg:col-span-7 space-y-4 text-left order-1 lg:order-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-brand-accent border border-amber-500/20">
                   <DollarSign className="h-3.5 w-3.5" />
                   <span>Guaranteed Monetization</span>
                 </div>
@@ -148,7 +148,7 @@ export function HighlightBannersSection() {
 
                 <div className="pt-2">
                   <Link href="/auth/sign-up">
-                    <Button variant="primary" size="md" className="rounded-full shadow-md shadow-brand-primary/20">
+                    <Button variant="primary" size="md" className="rounded-full shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
                       <span>Start Earning $1 / 1K Views</span>
                       <ArrowRight className="h-4 w-4 ml-1.5" />
                     </Button>
@@ -162,3 +162,5 @@ export function HighlightBannersSection() {
     </section>
   );
 }
+
+export default HighlightBannersSection;

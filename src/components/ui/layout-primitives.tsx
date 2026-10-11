@@ -82,17 +82,17 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        "space-y-3 mb-12",
-        align === "center" ? "text-center mx-auto max-w-2xl" : "text-left max-w-2xl",
+        "space-y-3.5 mb-12 sm:mb-16",
+        align === "center" ? "text-center mx-auto max-w-3xl" : "text-left max-w-3xl",
         className
       )}
     >
       {badge && <div className={cn("inline-flex", align === "center" && "justify-center")}>{badge}</div>}
-      <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-brand-text">
+      <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-display font-extrabold tracking-tight text-brand-text leading-[1.12]">
         {title}
       </h2>
       {description && (
-        <p className="text-base sm:text-lg text-brand-muted leading-relaxed">
+        <p className="text-base sm:text-lg text-brand-text-secondary leading-relaxed max-w-2xl mx-auto">
           {description}
         </p>
       )}

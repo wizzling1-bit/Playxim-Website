@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { ChevronDown, MessageSquare, Mail, HelpCircle } from "lucide-react";
 import { Container, SectionHeader } from "@/components/ui/layout-primitives";
 import { Badge } from "@/components/ui/badge";
@@ -17,7 +18,7 @@ export function FaqSection() {
     },
     {
       q: "How much money can I earn?",
-      a: "You earn a flat, guaranteed $1.00 for every 1,000 views and downloads on your links. Unlike YouTube, there are no subscriber counts or 4,000 watch-hour prerequisites — your content starts earning from the very 1st view.",
+      a: "You earn a flat, guaranteed $1.00 for every 1,000 views and downloads on your links. Unlike traditional platforms, there are no subscriber counts or 4,000 watch-hour prerequisites — your content starts earning from the very 1st view.",
     },
     {
       q: "What is the minimum payout and how do I withdraw?",
@@ -46,9 +47,9 @@ export function FaqSection() {
   ];
 
   return (
-    <section id="faq" className="py-20 sm:py-28 border-t border-brand-border/60 bg-transparent relative">
+    <section id="faq" className="py-20 sm:py-28 border-t border-brand-border bg-transparent relative">
       <Container className="max-w-5xl mx-auto px-4 sm:px-8 lg:px-12">
-        <ScrollReveal duration={600}>
+        <ScrollReveal duration={600} variant="subtle">
           <SectionHeader
             badge={<Badge variant="default">FAQ</Badge>}
             title="Frequently Asked Questions"
@@ -56,79 +57,83 @@ export function FaqSection() {
           />
         </ScrollReveal>
 
-        {/* Accordion List */}
+        {/* Accordion List with CSS Grid Height Transition */}
         <div className="space-y-3.5 pt-4 text-left">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <ScrollReveal key={idx} delay={idx * 30} duration={500}>
-                <div className="rounded-2xl border border-slate-200/80 dark:border-brand-border bg-white dark:bg-[#111728]/90 overflow-hidden transition-all shadow-xs hover:border-brand-primary/40">
-                  <button
-                    type="button"
-                    onClick={() => setOpenIndex(isOpen ? null : idx)}
-                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-slate-900 dark:text-brand-text cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/40"
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-answer-${idx}`}
+              <div
+                key={idx}
+                className={`rounded-2xl border transition-all duration-200 shadow-xs ${
+                  isOpen
+                    ? "border-brand-primary/50 bg-brand-surface shadow-md shadow-brand-primary/5"
+                    : "border-brand-border bg-brand-surface hover:border-brand-border-highlight"
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(isOpen ? null : idx)}
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-sm sm:text-base text-brand-text cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary/50 rounded-2xl"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${idx}`}
+                >
+                  <span className="leading-snug">{faq.q}</span>
+                  <div
+                    className={`h-7 w-7 rounded-full flex items-center justify-center shrink-0 transition-transform duration-250 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      isOpen
+                        ? "rotate-180 bg-brand-primary/10 text-brand-primary"
+                        : "bg-brand-bg-soft text-brand-muted"
+                    }`}
                   >
-                    <span>{faq.q}</span>
-                    <ChevronDown
-                      className={`h-4 w-4 text-slate-400 dark:text-brand-muted shrink-0 transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-brand-primary" : ""
-                      }`}
-                    />
-                  </button>
-                  {isOpen && (
-                    <div
-                      id={`faq-answer-${idx}`}
-                      className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-slate-600 dark:text-brand-muted leading-relaxed border-t border-slate-100 dark:border-brand-border/40 pt-3 animate-in fade-in-50 duration-150"
-                    >
+                    <ChevronDown className="h-4 w-4" />
+                  </div>
+                </button>
+                <div
+                  id={`faq-answer-${idx}`}
+                  className={`grid transition-[grid-template-rows] duration-250 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-brand-muted leading-relaxed border-t border-brand-border/50 pt-3">
                       {faq.a}
                     </div>
-                  )}
+                  </div>
                 </div>
-              </ScrollReveal>
+              </div>
             );
           })}
         </div>
 
-        {/* Still Have Questions Box (DiskWala Style) */}
-        <ScrollReveal delay={300} duration={600}>
-          <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-slate-50/90 dark:bg-[#0D121F]/90 border border-slate-200/80 dark:border-brand-border flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
-            <div className="flex items-center gap-4">
-              <div className="h-12 w-12 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0">
-                <HelpCircle className="h-6 w-6" />
-              </div>
-              <div>
-                <h4 className="text-base font-bold text-slate-900 dark:text-brand-text">
-                  Still have questions?
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-brand-muted mt-0.5">
-                  Our creator support team is here to help you 24 hours a day, 7 days a week.
-                </p>
-              </div>
+        {/* 24/7 Creator Support Help Card */}
+        <ScrollReveal delay={200} duration={600} variant="subtle">
+          <div className="mt-12 rounded-3xl p-6 sm:p-8 border border-brand-border bg-brand-surface text-center flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
+            <div className="text-left space-y-1">
+              <h4 className="text-base sm:text-lg font-display font-bold text-brand-text flex items-center gap-2">
+                <HelpCircle className="h-5 w-5 text-brand-primary shrink-0" />
+                <span>Still have questions or need help?</span>
+              </h4>
+              <p className="text-xs sm:text-sm text-brand-muted">
+                Our support team is available 24/7 on Telegram and email to help with your files and payouts.
+              </p>
             </div>
-            <div className="flex flex-wrap items-center gap-3 shrink-0 w-full sm:w-auto">
+            <div className="flex items-center gap-3 shrink-0">
               <a
                 href="https://t.me/playxim"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto"
               >
-                <Button variant="primary" size="sm" className="w-full sm:w-auto rounded-full">
-                  <MessageSquare className="h-3.5 w-3.5 mr-1.5" />
-                  <span>Ask on Telegram</span>
+                <Button size="md" variant="primary" className="rounded-full shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                  <MessageSquare className="h-4 w-4 mr-1.5" />
+                  <span>Telegram Support</span>
                 </Button>
               </a>
-              <a href="mailto:support@playxim.com" className="w-full sm:w-auto">
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  className="w-full sm:w-auto rounded-full bg-white dark:bg-transparent border border-slate-300 dark:border-brand-border text-slate-700 dark:text-brand-muted"
-                >
-                  <Mail className="h-3.5 w-3.5 mr-1.5" />
-                  <span>Email Support</span>
+              <Link href="/contact">
+                <Button size="md" variant="secondary" className="rounded-full bg-brand-bg-soft text-brand-text border border-brand-border hover:bg-brand-surface">
+                  <Mail className="h-4 w-4 mr-1.5" />
+                  <span>Contact Us</span>
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
         </ScrollReveal>
@@ -136,3 +141,5 @@ export function FaqSection() {
     </section>
   );
 }
+
+export default FaqSection;

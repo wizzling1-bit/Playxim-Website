@@ -103,8 +103,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
         setProfile(defaultProfile);
       }
-    } catch (err) {
-      console.warn("Notice: Firestore profile sync operated in offline/fallback mode:", err);
+    } catch (err: any) {
+      if (process.env.NODE_ENV === "development" && err?.code !== "permission-denied") {
+        console.warn("Notice: Firestore profile sync operated in offline/fallback mode:", err);
+      }
       setProfile(defaultProfile);
     }
   }, []);
