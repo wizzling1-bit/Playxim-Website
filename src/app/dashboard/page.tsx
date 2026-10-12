@@ -17,7 +17,6 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { FileCard, type FileCardData } from "@/components/ui/file-card";
 import { PageHeader } from "@/components/ui/layout-primitives";
-import { CreatorOnboardingCard } from "@/components/dashboard/creator-onboarding-card";
 
 export default function DashboardOverviewPage() {
   const recentFiles: FileCardData[] = [
@@ -67,9 +66,6 @@ export default function DashboardOverviewPage() {
           </div>
         }
       />
-
-      {/* Guided 3-Step Creator Onboarding Checklist */}
-      <CreatorOnboardingCard hasUploaded={true} />
 
       {/* 4 Core Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

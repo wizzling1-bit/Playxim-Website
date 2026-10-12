@@ -22,7 +22,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { PageHeader } from "@/components/ui/layout-primitives";
 import { FileCard, type FileCardData } from "@/components/ui/file-card";
-import { CreatorOnboardingCard } from "@/components/dashboard/creator-onboarding-card";
 import {
   Dialog,
   DialogContent,
@@ -340,7 +339,21 @@ export default function ContentPage() {
           </div>
         )
       ) : items.length === 0 ? (
-        <CreatorOnboardingCard hasUploaded={false} />
+        <Card className="p-12 text-center text-brand-muted border-dashed rounded-2xl bg-brand-surface shadow-xs">
+          <UploadCloud className="h-10 w-10 mx-auto text-brand-muted/50 mb-3" />
+          <h3 className="text-sm font-semibold text-brand-text">No content files found</h3>
+          <p className="text-xs text-brand-muted mt-1 max-w-sm mx-auto">
+            You haven&apos;t uploaded any files in this category yet. Upload master videos or archives to start distributing.
+          </p>
+          <div className="mt-4">
+            <Link href="/dashboard/upload">
+              <Button variant="primary" size="sm">
+                <UploadCloud className="h-4 w-4" />
+                <span>Upload Content</span>
+              </Button>
+            </Link>
+          </div>
+        </Card>
       ) : viewMode === "grid" ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {items.map((item) => (
