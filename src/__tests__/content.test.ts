@@ -29,4 +29,8 @@ describe("Content Service & Storage Tests", () => {
     expect(key).toContain("/item_456/");
     expect(key).toContain("My_Master_Video__Final_.mp4");
   });
+
+  it("verifies R2 bucket configuration and naming", () => {
+    expect(storageService.getBucketName()).toBe("playxim");
+  });
 });

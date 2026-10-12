@@ -38,12 +38,16 @@ class StorageService {
     const accountId = env.CLOUDFLARE_ACCOUNT_ID;
     const accessKeyId = env.CLOUDFLARE_R2_ACCESS_KEY_ID;
     const secretAccessKey = env.CLOUDFLARE_R2_SECRET_ACCESS_KEY;
-    this.bucket = env.CLOUDFLARE_R2_BUCKET_NAME || "playxim-content";
+    this.bucket = env.CLOUDFLARE_R2_BUCKET_NAME || "playxim";
 
-    if (accountId && accessKeyId && secretAccessKey) {
+    const endpoint =
+      env.CLOUDFLARE_R2_ENDPOINT ||
+      (accountId ? `https://${accountId}.r2.cloudflarestorage.com` : undefined);
+
+    if (endpoint && accessKeyId && secretAccessKey) {
       this.client = new S3Client({
         region: "auto",
-        endpoint: `https://${accountId}.r2.cloudflarestorage.com`,
+        endpoint,
         credentials: {
           accessKeyId,
           secretAccessKey,
