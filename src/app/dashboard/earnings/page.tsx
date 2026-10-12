@@ -121,49 +121,50 @@ export default function EarningsPage() {
 
       {/* 3 Overview Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="double-bezel p-1.5 rounded-2xl bg-amber-500/10 border border-amber-500/30">
-          <Card className="p-5 space-y-2 border-0 shadow-none bg-brand-surface rounded-[calc(1rem-4px)]">
-            <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
-              <span>Available Balance</span>
-              <DollarSign className="h-4 w-4 text-amber-500" />
+        {/* Available Balance */}
+        <div className="rounded-2xl border border-amber-500/30 bg-amber-500/5 dark:bg-amber-500/10 p-5 space-y-2.5 transition-all shadow-xs">
+          <div className="flex items-center justify-between text-xs font-semibold text-amber-700 dark:text-amber-300 uppercase tracking-wider">
+            <span>Available Balance</span>
+            <div className="h-8 w-8 rounded-xl bg-amber-500/15 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+              <DollarSign className="h-4 w-4" />
             </div>
-            <div className="text-3xl font-display font-extrabold text-amber-600 dark:text-amber-400 font-mono">
-              {formatCurrency(availableUsd)}
-            </div>
-            <p className="text-xs text-brand-muted">
-              Ready for instant withdrawal (Min. $5.00)
-            </p>
-          </Card>
+          </div>
+          <div className="text-3xl font-display font-extrabold text-amber-600 dark:text-amber-400 font-mono tracking-tight">
+            {formatCurrency(availableUsd)}
+          </div>
+          <p className="text-xs text-brand-muted">
+            Ready for instant withdrawal (Min. $5.00)
+          </p>
         </div>
 
-        <div className="double-bezel p-1.5 rounded-2xl bg-brand-surface/40 border border-brand-border">
-          <Card className="p-5 space-y-2 border-0 shadow-none bg-brand-surface rounded-[calc(1rem-4px)]">
-            <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
-              <span>Pending Clearance</span>
-              <TrendingUp className="h-4 w-4 text-brand-primary" />
+        {/* Pending Clearance */}
+        <div className="rounded-2xl border border-brand-border bg-brand-surface p-5 space-y-2.5 transition-all shadow-xs hover:border-brand-border-strong">
+          <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase tracking-wider">
+            <span>Pending Clearance</span>
+            <div className="h-8 w-8 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center">
+              <TrendingUp className="h-4 w-4" />
             </div>
-            <div className="text-3xl font-display font-extrabold text-brand-text font-mono">
-              {formatCurrency(pendingUsd)}
-            </div>
-            <p className="text-xs text-brand-muted">
-              Settling from yesterday&apos;s 24h verification window
-            </p>
-          </Card>
+          </div>
+          <div className="text-3xl font-display font-extrabold text-brand-text font-mono tracking-tight">
+            {formatCurrency(pendingUsd)}
+          </div>
+          <p className="text-xs text-brand-muted">
+            Settling from yesterday&apos;s 24h verification window
+          </p>
         </div>
 
-        <div className="double-bezel p-1.5 rounded-2xl bg-brand-surface/40 border border-brand-border">
-          <Card className="p-5 space-y-2 border-0 shadow-none bg-brand-surface rounded-[calc(1rem-4px)]">
-            <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
-              <span>Platform Payout Rate</span>
-              <Badge variant="glow">Flat Guaranteed</Badge>
-            </div>
-            <div className="text-3xl font-display font-extrabold text-brand-text font-mono">
-              $1.00
-            </div>
-            <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
-              Per 1,000 qualified video views
-            </p>
-          </Card>
+        {/* Payout Rate */}
+        <div className="rounded-2xl border border-brand-border bg-brand-surface p-5 space-y-2.5 transition-all shadow-xs hover:border-brand-border-strong">
+          <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase tracking-wider">
+            <span>Platform Payout Rate</span>
+            <Badge variant="glow">Flat Guaranteed</Badge>
+          </div>
+          <div className="text-3xl font-display font-extrabold text-brand-text font-mono tracking-tight">
+            $1.00
+          </div>
+          <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
+            Per 1,000 qualified video views
+          </p>
         </div>
       </div>
 
@@ -178,10 +179,12 @@ export default function EarningsPage() {
         </div>
 
         {loading ? (
-          <Card className="p-12 text-center animate-pulse bg-brand-surface/40" />
+          <div className="rounded-xl border border-brand-border bg-brand-surface p-12 text-center text-brand-muted animate-pulse">
+            Loading ledger transactions...
+          </div>
         ) : (
-          <div className="double-bezel p-1.5 sm:p-2 rounded-[2rem] bg-brand-surface/40 border border-brand-border shadow-sm">
-            <div className="overflow-x-auto rounded-[calc(2rem-6px)] border border-brand-border bg-brand-surface">
+          <div className="overflow-hidden rounded-xl border border-brand-border bg-brand-surface shadow-xs">
+            <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
                 <thead>
                   <tr className="border-b border-brand-border bg-brand-bg-soft/50 text-brand-muted font-semibold">

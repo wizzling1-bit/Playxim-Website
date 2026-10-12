@@ -92,9 +92,9 @@ export default function BrandingPage() {
             Public Card Preview
           </div>
 
-          <Card className="p-6 space-y-4 border-2 border-brand-border bg-brand-surface shadow-xl">
+          <Card className="p-6 space-y-4 rounded-2xl border border-brand-border bg-brand-surface shadow-sm">
             <div className="flex items-center gap-4">
-              <div className="h-16 w-16 rounded-2xl bg-gradient-to-tr from-brand-primary to-brand-glow text-white font-extrabold text-2xl flex items-center justify-center shadow-md">
+              <div className="h-16 w-16 rounded-2xl bg-brand-primary text-white font-extrabold text-2xl flex items-center justify-center shadow-xs">
                 W
               </div>
               <div className="min-w-0">

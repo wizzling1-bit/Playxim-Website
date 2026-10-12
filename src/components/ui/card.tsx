@@ -6,11 +6,11 @@ const Card = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement> & { variant?: "default" | "raised" | "glass" | "interactive" }
 >(({ className, variant = "default", ...props }, ref) => {
   const variantStyles = {
-    default: "bg-brand-surface border border-brand-border shadow-sm",
-    raised: "bg-brand-surface-2 border border-brand-border shadow-md",
-    glass: "glass-panel shadow-sm",
+    default: "bg-brand-surface border border-brand-border shadow-xs",
+    raised: "bg-brand-surface border border-brand-border-strong shadow-sm",
+    glass: "glass-panel shadow-xs",
     interactive:
-      "bg-brand-surface border border-brand-border shadow-sm transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-elevated hover:border-brand-primary/40 hover:-translate-y-1 cursor-pointer",
+      "bg-brand-surface border border-brand-border shadow-xs transition-all duration-200 ease-out hover:border-brand-border-strong hover:shadow-sm cursor-pointer",
   };
 
   return (

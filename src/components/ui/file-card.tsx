@@ -51,22 +51,22 @@ export function FileCard({
   };
 
   return (
-    <Card variant="interactive" className="group p-5 flex flex-col justify-between h-[180px]">
+    <Card variant="interactive" className="group p-4 sm:p-5 flex flex-col justify-between min-h-[175px] h-full rounded-2xl border-brand-border hover:border-brand-border-strong shadow-xs transition-all duration-150">
       <div>
         {/* Top header row */}
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-brand-bg-soft border border-brand-border/60 group-hover:scale-105 transition-transform">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-bg-soft border border-brand-border group-hover:scale-105 transition-transform">
               {getIcon()}
             </div>
             <div className="min-w-0">
               <h3
                 title={item.name}
-                className="text-sm font-semibold text-brand-text break-all line-clamp-2 group-hover:text-brand-primary transition-colors"
+                className="text-xs sm:text-sm font-semibold text-brand-text truncate group-hover:text-brand-primary transition-colors"
               >
                 {item.name}
               </h3>
-              <p className="text-xs text-brand-muted mt-0.5 capitalize">
+              <p className="text-[11px] text-brand-muted mt-0.5 capitalize">
                 {item.type} · {formatBytes(item.size)}
               </p>
             </div>
@@ -103,20 +103,20 @@ export function FileCard({
         </div>
 
         {/* Status */}
-        <div className="mt-4">
+        <div className="mt-3.5">
           {getStatusBadge()}
         </div>
       </div>
 
       {/* Footer stats */}
-      <div className="flex items-center justify-between text-xs text-brand-muted pt-3 border-t border-brand-border/40 mt-auto">
+      <div className="flex items-center justify-between text-xs text-brand-muted pt-3 border-t border-brand-border mt-auto">
         <div className="flex items-center gap-1.5">
           <Eye className="h-3.5 w-3.5 text-brand-muted" />
-          <span>{formatCompactNumber(item.views || 0)} views</span>
+          <span className="font-mono text-[11px]">{formatCompactNumber(item.views || 0)} views</span>
         </div>
         <div className="flex items-center gap-1">
           <Clock className="h-3.5 w-3.5 text-brand-muted" />
-          <span>{item.updatedAt}</span>
+          <span className="text-[11px]">{item.updatedAt}</span>
         </div>
       </div>
     </Card>

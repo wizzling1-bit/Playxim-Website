@@ -30,7 +30,7 @@ export function DashboardHeader({
   };
 
   return (
-    <header className="h-16 border-b border-brand-border bg-brand-surface/80 backdrop-blur-xl px-4 sm:px-6 flex items-center justify-between sticky top-0 z-30 transition-colors">
+    <header className="h-16 border-b border-brand-border bg-brand-surface/90 backdrop-blur-md px-4 sm:px-6 flex items-center justify-between sticky top-0 z-30 transition-colors">
       <div className="flex items-center gap-3">
         {/* Mobile menu trigger */}
         <Button
@@ -61,7 +61,7 @@ export function DashboardHeader({
         <button
           type="button"
           onClick={() => setCommandOpen(true)}
-          className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-[var(--radius-md)] border border-brand-border bg-brand-bg-soft/70 hover:bg-brand-bg-soft text-brand-muted hover:text-brand-text text-xs transition-colors cursor-pointer"
+          className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl border border-brand-border bg-brand-bg-soft/50 hover:bg-brand-bg-soft hover:border-brand-border-strong text-brand-muted hover:text-brand-text text-xs transition-colors cursor-pointer"
           aria-label="Open command palette"
         >
           <Search className="h-3.5 w-3.5" />
@@ -73,7 +73,7 @@ export function DashboardHeader({
 
         {/* Quick Upload action */}
         <Link href="/dashboard/upload">
-          <Button variant="primary" size="sm" className="shadow-sm shadow-brand-primary/20">
+          <Button variant="primary" size="sm" className="shadow-xs">
             <UploadCloud className="h-4 w-4" />
             <span className="hidden sm:inline">New Upload</span>
           </Button>
@@ -83,7 +83,7 @@ export function DashboardHeader({
         <Button
           variant="ghost"
           size="icon-sm"
-          className="text-brand-muted"
+          className="text-brand-muted hover:text-brand-text"
           title="Notifications"
           aria-label="Notifications"
         >
@@ -101,7 +101,7 @@ export function DashboardHeader({
             className="h-8 w-8 rounded-full object-cover shrink-0 border border-brand-border"
           />
         ) : (
-          <div className="h-8 w-8 rounded-full bg-gradient-to-tr from-brand-primary to-brand-glow text-white font-bold text-xs flex items-center justify-center shrink-0 border border-brand-border">
+          <div className="h-8 w-8 rounded-full bg-brand-primary text-white font-bold text-xs flex items-center justify-center shrink-0 border border-brand-border shadow-xs">
             {initial}
           </div>
         )}

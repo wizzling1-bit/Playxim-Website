@@ -107,7 +107,7 @@ export function DashboardSidebar({
         </div>
 
         {/* Navigation list */}
-        <nav className="p-3 space-y-1 overflow-y-auto max-h-[calc(100vh-180px)]">
+        <nav className="p-3 space-y-0.5 overflow-y-auto max-h-[calc(100vh-180px)]">
           {SIDEBAR_ITEMS.map((item) => {
             const isActive =
               item.href === "/dashboard"
@@ -122,20 +122,20 @@ export function DashboardSidebar({
                 href={item.href}
                 onClick={onClose}
                 className={cn(
-                  "flex items-center justify-between px-3 py-2 rounded-[var(--radius-md)] text-xs font-medium transition-all duration-150 group",
+                  "flex items-center justify-between px-3 py-2 rounded-xl text-xs transition-all duration-150 group",
                   isActive
-                    ? "bg-brand-primary text-white shadow-sm font-semibold shadow-brand-primary/20"
+                    ? "bg-brand-primary/10 text-brand-primary font-semibold dark:bg-brand-primary/15 dark:text-blue-400 shadow-xs"
                     : item.highlight
-                    ? "bg-brand-primary/10 text-brand-primary hover:bg-brand-primary/15"
-                    : "text-brand-muted hover:text-brand-text hover:bg-brand-bg-soft"
+                    ? "bg-brand-primary/5 text-brand-primary hover:bg-brand-primary/10 font-medium"
+                    : "text-brand-muted hover:text-brand-text hover:bg-brand-bg-soft/80 font-medium"
                 )}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <Icon
                     className={cn(
-                      "h-4 w-4 shrink-0 transition-transform group-hover:scale-105",
+                      "h-4 w-4 shrink-0 transition-colors",
                       isActive
-                        ? "text-white"
+                        ? "text-brand-primary dark:text-blue-400"
                         : item.highlight
                         ? "text-brand-primary"
                         : "text-brand-muted group-hover:text-brand-text"
@@ -147,9 +147,9 @@ export function DashboardSidebar({
                 {item.badge && (
                   <span
                     className={cn(
-                      "text-[10px] font-mono px-1.5 py-0.5 rounded-full font-bold",
+                      "text-[10px] font-mono px-2 py-0.5 rounded-full font-semibold",
                       isActive
-                        ? "bg-white/20 text-white"
+                        ? "bg-brand-primary/20 text-brand-primary dark:text-blue-300"
                         : "bg-brand-bg-soft text-brand-muted border border-brand-border/60"
                     )}
                   >
@@ -163,30 +163,30 @@ export function DashboardSidebar({
       </div>
 
       {/* Storage usage meter & Account footer */}
-      <div className="p-3 border-t border-brand-border space-y-3 bg-brand-surface/50">
+      <div className="p-3 border-t border-brand-border space-y-2.5 bg-brand-surface">
         {/* Storage capacity pill */}
-        <div className="p-3 rounded-[var(--radius-md)] bg-brand-bg-soft/70 border border-brand-border/60 space-y-2">
+        <div className="p-3 rounded-xl bg-brand-bg-soft/60 border border-brand-border space-y-2">
           <div className="flex items-center justify-between text-[11px]">
             <span className="text-brand-muted font-medium">Storage Used</span>
             <span className="font-mono font-bold text-brand-text">142.8 GB</span>
           </div>
-          <div className="w-full bg-brand-border/60 rounded-full h-1.5 overflow-hidden">
+          <div className="w-full bg-brand-border/80 dark:bg-white/10 rounded-full h-1.5 overflow-hidden">
             <div
               className="bg-brand-primary h-full rounded-full transition-all duration-500"
               style={{ width: "32%" }}
             />
           </div>
           <div className="flex items-center justify-between text-[10px] text-brand-muted">
-            <span>Policy: Unlimited</span>
-            <Link href="/dashboard/storage" className="text-brand-primary hover:underline">
-              Inspect
+            <span className="font-medium text-emerald-600 dark:text-emerald-400">Policy: Unlimited</span>
+            <Link href="/dashboard/storage" className="text-brand-primary hover:underline font-medium">
+              Details
             </Link>
           </div>
         </div>
 
         {/* Creator profile footer */}
-        <div className="flex items-center justify-between px-2 pt-1 text-xs">
-          <div className="flex items-center gap-2 min-w-0">
+        <div className="flex items-center justify-between px-2 py-1.5 rounded-xl hover:bg-brand-bg-soft/60 transition-colors text-xs">
+          <div className="flex items-center gap-2.5 min-w-0">
             {user?.photoURL ? (
               <img
                 src={user.photoURL}
@@ -194,7 +194,7 @@ export function DashboardSidebar({
                 className="h-7 w-7 rounded-full object-cover shrink-0 border border-brand-border"
               />
             ) : (
-              <div className="h-7 w-7 rounded-full bg-gradient-to-tr from-brand-primary to-brand-glow text-white font-bold text-xs flex items-center justify-center shrink-0">
+              <div className="h-7 w-7 rounded-full bg-gradient-to-tr from-brand-primary to-brand-secondary text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-xs">
                 {initial}
               </div>
             )}
@@ -211,7 +211,7 @@ export function DashboardSidebar({
           <button
             type="button"
             onClick={handleSignOut}
-            className="text-brand-muted hover:text-red-500 p-1.5 rounded hover:bg-brand-bg-soft transition-colors cursor-pointer"
+            className="text-brand-muted hover:text-red-500 p-1.5 rounded-lg hover:bg-brand-bg-soft transition-colors cursor-pointer"
             title="Sign Out"
             aria-label="Sign Out"
           >

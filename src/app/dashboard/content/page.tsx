@@ -265,7 +265,7 @@ export default function ContentPage() {
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {[1, 2, 3, 4, 5, 6].map((i) => (
-            <Card key={i} className="p-6 h-48 animate-pulse bg-brand-surface/40" />
+            <div key={i} className="p-6 h-44 rounded-2xl border border-brand-border bg-brand-bg-soft/60 animate-pulse" />
           ))}
         </div>
       ) : filterType === "trash" ? (

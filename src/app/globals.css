@@ -5,30 +5,30 @@
 
 @layer base {
   :root, [data-theme="light"] {
-    /* Playxim Apple x Linear Design System Tokens - Soft Premium Light Mode */
-    --bg: #F0F3F9;
-    --bg-soft: #E8EEF7;
-    --surface: #FAFBFE;
+    /* Playxim Apple x Linear Design System Tokens - Crisp Porcelain Light Mode */
+    --bg: #F8FAFC;
+    --bg-soft: #F1F5F9;
+    --surface: #FFFFFF;
     --surface-raised: #FFFFFF;
-    --surface-2: #F5F7FC;
-    --surface-glass: rgba(250, 251, 254, 0.82);
+    --surface-2: #F8FAFC;
+    --surface-glass: rgba(255, 255, 255, 0.88);
 
-    --border: #D8E0EF;
-    --border-strong: #C7D3E7;
-    --border-subtle: rgba(17, 24, 43, 0.05);
-    --border-highlight: rgba(30, 107, 255, 0.22);
+    --border: #E2E8F0;
+    --border-strong: #CBD5E1;
+    --border-subtle: rgba(15, 23, 42, 0.04);
+    --border-highlight: rgba(37, 99, 235, 0.18);
 
-    --text: #11182B;
-    --text-secondary: #45536D;
-    --muted: #67758D;
+    --text: #0F172A;
+    --text-secondary: #334155;
+    --muted: #64748B;
 
-    --primary: #1E6BFF;
-    --primary-hover: #1557DB;
-    --primary-text: #1E6BFF;
-    --secondary: #087FAE;
-    --glow: #087FAE;
-    --accent: #96651D;
-    --band: #E8EEF7;
+    --primary: #2563EB;
+    --primary-hover: #1D4ED8;
+    --primary-text: #2563EB;
+    --secondary: #0284C7;
+    --glow: #2563EB;
+    --accent: #D97706;
+    --band: #F1F5F9;
 
     /* Semantic Mappings */
     --background: var(--bg);
@@ -47,46 +47,46 @@
     --ring: var(--primary);
 
     /* Radiuses - Unified scale */
-    --radius-xs: 8px;
+    --radius-xs: 6px;
     --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
     --radius-xl: 16px;
-    --radius-2xl: 16px;
+    --radius-2xl: 20px;
     --radius-pill: 999px;
 
     /* Shadows */
-    --shadow-subtle: 0 1px 2px rgba(17, 24, 43, 0.04), 0 2px 6px rgba(17, 24, 43, 0.02);
-    --shadow-card: 0 1px 3px rgba(17, 24, 43, 0.04), 0 8px 24px -4px rgba(17, 24, 43, 0.04);
-    --shadow-elevated: 0 20px 40px -8px rgba(17, 24, 43, 0.07), 0 1px 3px rgba(17, 24, 43, 0.03);
-    --shadow-glow: 0 0 32px -4px rgba(30, 107, 255, 0.18);
+    --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
+    --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.04), 0 6px 16px -4px rgba(15, 23, 42, 0.03);
+    --shadow-elevated: 0 12px 32px -8px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.03);
+    --shadow-glow: 0 0 28px -4px rgba(37, 99, 235, 0.16);
   }
 
   .dark, [data-theme="dark"] {
-    /* Playxim Luxury Deep Blue Dark Mode Tokens */
-    --bg: #070A12;
-    --bg-soft: #0B1120;
-    --surface: #101829;
-    --surface-raised: #151F34;
-    --surface-2: #151F34;
-    --surface-glass: rgba(16, 24, 41, 0.78);
+    /* Playxim True Obsidian x Carbon Dark Mode Tokens */
+    --bg: #090A0F;
+    --bg-soft: #0E1117;
+    --surface: #12151D;
+    --surface-raised: #181C26;
+    --surface-2: #161A24;
+    --surface-glass: rgba(18, 21, 29, 0.85);
 
-    --border: rgba(174, 194, 232, 0.12);
-    --border-strong: rgba(174, 194, 232, 0.20);
-    --border-subtle: rgba(174, 194, 232, 0.06);
-    --border-highlight: rgba(67, 213, 255, 0.30);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.14);
+    --border-subtle: rgba(255, 255, 255, 0.04);
+    --border-highlight: rgba(59, 130, 246, 0.28);
 
-    --text: #EEF3FF;
-    --text-secondary: #B0BED7;
-    --muted: #8493AD;
+    --text: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --muted: #818D9F;
 
-    --primary: #3478F6;
-    --primary-hover: #4B8AFF;
-    --primary-text: #43D5FF;
-    --secondary: #43D5FF;
-    --glow: #43D5FF;
-    --accent: #F0C779;
-    --band: #0B1120;
+    --primary: #3B82F6;
+    --primary-hover: #60A5FA;
+    --primary-text: #60A5FA;
+    --secondary: #38BDF8;
+    --glow: #3B82F6;
+    --accent: #F59E0B;
+    --band: #0E1117;
 
     /* Semantic Mappings */
     --background: var(--bg);
@@ -102,13 +102,13 @@
     --destructive: #F87171;
     --destructive-foreground: #FFFFFF;
     --input: var(--border);
-    --ring: var(--glow);
+    --ring: var(--primary);
 
     /* Shadows with Luminous Rim Occlusion */
-    --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.5);
-    --shadow-card: 0 0 0 1px rgba(174, 194, 232, 0.08), 0 8px 30px -4px rgba(0, 0, 0, 0.7);
-    --shadow-elevated: 0 0 0 1px rgba(174, 194, 232, 0.12), 0 20px 48px -8px rgba(0, 0, 0, 0.85);
-    --shadow-glow: 0 0 40px -4px rgba(67, 213, 255, 0.22);
+    --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.6);
+    --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 4px 20px -2px rgba(0, 0, 0, 0.7);
+    --shadow-elevated: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 16px 40px -8px rgba(0, 0, 0, 0.85);
+    --shadow-glow: 0 0 32px -4px rgba(59, 130, 246, 0.2);
   }
 }
 
@@ -268,12 +268,13 @@ h1, h2, h3, h4, .font-display {
   animation: floatSlow 7s ease-in-out infinite;
 }
 
-/* Double-Bezel Nested Architecture */
+/* Double-Bezel Precision Bezel Architecture */
 .double-bezel {
-  padding: 6px;
-  border-radius: var(--radius-2xl);
-  background: color-mix(in srgb, var(--surface) 40%, transparent);
+  padding: 4px;
+  border-radius: var(--radius-xl);
+  background: var(--bg-soft);
   border: 1px solid var(--border);
+  box-shadow: var(--shadow-subtle);
 }
 
 /* Animated Wave Floating Label Form Control */

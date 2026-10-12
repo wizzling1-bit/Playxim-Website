@@ -125,7 +125,7 @@ export default function FoldersPage() {
       {loading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[1, 2, 3, 4].map((i) => (
-            <Card key={i} className="p-5 h-44 animate-pulse bg-brand-surface/40" />
+            <div key={i} className="p-5 h-44 rounded-2xl border border-brand-border bg-brand-bg-soft/60 animate-pulse" />
           ))}
         </div>
       ) : folders.length === 0 ? (
