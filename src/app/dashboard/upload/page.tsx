@@ -113,51 +113,53 @@ export default function UploadPage() {
       )}
 
       {/* Drag & Drop Zone */}
-      <div
-        onDragOver={(e) => {
-          e.preventDefault();
-          setIsDragging(true);
-        }}
-        onDragLeave={() => setIsDragging(false)}
-        onDrop={handleDrop}
-        className={`p-12 sm:p-16 rounded-[var(--radius-2xl)] border-2 border-dashed transition-all duration-200 text-center flex flex-col items-center justify-center cursor-pointer ${
-          isDragging
-            ? "border-brand-primary bg-brand-primary/5 scale-[0.99]"
-            : "border-brand-border bg-brand-surface hover:border-brand-primary/40 hover:bg-brand-bg-soft/30"
-        }`}
-      >
-        <div className="h-16 w-16 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center mb-4 shadow-sm border border-brand-primary/20">
-          <UploadCloud className="h-8 w-8" />
-        </div>
+      <div className="double-bezel p-1.5 sm:p-2 rounded-[2rem] bg-brand-surface/40 border border-brand-border shadow-sm">
+        <div
+          onDragOver={(e) => {
+            e.preventDefault();
+            setIsDragging(true);
+          }}
+          onDragLeave={() => setIsDragging(false)}
+          onDrop={handleDrop}
+          className={`p-12 sm:p-16 rounded-[calc(2rem-6px)] border-2 border-dashed transition-all duration-200 text-center flex flex-col items-center justify-center cursor-pointer ${
+            isDragging
+              ? "border-brand-primary bg-brand-primary/5 scale-[0.99]"
+              : "border-brand-border/80 bg-brand-surface hover:border-brand-primary/50 hover:bg-brand-bg-soft/30"
+          }`}
+        >
+          <div className="h-16 w-16 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center mb-4 shadow-sm border border-brand-primary/20">
+            <UploadCloud className="h-8 w-8" />
+          </div>
 
-        <h3 className="text-lg font-bold text-brand-text">
-          Drag & drop files to upload instantly
-        </h3>
-        <p className="text-xs text-brand-muted max-w-sm mt-1 leading-relaxed">
-          Upload MP4, MKV, ZIP, RAR, PDF, or RAW assets. Files up to 100 GB+ supported via S3 multipart chunking.
-        </p>
+          <h3 className="text-xl font-display font-bold text-brand-text">
+            Drag & drop files to upload instantly
+          </h3>
+          <p className="text-xs text-brand-muted max-w-sm mt-1.5 leading-relaxed">
+            Upload MP4, MKV, ZIP, RAR, PDF, or RAW assets. Files up to 100 GB+ supported via S3 multipart chunking.
+          </p>
 
-        <div className="flex items-center gap-3 mt-6">
-          <label className="cursor-pointer">
-            <input
-              type="file"
-              multiple
-              className="hidden"
-              onChange={handleFileChange}
-            />
-            <Button variant="primary" size="md">
-              Browse Files
+          <div className="flex items-center gap-3 mt-6">
+            <label className="cursor-pointer">
+              <input
+                type="file"
+                multiple
+                className="hidden"
+                onChange={handleFileChange}
+              />
+              <Button variant="primary" size="md" className="rounded-full shadow-md shadow-brand-primary/20 hover:scale-105 active:scale-95 transition-all">
+                Browse Files
+              </Button>
+            </label>
+
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleFolderUploadAttempt}
+              className="text-xs text-brand-muted rounded-full"
+            >
+              Upload Folder...
             </Button>
-          </label>
-
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={handleFolderUploadAttempt}
-            className="text-xs text-brand-muted"
-          >
-            Upload Folder...
-          </Button>
+          </div>
         </div>
       </div>
 

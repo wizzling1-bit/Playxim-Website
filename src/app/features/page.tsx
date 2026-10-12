@@ -12,10 +12,11 @@ import {
 } from "lucide-react";
 import { MarketingNavbar } from "@/components/marketing/navbar";
 import { MarketingFooter } from "@/components/marketing/footer";
-import { CtaBanner } from "@/components/marketing/cta-banner";
+import { FinalCtaSection } from "@/components/marketing/final-cta";
 import { Container } from "@/components/ui/layout-primitives";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export const metadata: Metadata = {
   title: "Features — Playxim Creator Infrastructure",
@@ -38,7 +39,7 @@ const FEATURES_LIST = [
     title: "Cloudflare Stream Video Pipeline",
     problem: "Raw video files delivered via basic HTTP result in endless buffering, high data consumption, and broken playback on mobile.",
     solution: "Automatic multi-bitrate HLS/DASH transcoding with global CDN caching across 300+ edge locations worldwide.",
-    outcome: "Silky smooth video playback on web and direct handoff to future native mobile applications.",
+    outcome: "Silky smooth video playback on web and direct handoff to native mobile applications.",
   },
   {
     icon: <Share2 className="h-6 w-6 text-emerald-500" />,
@@ -70,7 +71,7 @@ const FEATURES_LIST = [
     title: "Qualified View Monetization",
     problem: "Creators drive millions of views to generic storage hosts without seeing a dime of platform value.",
     solution: "Built-in double-entry ledger that attributes revenue to creators based on qualified mobile video views.",
-    outcome: "Turn your media distribution into an ongoing, predictable revenue channel.",
+    outcome: "Turn your media distribution into an ongoing, predictable revenue channel ($1/1K views, $5 minimum cashout).",
   },
   {
     icon: <Smartphone className="h-6 w-6 text-violet-500" />,
@@ -92,70 +93,80 @@ const FEATURES_LIST = [
 
 export default function FeaturesPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-transparent transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-brand-bg transition-colors duration-200">
       <MarketingNavbar />
 
       <main className="flex-1">
-        {/* Header */}
-        <section className="py-24 border-b border-brand-border bg-gradient-to-b from-brand-bg to-brand-bg-soft/40 relative overflow-hidden">
+        {/* Header Hero */}
+        <section className="py-20 sm:py-28 border-b border-brand-border bg-gradient-to-b from-brand-bg to-brand-bg-soft/40 relative overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand-primary/10 blur-[130px] rounded-full pointer-events-none -z-10" />
-          <Container className="text-center max-w-3xl mx-auto space-y-5 relative z-10">
-            <Badge variant="default">Complete Platform Capabilities</Badge>
-            <h1 className="text-4xl sm:text-5xl font-display font-extrabold tracking-tight text-brand-text">
-              Features built for creator autonomy
-            </h1>
-            <p className="text-lg text-brand-muted leading-relaxed">
-              Every system in Playxim is built with intention: eliminate file limits, deliver flawless video playback,
-              and reward the creators who build audiences.
-            </p>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-brand-primary/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+          
+          <Container className="text-center max-w-3xl mx-auto space-y-5 relative z-10 px-4">
+            <ScrollReveal duration={600} variant="subtle">
+              <Badge variant="default" className="shadow-xs">Complete Platform Capabilities</Badge>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold tracking-tight text-brand-text mt-3">
+                Features built for creator autonomy
+              </h1>
+              <p className="text-base sm:text-lg text-brand-muted leading-relaxed max-w-2xl mx-auto mt-3">
+                Every system in Playxim is built with intention: eliminate file limits, deliver flawless video playback,
+                and reward the creators who build genuine audiences.
+              </p>
+            </ScrollReveal>
           </Container>
         </section>
 
         {/* Feature Grid */}
-        <section className="py-24 border-b border-brand-border">
-          <Container>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {FEATURES_LIST.map((feat, idx) => (
-                <div key={feat.title} className="p-1 rounded-[var(--radius-2xl)] bg-brand-surface/40 border border-brand-border/60 hover:border-brand-primary/30 transition-all duration-300">
-                  <Card variant="interactive" className="p-8 space-y-6 h-full border-0 shadow-none">
-                    <div className="flex items-center justify-between">
-                      <div className="p-3 rounded-xl bg-brand-bg-soft border border-brand-border/60">
-                        {feat.icon}
-                      </div>
-                      <Badge variant="secondary">{feat.badge}</Badge>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-display font-bold text-brand-text">{feat.title}</h3>
-                      <div className="mt-4 space-y-3 text-sm">
-                        <div className="p-3 rounded-lg bg-red-500/5 border border-red-500/10 text-brand-muted">
-                          <strong className="text-red-600 dark:text-red-400 font-semibold">The Problem: </strong>
-                          {feat.problem}
+        <section className="py-20 sm:py-24 border-b border-brand-border">
+          <Container className="px-4 sm:px-6">
+            <ScrollReveal duration={700} variant="subtle">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                {FEATURES_LIST.map((feat) => (
+                  <div
+                    key={feat.title}
+                    className="double-bezel p-1.5 rounded-[2rem] bg-brand-surface/40 border border-brand-border hover:border-brand-primary/40 transition-all duration-300"
+                  >
+                    <Card
+                      variant="interactive"
+                      className="p-6 sm:p-8 space-y-6 h-full border-0 shadow-none rounded-[calc(2rem-6px)] bg-brand-surface flex flex-col justify-between"
+                    >
+                      <div className="space-y-6">
+                        <div className="flex items-center justify-between">
+                          <div className="p-3 rounded-2xl bg-brand-bg-soft border border-brand-border/60 shadow-xs">
+                            {feat.icon}
+                          </div>
+                          <Badge variant="secondary">{feat.badge}</Badge>
                         </div>
-                        <div className="p-3 rounded-lg bg-brand-primary/5 border border-brand-primary/10 text-brand-muted">
-                          <strong className="text-brand-primary font-semibold">Playxim Solution: </strong>
-                          {feat.solution}
+
+                        <div>
+                          <h3 className="text-xl font-display font-bold text-brand-text">{feat.title}</h3>
+                          <div className="mt-4 space-y-3 text-sm">
+                            <div className="p-3 rounded-xl bg-red-500/5 border border-red-500/10 text-brand-muted">
+                              <strong className="text-red-600 dark:text-red-400 font-semibold">The Problem: </strong>
+                              {feat.problem}
+                            </div>
+                            <div className="p-3 rounded-xl bg-brand-primary/5 border border-brand-primary/10 text-brand-muted">
+                              <strong className="text-brand-primary font-semibold">Playxim Solution: </strong>
+                              {feat.solution}
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    <div className="pt-3 border-t border-brand-border/60 flex items-center gap-2 text-xs text-emerald-600 dark:text-emerald-400 font-medium">
-                      <CheckCircle2 className="h-4 w-4 shrink-0" />
-                      <span>{feat.outcome}</span>
-                    </div>
-                  </Card>
-                </div>
-              ))}
-            </div>
+                      <div className="pt-4 border-t border-brand-border/60 flex items-center gap-2 text-xs text-emerald-600 dark:text-emerald-400 font-medium">
+                        <CheckCircle2 className="h-4 w-4 shrink-0" />
+                        <span>{feat.outcome}</span>
+                      </div>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
           </Container>
         </section>
 
-        {/* CTA */}
-        <CtaBanner
-          title="Ready to experience modern creator storage?"
-          subtitle="Start uploading unlimited files today without storage tiers or hidden fees."
-        />
+        {/* Final CTA */}
+        <FinalCtaSection />
       </main>
 
       <MarketingFooter />

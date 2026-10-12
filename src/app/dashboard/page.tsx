@@ -74,118 +74,134 @@ export default function DashboardOverviewPage() {
       {/* 4 Core Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Metric 1 */}
-        <Card className="p-5 space-y-3 hover:border-brand-primary/30 transition-all duration-200">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider">
-              Storage Used
-            </span>
-            <div className="p-2 rounded-lg bg-brand-primary/10 text-brand-primary">
-              <HardDrive className="h-4 w-4" />
+        <div className="double-bezel p-1.5 rounded-2xl bg-brand-surface/40 border border-brand-border hover:border-brand-primary/40 transition-all duration-200">
+          <Card className="p-5 space-y-3 border-0 shadow-none bg-brand-surface rounded-[calc(1rem-4px)]">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider">
+                Storage Used
+              </span>
+              <div className="p-2 rounded-xl bg-brand-primary/10 text-brand-primary">
+                <HardDrive className="h-4 w-4" />
+              </div>
             </div>
-          </div>
-          <div>
-            <div className="text-2xl font-display font-extrabold text-brand-text">142.8 GB</div>
-            <p className="text-xs text-brand-muted mt-1 flex items-center gap-1">
-              <span>Policy:</span>
-              <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Unlimited</span>
-            </p>
-          </div>
-        </Card>
+            <div>
+              <div className="text-2xl font-display font-extrabold text-brand-text">142.8 GB</div>
+              <p className="text-xs text-brand-muted mt-1 flex items-center gap-1">
+                <span>Policy:</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Unlimited</span>
+              </p>
+            </div>
+          </Card>
+        </div>
 
         {/* Metric 2 */}
-        <Card className="p-5 space-y-3 hover:border-brand-glow/30 transition-all duration-200">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider">
-              Total Streams
-            </span>
-            <div className="p-2 rounded-lg bg-brand-glow/10 text-brand-glow">
-              <Play className="h-4 w-4" />
+        <div className="double-bezel p-1.5 rounded-2xl bg-brand-surface/40 border border-brand-border hover:border-brand-glow/40 transition-all duration-200">
+          <Card className="p-5 space-y-3 border-0 shadow-none bg-brand-surface rounded-[calc(1rem-4px)]">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider">
+                Total Streams
+              </span>
+              <div className="p-2 rounded-xl bg-brand-glow/10 text-brand-glow">
+                <Play className="h-4 w-4" />
+              </div>
             </div>
-          </div>
-          <div>
-            <div className="text-2xl font-display font-extrabold text-brand-text">394,200</div>
-            <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-1 flex items-center gap-1">
-              <TrendingUp className="h-3 w-3" />
-              <span>+14.2% from last week</span>
-            </p>
-          </div>
-        </Card>
+            <div>
+              <div className="text-2xl font-display font-extrabold text-brand-text">394,200</div>
+              <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-1 flex items-center gap-1">
+                <TrendingUp className="h-3 w-3" />
+                <span>+14.2% from last week</span>
+              </p>
+            </div>
+          </Card>
+        </div>
 
         {/* Metric 3 */}
-        <Card className="p-5 space-y-3 hover:border-amber-500/30 transition-all duration-200">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider">
-              Accrued Earnings
-            </span>
-            <div className="p-2 rounded-lg bg-amber-500/10 text-amber-500">
-              <DollarSign className="h-4 w-4" />
+        <div className="double-bezel p-1.5 rounded-2xl bg-brand-surface/40 border border-brand-border hover:border-amber-500/40 transition-all duration-200">
+          <Card className="p-5 space-y-3 border-0 shadow-none bg-brand-surface rounded-[calc(1rem-4px)]">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider">
+                Accrued Earnings
+              </span>
+              <div className="p-2 rounded-xl bg-amber-500/10 text-amber-500">
+                <DollarSign className="h-4 w-4" />
+              </div>
             </div>
-          </div>
-          <div>
-            <div className="text-2xl font-display font-extrabold text-amber-600 dark:text-amber-400 font-mono">
-              $689.85
+            <div>
+              <div className="text-2xl font-display font-extrabold text-amber-600 dark:text-amber-400 font-mono">
+                $689.85
+              </div>
+              <p className="text-xs text-brand-muted mt-1">
+                Next payout cycle: <strong className="text-brand-text font-semibold">Friday ($5 min)</strong>
+              </p>
             </div>
-            <p className="text-xs text-brand-muted mt-1">
-              Next payout cycle: <strong className="text-brand-text">Friday</strong>
-            </p>
-          </div>
-        </Card>
+          </Card>
+        </div>
 
         {/* Metric 4 */}
-        <Card className="p-5 space-y-3 hover:border-indigo-500/30 transition-all duration-200">
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider">
-              Hosted Items
-            </span>
-            <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-500">
-              <Video className="h-4 w-4" />
+        <div className="double-bezel p-1.5 rounded-2xl bg-brand-surface/40 border border-brand-border hover:border-indigo-500/40 transition-all duration-200">
+          <Card className="p-5 space-y-3 border-0 shadow-none bg-brand-surface rounded-[calc(1rem-4px)]">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-semibold text-brand-muted uppercase tracking-wider">
+                Hosted Items
+              </span>
+              <div className="p-2 rounded-xl bg-indigo-500/10 text-indigo-500">
+                <Video className="h-4 w-4" />
+              </div>
             </div>
-          </div>
-          <div>
-            <div className="text-2xl font-display font-extrabold text-brand-text">1,482</div>
-            <p className="text-xs text-brand-muted mt-1">
-              Across 32 folders & 6 playlists
-            </p>
-          </div>
-        </Card>
+            <div>
+              <div className="text-2xl font-display font-extrabold text-brand-text">1,482</div>
+              <p className="text-xs text-brand-muted mt-1">
+                Across 32 folders & 6 playlists
+              </p>
+            </div>
+          </Card>
+        </div>
       </div>
 
       {/* Quick Action Tiles */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <Link href="/dashboard/upload">
-          <Card variant="interactive" className="p-4 flex items-center gap-3">
-            <div className="p-2.5 rounded-lg bg-brand-primary/10 text-brand-primary">
-              <UploadCloud className="h-4 w-4" />
-            </div>
-            <div className="text-xs font-semibold text-brand-text">Upload Video/File</div>
-          </Card>
+        <Link href="/dashboard/upload" className="group">
+          <div className="double-bezel p-1 rounded-2xl bg-brand-surface/40 border border-brand-border group-hover:border-brand-primary/40 transition-all">
+            <Card variant="interactive" className="p-4 flex items-center gap-3 border-0 shadow-none rounded-[calc(1rem-4px)]">
+              <div className="p-2.5 rounded-xl bg-brand-primary/10 text-brand-primary group-hover:scale-110 transition-transform">
+                <UploadCloud className="h-4 w-4" />
+              </div>
+              <div className="text-xs font-semibold text-brand-text">Upload Video/File</div>
+            </Card>
+          </div>
         </Link>
 
-        <Link href="/dashboard/folders">
-          <Card variant="interactive" className="p-4 flex items-center gap-3">
-            <div className="p-2.5 rounded-lg bg-brand-bg-soft text-brand-muted">
-              <FolderPlus className="h-4 w-4" />
-            </div>
-            <div className="text-xs font-semibold text-brand-text">New Folder</div>
-          </Card>
+        <Link href="/dashboard/folders" className="group">
+          <div className="double-bezel p-1 rounded-2xl bg-brand-surface/40 border border-brand-border group-hover:border-brand-primary/40 transition-all">
+            <Card variant="interactive" className="p-4 flex items-center gap-3 border-0 shadow-none rounded-[calc(1rem-4px)]">
+              <div className="p-2.5 rounded-xl bg-brand-bg-soft text-brand-muted group-hover:scale-110 transition-transform">
+                <FolderPlus className="h-4 w-4" />
+              </div>
+              <div className="text-xs font-semibold text-brand-text">New Folder</div>
+            </Card>
+          </div>
         </Link>
 
-        <Link href="/dashboard/links">
-          <Card variant="interactive" className="p-4 flex items-center gap-3">
-            <div className="p-2.5 rounded-lg bg-brand-bg-soft text-brand-muted">
-              <Share2 className="h-4 w-4" />
-            </div>
-            <div className="text-xs font-semibold text-brand-text">Manage Links</div>
-          </Card>
+        <Link href="/dashboard/links" className="group">
+          <div className="double-bezel p-1 rounded-2xl bg-brand-surface/40 border border-brand-border group-hover:border-brand-primary/40 transition-all">
+            <Card variant="interactive" className="p-4 flex items-center gap-3 border-0 shadow-none rounded-[calc(1rem-4px)]">
+              <div className="p-2.5 rounded-xl bg-brand-bg-soft text-brand-muted group-hover:scale-110 transition-transform">
+                <Share2 className="h-4 w-4" />
+              </div>
+              <div className="text-xs font-semibold text-brand-text">Manage Links</div>
+            </Card>
+          </div>
         </Link>
 
-        <Link href="/dashboard/earnings">
-          <Card variant="interactive" className="p-4 flex items-center gap-3">
-            <div className="p-2.5 rounded-lg bg-amber-500/10 text-amber-500">
-              <DollarSign className="h-4 w-4" />
-            </div>
-            <div className="text-xs font-semibold text-brand-text">View Ledger</div>
-          </Card>
+        <Link href="/dashboard/earnings" className="group">
+          <div className="double-bezel p-1 rounded-2xl bg-brand-surface/40 border border-brand-border group-hover:border-amber-500/40 transition-all">
+            <Card variant="interactive" className="p-4 flex items-center gap-3 border-0 shadow-none rounded-[calc(1rem-4px)]">
+              <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-500 group-hover:scale-110 transition-transform">
+                <DollarSign className="h-4 w-4" />
+              </div>
+              <div className="text-xs font-semibold text-brand-text">View Ledger</div>
+            </Card>
+          </div>
         </Link>
       </div>
 
@@ -193,13 +209,13 @@ export default function DashboardOverviewPage() {
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-base font-bold text-brand-text">Recent Content</h2>
+            <h2 className="text-base font-display font-bold text-brand-text">Recent Content</h2>
             <p className="text-xs text-brand-muted">
               Files uploaded in your creator workspace
             </p>
           </div>
           <Link href="/dashboard/content">
-            <Button variant="ghost" size="sm" className="text-xs">
+            <Button variant="ghost" size="sm" className="text-xs rounded-full">
               <span>View All Files</span>
               <ArrowRight className="h-3.5 w-3.5 ml-1" />
             </Button>

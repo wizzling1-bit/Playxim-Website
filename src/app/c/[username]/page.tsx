@@ -113,74 +113,76 @@ export default async function CreatorPublicProfilePage({ params }: CreatorPagePr
       {/* Main profile container */}
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-10 space-y-10">
         {/* Profile Hero Header */}
-        <div className="p-8 sm:p-10 rounded-[var(--radius-2xl)] bg-gradient-to-b from-brand-surface via-brand-surface to-brand-bg-soft/40 border border-brand-border shadow-xl">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="flex items-center gap-5">
-              <div className="h-20 w-20 rounded-2xl bg-gradient-to-tr from-brand-primary to-brand-glow text-white font-black text-3xl flex items-center justify-center shadow-lg shrink-0">
-                {profile.displayName.charAt(0)}
-              </div>
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <h1 className="text-2xl font-bold text-brand-text">
-                    {profile.displayName}
-                  </h1>
-                  {profile.verified && (
-                    <Badge variant="default" className="text-[10px]">
-                      Verified Creator
-                    </Badge>
-                  )}
+        <div className="double-bezel p-1.5 sm:p-2 rounded-[2rem] bg-brand-surface/40 border border-brand-border shadow-xl">
+          <div className="p-7 sm:p-10 rounded-[calc(2rem-6px)] bg-gradient-to-b from-brand-surface via-brand-surface to-brand-bg-soft/40 border border-brand-border/60">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div className="flex items-center gap-5">
+                <div className="h-20 w-20 rounded-2xl bg-gradient-to-tr from-brand-primary to-brand-glow text-white font-black text-3xl flex items-center justify-center shadow-lg shrink-0">
+                  {profile.displayName.charAt(0)}
                 </div>
-                <div className="text-sm font-mono text-brand-primary">
-                  @{profile.username}
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <h1 className="text-2xl font-display font-extrabold text-brand-text">
+                      {profile.displayName}
+                    </h1>
+                    {profile.verified && (
+                      <Badge variant="default" className="text-[10px] shadow-xs">
+                        Verified Creator
+                      </Badge>
+                    )}
+                  </div>
+                  <div className="text-sm font-mono text-brand-primary">
+                    @{profile.username}
+                  </div>
                 </div>
+              </div>
+
+              <div className="flex items-center gap-3 w-full md:w-auto">
+                <Button variant="primary" size="md" className="w-full md:w-auto rounded-full shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                  <Sparkles className="h-4 w-4 mr-2" />
+                  <span>Follow Creator</span>
+                </Button>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 w-full md:w-auto">
-              <Button variant="primary" size="md" className="w-full md:w-auto shadow-md">
-                <Sparkles className="h-4 w-4 mr-2" />
-                <span>Follow Creator</span>
-              </Button>
-            </div>
-          </div>
+            <p className="mt-6 text-sm text-brand-muted max-w-2xl leading-relaxed">
+              {profile.bio}
+            </p>
 
-          <p className="mt-6 text-sm text-brand-muted max-w-2xl leading-relaxed">
-            {profile.bio}
-          </p>
+            {/* Social Links Bar */}
+            <div className="mt-6 pt-6 border-t border-brand-border/60 flex flex-wrap items-center justify-between gap-4">
+              <div className="flex items-center gap-2.5">
+                {profile.socialLinks.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-3.5 py-1.5 rounded-full bg-brand-surface border border-brand-border text-xs font-semibold text-brand-text hover:border-brand-primary/40 hover:text-brand-primary hover:bg-brand-bg-soft transition-all active:scale-95 flex items-center gap-1.5"
+                  >
+                    {s.platform === "youtube" ? (
+                      <Video className="h-3.5 w-3.5 text-red-500" />
+                    ) : s.platform === "telegram" ? (
+                      <Send className="h-3.5 w-3.5 text-sky-500" />
+                    ) : (
+                      <Globe className="h-3.5 w-3.5 text-brand-text" />
+                    )}
+                    <span>{s.label}</span>
+                  </a>
+                ))}
+              </div>
 
-          {/* Social Links Bar */}
-          <div className="mt-6 pt-6 border-t border-brand-border/60 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              {profile.socialLinks.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="px-3 py-1.5 rounded-[var(--radius-md)] bg-brand-surface border border-brand-border text-xs font-semibold text-brand-text hover:border-brand-primary/40 hover:text-brand-primary transition-colors flex items-center gap-1.5"
-                >
-                  {s.platform === "youtube" ? (
-                    <Video className="h-3.5 w-3.5 text-red-500" />
-                  ) : s.platform === "telegram" ? (
-                    <Send className="h-3.5 w-3.5 text-sky-500" />
-                  ) : (
-                    <Globe className="h-3.5 w-3.5 text-brand-text" />
-                  )}
-                  <span>{s.label}</span>
-                </a>
-              ))}
-            </div>
-
-            <div className="flex items-center gap-4 text-xs font-mono text-brand-muted">
-              <span className="flex items-center gap-1.5">
-                <HardDrive className="h-3.5 w-3.5 text-brand-primary" />
-                {profile.totalStorage}
-              </span>
-              <span>•</span>
-              <span className="flex items-center gap-1.5">
-                <Eye className="h-3.5 w-3.5 text-brand-glow" />
-                {profile.totalViews}
-              </span>
+              <div className="flex items-center gap-4 text-xs font-mono text-brand-muted">
+                <span className="flex items-center gap-1.5 font-semibold text-brand-text">
+                  <HardDrive className="h-3.5 w-3.5 text-brand-primary" />
+                  {profile.totalStorage}
+                </span>
+                <span>•</span>
+                <span className="flex items-center gap-1.5 font-semibold text-brand-text">
+                  <Eye className="h-3.5 w-3.5 text-brand-glow" />
+                  {profile.totalViews}
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -188,7 +190,7 @@ export default async function CreatorPublicProfilePage({ params }: CreatorPagePr
         {/* Public Content Showcase */}
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-lg font-bold text-brand-text">
+            <h2 className="text-lg font-display font-bold text-brand-text">
               Hosted Content Showcase ({showcaseItems.length})
             </h2>
             <span className="text-xs text-brand-muted font-mono">
@@ -196,37 +198,42 @@ export default async function CreatorPublicProfilePage({ params }: CreatorPagePr
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {showcaseItems.map((item) => (
-              <Card key={item.id} className="p-5 flex flex-col justify-between group">
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between gap-3">
-                    <Badge variant={item.type === "video" ? "glow" : "secondary"}>
-                      {item.type}
-                    </Badge>
-                    <span className="text-xs text-brand-muted font-mono">
-                      {item.views?.toLocaleString()} views
-                    </span>
+              <div
+                key={item.id}
+                className="double-bezel p-1.5 rounded-2xl bg-brand-surface/40 border border-brand-border hover:border-brand-primary/40 transition-all duration-300"
+              >
+                <Card className="p-6 flex flex-col justify-between group border-0 shadow-none bg-brand-surface rounded-[calc(1rem-4px)] h-full">
+                  <div className="space-y-3">
+                    <div className="flex items-start justify-between gap-3">
+                      <Badge variant={item.type === "video" ? "glow" : "secondary"}>
+                        {item.type}
+                      </Badge>
+                      <span className="text-xs text-brand-muted font-mono">
+                        {item.views?.toLocaleString()} views
+                      </span>
+                    </div>
+
+                    <h3 className="font-semibold text-base text-brand-text group-hover:text-brand-primary transition-colors">
+                      {item.name}
+                    </h3>
                   </div>
 
-                  <h3 className="font-semibold text-base text-brand-text group-hover:text-brand-primary transition-colors">
-                    {item.name}
-                  </h3>
-                </div>
+                  <div className="pt-4 mt-4 border-t border-brand-border/40 flex items-center justify-between">
+                    <span className="text-xs text-brand-muted font-mono font-medium">
+                      {(item.size / (1024 * 1024 * 1024)).toFixed(2)} GB
+                    </span>
 
-                <div className="pt-4 mt-4 border-t border-brand-border/40 flex items-center justify-between">
-                  <span className="text-xs text-brand-muted font-mono">
-                    {(item.size / (1024 * 1024 * 1024)).toFixed(2)} GB
-                  </span>
-
-                  <Link href={`/watch/${item.id}`}>
-                    <Button variant="primary" size="sm" className="text-xs">
-                      <span>Stream Now</span>
-                      <ArrowRight className="h-3.5 w-3.5 ml-1" />
-                    </Button>
-                  </Link>
-                </div>
-              </Card>
+                    <Link href={`/watch/${item.id}`}>
+                      <Button variant="primary" size="sm" className="text-xs rounded-full hover:scale-105 active:scale-95 transition-all">
+                        <span>Stream Now</span>
+                        <ArrowRight className="h-3.5 w-3.5 ml-1" />
+                      </Button>
+                    </Link>
+                  </div>
+                </Card>
+              </div>
             ))}
           </div>
         </div>

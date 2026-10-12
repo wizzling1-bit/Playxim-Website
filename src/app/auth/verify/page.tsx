@@ -32,13 +32,13 @@ function VerifyContent() {
   };
 
   return (
-    <Card className="p-8 sm:p-10 shadow-2xl border border-brand-border bg-brand-surface text-center space-y-6 animate-in fade-in zoom-in-95 duration-200">
-      <div className="h-16 w-16 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center mx-auto border border-brand-primary/20">
+    <Card className="p-8 sm:p-10 border-0 shadow-none bg-brand-surface rounded-[calc(var(--radius-2xl)-4px)] text-center space-y-6 animate-in fade-in duration-200">
+      <div className="h-16 w-16 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center mx-auto border border-brand-primary/20 shadow-xs">
         <Mail className="h-8 w-8" />
       </div>
 
       <div className="space-y-2">
-        <CardTitle className="text-2xl font-bold text-brand-text">
+        <CardTitle className="text-2xl font-display font-extrabold text-brand-text">
           Check your email
         </CardTitle>
         <CardDescription className="text-sm text-brand-muted max-w-sm mx-auto leading-relaxed">

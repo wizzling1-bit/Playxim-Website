@@ -59,76 +59,86 @@ export default function AnalyticsPage() {
 
       {/* Top 3 Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <Card className="p-5 space-y-2">
-          <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
-            <span>Weekly Video Streams</span>
-            <Eye className="h-4 w-4 text-brand-primary" />
-          </div>
-          <div className="text-3xl font-extrabold text-brand-text">304.6K</div>
-          <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1">
-            <TrendingUp className="h-3.5 w-3.5" />
-            <span>+24.8% vs last week</span>
-          </p>
-        </Card>
+        <div className="double-bezel p-1.5 rounded-2xl bg-brand-surface/40 border border-brand-border hover:border-brand-primary/40 transition-all">
+          <Card className="p-5 space-y-2 border-0 shadow-none bg-brand-surface rounded-[calc(1rem-4px)]">
+            <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
+              <span>Weekly Video Streams</span>
+              <Eye className="h-4 w-4 text-brand-primary" />
+            </div>
+            <div className="text-3xl font-display font-extrabold text-brand-text">304.6K</div>
+            <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1">
+              <TrendingUp className="h-3.5 w-3.5" />
+              <span>+24.8% vs last week</span>
+            </p>
+          </Card>
+        </div>
 
-        <Card className="p-5 space-y-2">
-          <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
-            <span>Raw File Downloads</span>
-            <Download className="h-4 w-4 text-emerald-500" />
-          </div>
-          <div className="text-3xl font-extrabold text-brand-text">23.1K</div>
-          <p className="text-xs text-brand-muted font-medium">
-            18.4 TB edge bandwidth delivered
-          </p>
-        </Card>
+        <div className="double-bezel p-1.5 rounded-2xl bg-brand-surface/40 border border-brand-border hover:border-emerald-500/40 transition-all">
+          <Card className="p-5 space-y-2 border-0 shadow-none bg-brand-surface rounded-[calc(1rem-4px)]">
+            <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
+              <span>Raw File Downloads</span>
+              <Download className="h-4 w-4 text-emerald-500" />
+            </div>
+            <div className="text-3xl font-display font-extrabold text-brand-text">23.1K</div>
+            <p className="text-xs text-brand-muted font-medium">
+              18.4 TB edge bandwidth delivered
+            </p>
+          </Card>
+        </div>
 
-        <Card className="p-5 space-y-2">
-          <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
-            <span>Avg. Watch Duration</span>
-            <Clock className="h-4 w-4 text-amber-500" />
-          </div>
-          <div className="text-3xl font-extrabold text-brand-text">6m 42s</div>
-          <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
-            88.2% qualification rate
-          </p>
-        </Card>
+        <div className="double-bezel p-1.5 rounded-2xl bg-brand-surface/40 border border-brand-border hover:border-amber-500/40 transition-all">
+          <Card className="p-5 space-y-2 border-0 shadow-none bg-brand-surface rounded-[calc(1rem-4px)]">
+            <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
+              <span>Avg. Watch Duration</span>
+              <Clock className="h-4 w-4 text-amber-500" />
+            </div>
+            <div className="text-3xl font-display font-extrabold text-brand-text">6m 42s</div>
+            <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
+              88.2% qualification rate
+            </p>
+          </Card>
+        </div>
       </div>
 
       {/* Recharts Area Chart */}
-      <Card className="p-6">
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h3 className="font-bold text-base text-brand-text">Daily Stream & Download Velocity</h3>
-            <p className="text-xs text-brand-muted mt-0.5">Continuous audience growth over past 7 days</p>
+      <div className="double-bezel p-1.5 sm:p-2 rounded-[2rem] bg-brand-surface/40 border border-brand-border shadow-sm">
+        <Card className="p-6 sm:p-7 border-0 shadow-none bg-brand-surface rounded-[calc(2rem-6px)]">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h3 className="font-display font-bold text-base text-brand-text">Daily Stream & Download Velocity</h3>
+              <p className="text-xs text-brand-muted mt-0.5">Continuous audience growth over past 7 days</p>
+            </div>
+            <Badge variant="secondary" className="text-xs">Past 7 Days</Badge>
           </div>
-          <Badge variant="secondary" className="text-xs">Past 7 Days</Badge>
-        </div>
 
-        <AnalyticsChart data={TRAFFIC_DATA} />
-      </Card>
+          <AnalyticsChart data={TRAFFIC_DATA} />
+        </Card>
+      </div>
 
       {/* Geography Breakdown */}
-      <Card className="p-6">
-        <h3 className="font-bold text-base text-brand-text mb-4 flex items-center gap-2">
-          <Globe2 className="h-4 w-4 text-brand-primary" />
-          <span>Top Audience Regions</span>
-        </h3>
+      <div className="double-bezel p-1.5 sm:p-2 rounded-[2rem] bg-brand-surface/40 border border-brand-border shadow-sm">
+        <Card className="p-6 sm:p-7 border-0 shadow-none bg-brand-surface rounded-[calc(2rem-6px)]">
+          <h3 className="font-display font-bold text-base text-brand-text mb-5 flex items-center gap-2">
+            <Globe2 className="h-4 w-4 text-brand-primary" />
+            <span>Top Audience Regions</span>
+          </h3>
 
-        <div className="space-y-3">
-          {TOP_COUNTRIES.map((c) => (
-            <div key={c.code} className="flex items-center justify-between text-xs">
-              <div className="flex items-center gap-3">
-                <span className="font-mono font-bold text-brand-primary w-6">{c.code}</span>
-                <span className="font-medium text-brand-text">{c.name}</span>
+          <div className="space-y-3.5">
+            {TOP_COUNTRIES.map((c) => (
+              <div key={c.code} className="flex items-center justify-between text-xs p-2 rounded-xl hover:bg-brand-bg-soft/40 transition-colors">
+                <div className="flex items-center gap-3">
+                  <span className="font-mono font-bold text-brand-primary w-6">{c.code}</span>
+                  <span className="font-medium text-brand-text">{c.name}</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <span className="font-mono text-brand-muted">{c.views} views</span>
+                  <span className="font-mono font-bold text-brand-text w-10 text-right">{c.pct}</span>
+                </div>
               </div>
-              <div className="flex items-center gap-4">
-                <span className="font-mono text-brand-muted">{c.views} views</span>
-                <span className="font-mono font-bold text-brand-text w-10 text-right">{c.pct}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Card>
+            ))}
+          </div>
+        </Card>
+      </div>
     </div>
   );
 }

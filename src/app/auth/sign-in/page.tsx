@@ -64,9 +64,9 @@ export default function SignInPage() {
   };
 
   return (
-    <Card className="p-8 sm:p-10 shadow-2xl border border-brand-border bg-brand-surface animate-in fade-in zoom-in-95 duration-200">
+    <Card className="p-8 sm:p-10 border-0 shadow-none bg-brand-surface rounded-[calc(var(--radius-2xl)-4px)] animate-in fade-in duration-200">
       <CardHeader className="p-0 mb-6 text-center">
-        <CardTitle className="text-2xl font-bold text-brand-text">
+        <CardTitle className="text-2xl font-display font-extrabold text-brand-text">
           Welcome back
         </CardTitle>
         <CardDescription className="text-xs text-brand-muted mt-1">
@@ -80,7 +80,7 @@ export default function SignInPage() {
           type="button"
           variant="secondary"
           onClick={handleGoogleSignIn}
-          className="w-full justify-center gap-3 h-11 border-brand-border font-medium"
+          className="w-full justify-center gap-3 h-11 border-brand-border font-medium rounded-xl hover:bg-brand-bg-soft active:scale-[0.98] transition-all"
         >
           <svg className="h-4 w-4" viewBox="0 0 24 24">
             <path
@@ -165,10 +165,10 @@ export default function SignInPage() {
             variant="primary"
             size="lg"
             isLoading={loading}
-            className="w-full justify-center shadow-md shadow-brand-primary/20"
+            className="w-full justify-center shadow-md shadow-brand-primary/20 rounded-xl hover:scale-[1.01] active:scale-[0.98] transition-all"
           >
             <span>Sign In to Dashboard</span>
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4 ml-1.5" />
           </Button>
         </form>
 

@@ -42,9 +42,9 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <Card className="p-8 sm:p-10 shadow-2xl border border-brand-border bg-brand-surface animate-in fade-in zoom-in-95 duration-200">
+    <Card className="p-8 sm:p-10 border-0 shadow-none bg-brand-surface rounded-[calc(var(--radius-2xl)-4px)] animate-in fade-in duration-200">
       <CardHeader className="p-0 mb-6 text-center">
-        <CardTitle className="text-2xl font-bold text-brand-text">
+        <CardTitle className="text-2xl font-display font-extrabold text-brand-text">
           Reset password
         </CardTitle>
         <CardDescription className="text-xs text-brand-muted mt-1">
@@ -94,9 +94,9 @@ export default function ForgotPasswordPage() {
               variant="primary"
               size="lg"
               isLoading={loading}
-              className="w-full justify-center shadow-md shadow-brand-primary/20"
+              className="w-full justify-center shadow-md shadow-brand-primary/20 rounded-xl hover:scale-[1.01] active:scale-[0.98] transition-all"
             >
-              <Send className="h-4 w-4" />
+              <Send className="h-4 w-4 mr-1.5" />
               <span>Send Recovery Link</span>
             </Button>
           </form>

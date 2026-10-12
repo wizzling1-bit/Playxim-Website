@@ -121,51 +121,57 @@ export default function EarningsPage() {
 
       {/* 3 Overview Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <Card className="p-5 space-y-2 border-amber-500/30 bg-amber-500/5">
-          <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
-            <span>Available Balance</span>
-            <DollarSign className="h-4 w-4 text-amber-500" />
-          </div>
-          <div className="text-3xl font-extrabold text-amber-600 dark:text-amber-400 font-mono">
-            {formatCurrency(availableUsd)}
-          </div>
-          <p className="text-xs text-brand-muted">
-            Ready for instant bank or wallet withdrawal
-          </p>
-        </Card>
+        <div className="double-bezel p-1.5 rounded-2xl bg-amber-500/10 border border-amber-500/30">
+          <Card className="p-5 space-y-2 border-0 shadow-none bg-brand-surface rounded-[calc(1rem-4px)]">
+            <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
+              <span>Available Balance</span>
+              <DollarSign className="h-4 w-4 text-amber-500" />
+            </div>
+            <div className="text-3xl font-display font-extrabold text-amber-600 dark:text-amber-400 font-mono">
+              {formatCurrency(availableUsd)}
+            </div>
+            <p className="text-xs text-brand-muted">
+              Ready for instant withdrawal (Min. $5.00)
+            </p>
+          </Card>
+        </div>
 
-        <Card className="p-5 space-y-2">
-          <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
-            <span>Pending Clearance</span>
-            <TrendingUp className="h-4 w-4 text-brand-primary" />
-          </div>
-          <div className="text-3xl font-extrabold text-brand-text font-mono">
-            {formatCurrency(pendingUsd)}
-          </div>
-          <p className="text-xs text-brand-muted">
-            Settling from yesterday&apos;s 24h verification window
-          </p>
-        </Card>
+        <div className="double-bezel p-1.5 rounded-2xl bg-brand-surface/40 border border-brand-border">
+          <Card className="p-5 space-y-2 border-0 shadow-none bg-brand-surface rounded-[calc(1rem-4px)]">
+            <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
+              <span>Pending Clearance</span>
+              <TrendingUp className="h-4 w-4 text-brand-primary" />
+            </div>
+            <div className="text-3xl font-display font-extrabold text-brand-text font-mono">
+              {formatCurrency(pendingUsd)}
+            </div>
+            <p className="text-xs text-brand-muted">
+              Settling from yesterday&apos;s 24h verification window
+            </p>
+          </Card>
+        </div>
 
-        <Card className="p-5 space-y-2">
-          <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
-            <span>Effective CPM Rate</span>
-            <Badge variant="glow">Tier 1 Global</Badge>
-          </div>
-          <div className="text-3xl font-extrabold text-brand-text font-mono">
-            $2.50
-          </div>
-          <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
-            Per 1,000 qualified video views
-          </p>
-        </Card>
+        <div className="double-bezel p-1.5 rounded-2xl bg-brand-surface/40 border border-brand-border">
+          <Card className="p-5 space-y-2 border-0 shadow-none bg-brand-surface rounded-[calc(1rem-4px)]">
+            <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase">
+              <span>Platform Payout Rate</span>
+              <Badge variant="glow">Flat Guaranteed</Badge>
+            </div>
+            <div className="text-3xl font-display font-extrabold text-brand-text font-mono">
+              $1.00
+            </div>
+            <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
+              Per 1,000 qualified video views
+            </p>
+          </Card>
+        </div>
       </div>
 
       {/* Double-Entry Transaction Ledger Table */}
       <div className="space-y-3">
         <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase tracking-wider">
           <span>Transaction Audit Ledger</span>
-          <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
+          <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium">
             <ShieldCheck className="h-3.5 w-3.5" />
             <span>Cryptographically Verified</span>
           </span>
@@ -174,76 +180,78 @@ export default function EarningsPage() {
         {loading ? (
           <Card className="p-12 text-center animate-pulse bg-brand-surface/40" />
         ) : (
-          <div className="overflow-x-auto rounded-[var(--radius-xl)] border border-brand-border bg-brand-surface shadow-sm">
-            <table className="w-full text-left text-xs">
-              <thead>
-                <tr className="border-b border-brand-border bg-brand-bg-soft/40 text-brand-muted font-semibold">
-                  <th className="p-4">Type</th>
-                  <th className="p-4">Description / Source</th>
-                  <th className="p-4">Qualified Views</th>
-                  <th className="p-4">Status</th>
-                  <th className="p-4 text-right">Amount (USD)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-brand-border/40">
-                {transactions.map((entry) => (
-                  <tr key={entry.id} className="hover:bg-brand-bg-soft/20 transition-colors">
-                    <td className="p-4">
-                      {entry.amount_usd >= 0 ? (
-                        <span className="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 inline-flex">
-                          <ArrowDownLeft className="h-4 w-4" />
-                        </span>
-                      ) : (
-                        <span className="p-1.5 rounded-lg bg-brand-primary/10 text-brand-primary inline-flex">
-                          <ArrowUpRight className="h-4 w-4" />
-                        </span>
-                      )}
-                    </td>
-
-                    <td className="p-4 font-medium text-brand-text">
-                      {entry.source_type === "qualified_views"
-                        ? `Video Stream Monetization (${entry.eligible_views.toLocaleString()} views)`
-                        : `Withdrawal / Transfer`}
-                    </td>
-
-                    <td className="p-4 text-brand-muted font-mono text-[11px]">
-                      {entry.eligible_views ? entry.eligible_views.toLocaleString() : "—"}
-                    </td>
-
-                    <td className="p-4">
-                      <Badge variant={entry.status === "available" || entry.status === "approved" ? "success" : "glow"}>
-                        {entry.status}
-                      </Badge>
-                    </td>
-
-                    <td className="p-4 text-right font-mono font-bold">
-                      <span
-                        className={
-                          entry.amount_usd > 0
-                            ? "text-emerald-600 dark:text-emerald-400"
-                            : "text-brand-muted"
-                        }
-                      >
-                        {entry.amount_usd > 0
-                          ? `+${formatCurrency(entry.amount_usd)}`
-                          : formatCurrency(entry.amount_usd)}
-                      </span>
-                    </td>
+          <div className="double-bezel p-1.5 sm:p-2 rounded-[2rem] bg-brand-surface/40 border border-brand-border shadow-sm">
+            <div className="overflow-x-auto rounded-[calc(2rem-6px)] border border-brand-border bg-brand-surface">
+              <table className="w-full text-left text-xs">
+                <thead>
+                  <tr className="border-b border-brand-border bg-brand-bg-soft/50 text-brand-muted font-semibold">
+                    <th className="p-4">Type</th>
+                    <th className="p-4">Description / Source</th>
+                    <th className="p-4">Qualified Views</th>
+                    <th className="p-4">Status</th>
+                    <th className="p-4 text-right">Amount (USD)</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-brand-border/40">
+                  {transactions.map((entry) => (
+                    <tr key={entry.id} className="hover:bg-brand-bg-soft/30 transition-colors">
+                      <td className="p-4">
+                        {entry.amount_usd >= 0 ? (
+                          <span className="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 inline-flex">
+                            <ArrowDownLeft className="h-4 w-4" />
+                          </span>
+                        ) : (
+                          <span className="p-1.5 rounded-lg bg-brand-primary/10 text-brand-primary inline-flex">
+                            <ArrowUpRight className="h-4 w-4" />
+                          </span>
+                        )}
+                      </td>
+
+                      <td className="p-4 font-medium text-brand-text">
+                        {entry.source_type === "qualified_views"
+                          ? `Video Stream Monetization (${entry.eligible_views.toLocaleString()} views)`
+                          : `Withdrawal / Transfer`}
+                      </td>
+
+                      <td className="p-4 text-brand-muted font-mono text-[11px]">
+                        {entry.eligible_views ? entry.eligible_views.toLocaleString() : "—"}
+                      </td>
+
+                      <td className="p-4">
+                        <Badge variant={entry.status === "available" || entry.status === "approved" ? "success" : "glow"}>
+                          {entry.status}
+                        </Badge>
+                      </td>
+
+                      <td className="p-4 text-right font-mono font-bold">
+                        <span
+                          className={
+                            entry.amount_usd > 0
+                              ? "text-emerald-600 dark:text-emerald-400"
+                              : "text-brand-muted"
+                          }
+                        >
+                          {entry.amount_usd > 0
+                            ? `+${formatCurrency(entry.amount_usd)}`
+                            : formatCurrency(entry.amount_usd)}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
       </div>
 
       {/* Payout Modal */}
       <Dialog open={payoutDialogOpen} onOpenChange={setPayoutDialogOpen}>
-        <DialogContent>
+        <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Request Balance Withdrawal</DialogTitle>
+            <DialogTitle className="font-display font-bold">Request Balance Withdrawal</DialogTitle>
             <DialogDescription>
-              Disburse available funds to your verified banking partner or Stripe Connect account.
+              Disburse available funds to your verified payment method. Instant settlement.
             </DialogDescription>
           </DialogHeader>
 
@@ -252,30 +260,62 @@ export default function EarningsPage() {
               <WaveInput
                 id="payout-amount"
                 type="number"
-                min="50"
+                min="5"
                 max={availableUsd}
                 label="Withdrawal Amount (USD)"
                 value={payoutAmount}
                 onChange={(e) => setPayoutAmount(e.target.value)}
-                helperText={`Available: ${formatCurrency(availableUsd)} (Minimum withdrawal: $50.00)`}
+                helperText={`Available: ${formatCurrency(availableUsd)} (Minimum withdrawal: $5.00)`}
                 required
               />
             </div>
 
+            {/* Payout Method Selector */}
+            <div className="space-y-2">
+              <label className="text-xs font-semibold text-brand-muted">Payout Method</label>
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                <button
+                  type="button"
+                  className="p-3 rounded-xl border border-brand-primary bg-brand-primary/10 text-brand-text font-medium text-left flex items-center justify-between"
+                >
+                  <span>UPI / Bank Transfer</span>
+                  <CheckCircle2 className="h-4 w-4 text-brand-primary" />
+                </button>
+                <button
+                  type="button"
+                  className="p-3 rounded-xl border border-brand-border bg-brand-surface text-brand-muted hover:text-brand-text hover:bg-brand-bg-soft font-medium text-left flex items-center justify-between"
+                >
+                  <span>PayPal (USD)</span>
+                </button>
+                <button
+                  type="button"
+                  className="p-3 rounded-xl border border-brand-border bg-brand-surface text-brand-muted hover:text-brand-text hover:bg-brand-bg-soft font-medium text-left flex items-center justify-between"
+                >
+                  <span>USDT (TRC-20)</span>
+                </button>
+                <button
+                  type="button"
+                  className="p-3 rounded-xl border border-brand-border bg-brand-surface text-brand-muted hover:text-brand-text hover:bg-brand-bg-soft font-medium text-left flex items-center justify-between"
+                >
+                  <span>Wire Transfer</span>
+                </button>
+              </div>
+            </div>
+
             {payoutMessage && (
-              <div className="p-3 rounded-lg bg-brand-primary/10 text-xs text-brand-primary flex items-center gap-2">
+              <div className="p-3 rounded-xl bg-brand-primary/10 text-xs text-brand-primary flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4" />
                 <span>{payoutMessage}</span>
               </div>
             )}
           </div>
 
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setPayoutDialogOpen(false)}>
+          <DialogFooter className="gap-2 sm:gap-0">
+            <Button variant="outline" onClick={() => setPayoutDialogOpen(false)} className="rounded-xl">
               Cancel
             </Button>
-            <Button variant="primary" onClick={handlePayoutSubmit}>
-              Confirm Payout
+            <Button variant="primary" onClick={handlePayoutSubmit} className="rounded-xl shadow-md shadow-brand-primary/20">
+              Confirm Withdrawal
             </Button>
           </DialogFooter>
         </DialogContent>

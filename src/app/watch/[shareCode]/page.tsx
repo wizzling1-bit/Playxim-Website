@@ -219,114 +219,125 @@ export default function WatchPage() {
             </Card>
           </div>
         ) : content ? (
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8 animate-in fade-in duration-300">
             {/* Player or File Showcase */}
             {content.type === "video" ? (
-              <div className="space-y-4">
-                <div className="relative aspect-video w-full rounded-[var(--radius-2xl)] overflow-hidden bg-black border border-brand-border shadow-2xl">
-                  <video
-                    src={content.streamPlaybackUrl}
-                    controls
-                    autoPlay={false}
-                    onTimeUpdate={handleTimeUpdate}
-                    className="w-full h-full object-contain"
-                  />
+              <div className="relative">
+                {/* Cinema Ambient Backlight Aura */}
+                <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-brand-primary/25 via-brand-secondary/20 to-brand-glow/25 blur-3xl rounded-[3rem] opacity-70 pointer-events-none -z-10" />
+
+                <div className="double-bezel p-1.5 sm:p-2.5 rounded-[2rem] bg-brand-surface/60 border border-brand-border shadow-2xl">
+                  <div className="relative aspect-video w-full rounded-[calc(2rem-6px)] overflow-hidden bg-black border border-brand-border/60">
+                    <video
+                      src={content.streamPlaybackUrl}
+                      controls
+                      autoPlay={false}
+                      onTimeUpdate={handleTimeUpdate}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                 </div>
               </div>
             ) : (
-              <Card className="p-12 text-center max-w-2xl mx-auto space-y-6 border-dashed">
-                <div className="h-20 w-20 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center mx-auto border border-brand-primary/20">
-                  {content.type === "archive" ? (
-                    <Archive className="h-10 w-10" />
-                  ) : content.type === "document" ? (
-                    <FileText className="h-10 w-10" />
-                  ) : (
-                    <HardDrive className="h-10 w-10" />
-                  )}
-                </div>
-
-                <div className="space-y-2">
-                  <h1 className="text-2xl font-bold text-brand-text">{content.name}</h1>
-                  <p className="text-xs text-brand-muted font-mono">
-                    {formatBytes(content.sizeBytes)} • Verified Cloudflare R2 Object
-                  </p>
-                </div>
-
-                {content.downloadEnabled && (
-                  <div className="pt-2">
-                    <a
-                      href={`/api/download/${shareCode}`}
-                      className="inline-block"
-                      download
-                    >
-                      <Button variant="primary" size="lg" className="shadow-lg shadow-brand-primary/20">
-                        <Download className="h-4 w-4 mr-2" />
-                        Download Asset ({formatBytes(content.sizeBytes)})
-                      </Button>
-                    </a>
+              <div className="double-bezel p-1.5 sm:p-2 rounded-[2rem] bg-brand-surface/40 border border-brand-border shadow-2xl max-w-2xl mx-auto">
+                <Card className="p-10 sm:p-14 text-center space-y-6 border-0 shadow-none bg-brand-surface rounded-[calc(2rem-6px)]">
+                  <div className="h-20 w-20 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center mx-auto border border-brand-primary/20 shadow-xs">
+                    {content.type === "archive" ? (
+                      <Archive className="h-10 w-10" />
+                    ) : content.type === "document" ? (
+                      <FileText className="h-10 w-10" />
+                    ) : (
+                      <HardDrive className="h-10 w-10" />
+                    )}
                   </div>
-                )}
-              </Card>
+
+                  <div className="space-y-2">
+                    <h1 className="text-2xl font-display font-bold text-brand-text">{content.name}</h1>
+                    <p className="text-xs text-brand-muted font-mono">
+                      {formatBytes(content.sizeBytes)} • Verified Cloudflare R2 Object
+                    </p>
+                  </div>
+
+                  {content.downloadEnabled && (
+                    <div className="pt-2">
+                      <a
+                        href={`/api/download/${shareCode}`}
+                        className="inline-block"
+                        download
+                      >
+                        <Button variant="primary" size="lg" className="rounded-full shadow-lg shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                          <Download className="h-4 w-4 mr-2" />
+                          Download Asset ({formatBytes(content.sizeBytes)})
+                        </Button>
+                      </a>
+                    </div>
+                  )}
+                </Card>
+              </div>
             )}
 
             {/* Media Metadata & Action Strip */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-6 rounded-[var(--radius-xl)] bg-brand-surface border border-brand-border">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2.5">
-                  <h1 className="text-xl font-bold text-brand-text truncate max-w-lg">
-                    {content.name}
-                  </h1>
-                  <Badge variant="glow" className="capitalize text-[10px]">
-                    {content.type}
-                  </Badge>
+            <div className="double-bezel p-1.5 rounded-2xl bg-brand-surface/40 border border-brand-border shadow-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-5 sm:p-6 rounded-[calc(1rem-4px)] bg-brand-surface">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2.5">
+                    <h1 className="text-lg sm:text-xl font-display font-bold text-brand-text truncate max-w-lg">
+                      {content.name}
+                    </h1>
+                    <Badge variant="glow" className="capitalize text-[10px]">
+                      {content.type}
+                    </Badge>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-3 text-xs text-brand-muted font-mono">
+                    <span className="font-semibold text-brand-text">{formatBytes(content.sizeBytes)}</span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-sans font-medium">
+                      <ShieldCheck className="h-3.5 w-3.5" />
+                      Malware Scanned
+                    </span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1 font-sans">
+                      <Eye className="h-3.5 w-3.5 text-brand-primary" />
+                      Adaptive HLS/DASH
+                    </span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-4 text-xs text-brand-muted font-mono">
-                  <span>{formatBytes(content.sizeBytes)}</span>
-                  <span>•</span>
-                  <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400">
-                    <ShieldCheck className="h-3.5 w-3.5" />
-                    Malware Free
-                  </span>
-                  <span>•</span>
-                  <span className="flex items-center gap-1">
-                    <Eye className="h-3.5 w-3.5" />
-                    Stream Ready
-                  </span>
-                </div>
-              </div>
 
-              {content.downloadEnabled && content.type === "video" && (
-                <a href={`/api/download/${shareCode}`} download>
-                  <Button variant="outline" size="sm">
-                    <Download className="h-4 w-4 mr-1.5" />
-                    Download File
-                  </Button>
-                </a>
-              )}
+                {content.downloadEnabled && content.type === "video" && (
+                  <a href={`/api/download/${shareCode}`} download>
+                    <Button variant="outline" size="sm" className="rounded-xl hover:scale-[1.01] active:scale-[0.98] transition-all">
+                      <Download className="h-4 w-4 mr-1.5" />
+                      Download Master File
+                    </Button>
+                  </a>
+                )}
+              </div>
             </div>
 
-            {/* Flutter Consumer App Handoff Banner (§ 7.10) */}
-            <div className="p-6 rounded-[var(--radius-xl)] bg-gradient-to-r from-brand-primary/10 via-brand-surface to-brand-glow/10 border border-brand-primary/20 flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-2xl bg-brand-primary text-white flex items-center justify-center shrink-0 shadow-md">
-                  <Smartphone className="h-6 w-6" />
+            {/* Flutter Consumer App Handoff Banner */}
+            <div className="double-bezel p-1.5 rounded-2xl bg-gradient-to-r from-brand-primary/10 via-brand-surface to-brand-glow/10 border border-brand-primary/20 shadow-sm">
+              <div className="p-5 sm:p-6 rounded-[calc(1rem-4px)] bg-brand-surface/60 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-2xl bg-brand-primary text-white flex items-center justify-center shrink-0 shadow-md">
+                    <Smartphone className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h4 className="font-display font-bold text-sm sm:text-base text-brand-text">
+                      Experience Playxim on Mobile & Tablet
+                    </h4>
+                    <p className="text-xs text-brand-muted mt-0.5">
+                      Stream in 4K HDR, download for offline playback, and support creators with verified views.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-sm text-brand-text">
-                    Experience Playxim on Mobile & Tablet
-                  </h4>
-                  <p className="text-xs text-brand-muted mt-0.5">
-                    Stream in 4K HDR, download for offline flights, and support creators with verified views.
-                  </p>
-                </div>
-              </div>
 
-              <Link href="/download" className="shrink-0">
-                <Button variant="primary" size="sm" className="group">
-                  <span>Get Free App</span>
-                  <ArrowRight className="h-3.5 w-3.5 ml-1.5 group-hover:translate-x-0.5 transition-transform" />
-                </Button>
-              </Link>
+                <Link href="/download" className="shrink-0 w-full sm:w-auto">
+                  <Button variant="primary" size="sm" className="w-full sm:w-auto rounded-full group shadow-md shadow-brand-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                    <span>Get Free App</span>
+                    <ArrowRight className="h-3.5 w-3.5 ml-1.5 group-hover:translate-x-0.5 transition-transform" />
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         ) : (
