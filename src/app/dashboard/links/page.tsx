@@ -11,7 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PageHeader } from "@/components/ui/layout-primitives";
-import { formatCompactNumber } from "@/lib/utils";
+import { formatCompactNumber } from "@/lib/formatters";
 
 interface ShareLinkItem {
   id: string;

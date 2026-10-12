@@ -20,7 +20,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { WaveInput } from "@/components/ui/wave-input";
-import { formatBytes } from "@/lib/utils";
+import { formatBytes } from "@/lib/formatters";
 
 interface FolderRecord {
   id: string;

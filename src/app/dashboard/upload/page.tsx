@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import {
   UploadCloud,
   X,
@@ -12,17 +13,23 @@ import {
   Video,
   FileCode,
   Zap,
+  ArrowUpRight,
+  ShieldCheck,
+  RefreshCw,
+  Trash2,
+  ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PageHeader } from "@/components/ui/layout-primitives";
-import { formatBytes } from "@/lib/utils";
+import { formatBytes } from "@/lib/formatters";
 import { useUploader, UploadItem } from "@/lib/hooks/use-uploader";
 
 export default function UploadPage() {
   const [isDragging, setIsDragging] = React.useState(false);
   const [folderWarning, setFolderWarning] = React.useState(false);
+  const [statusFilter, setStatusFilter] = React.useState<"all" | "active" | "completed">("all");
   const { queue, addFiles, uploadFile, pauseUpload, resumeUpload, cancelUpload } = useUploader();
 
   const handleDrop = (e: React.DragEvent) => {
@@ -42,15 +49,11 @@ export default function UploadPage() {
     }
   };
 
-  const handleFolderUploadAttempt = () => {
-    setFolderWarning(true);
-  };
-
-  // Helper to create a test synthetic file to demonstrate upload pipeline
+  // Helper to create test synthetic file to demonstrate upload pipeline
   const handleAddSyntheticTestFile = (type: "video" | "archive") => {
     const filename =
       type === "video" ? "ProRes_422HQ_Tokyo_Night_Master.mp4" : "4K_Visual_VFX_Pack_Lossless.zip";
-    const size = type === "video" ? 45000000 : 25000000; // 45MB or 25MB (multi-chunk)
+    const size = type === "video" ? 45000000 : 25000000;
     const mime = type === "video" ? "video/mp4" : "application/zip";
 
     const dummyBlob = new Blob([new Uint8Array(size)], { type: mime });
@@ -62,38 +65,52 @@ export default function UploadPage() {
     }
   };
 
+  const filteredQueue = React.useMemo(() => {
+    if (statusFilter === "active") {
+      return queue.filter((i) => i.status === "uploading" || i.status === "queued" || i.status === "paused");
+    }
+    if (statusFilter === "completed") {
+      return queue.filter((i) => i.status === "completed");
+    }
+    return queue;
+  }, [queue, statusFilter]);
+
+  const activeTransfers = queue.filter((i) => i.status === "uploading");
+  const totalSpeed = activeTransfers.reduce((acc, i) => acc + (i.speedBytesPerSec || 0), 0);
+  const completedCount = queue.filter((i) => i.status === "completed").length;
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <PageHeader
           title="Upload Center"
-          description="High-speed chunked ingestion. Videos automatically route to Cloudflare Stream; archives route to Cloudflare R2."
+          description="High-speed chunked ingestion. Videos automatically route to Cloudflare Stream; archives route to Cloudflare R2 APAC."
         />
         <div className="flex items-center gap-2">
           <Button
             variant="secondary"
             size="sm"
             onClick={() => handleAddSyntheticTestFile("video")}
-            className="text-xs"
+            className="text-xs rounded-xl"
           >
-            <Zap className="h-3.5 w-3.5 text-brand-glow mr-1.5" />
+            <Zap className="h-3.5 w-3.5 text-brand-primary mr-1.5" />
             Test Video Upload
           </Button>
           <Button
             variant="secondary"
             size="sm"
             onClick={() => handleAddSyntheticTestFile("archive")}
-            className="text-xs"
+            className="text-xs rounded-xl"
           >
-            <Zap className="h-3.5 w-3.5 text-brand-primary mr-1.5" />
+            <Zap className="h-3.5 w-3.5 text-cyan-500 mr-1.5" />
             Test Archive Upload
           </Button>
         </div>
       </div>
 
-      {/* Prescribed Folder Upload Warning (§ 7.9) */}
+      {/* Direct Folder Upload Advisory */}
       {folderWarning && (
-        <div className="p-4 rounded-[var(--radius-lg)] bg-amber-500/10 border border-amber-500/30 text-xs text-amber-700 dark:text-amber-300 flex items-start justify-between gap-3 animate-in fade-in">
+        <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-800 dark:text-amber-200 flex items-start justify-between gap-3 animate-in fade-in">
           <div className="flex items-start gap-2.5">
             <AlertTriangle className="h-5 w-5 shrink-0 text-amber-500 mt-0.5" />
             <div>
@@ -106,13 +123,14 @@ export default function UploadPage() {
           <button
             onClick={() => setFolderWarning(false)}
             className="p-1 hover:bg-amber-500/20 rounded cursor-pointer"
+            aria-label="Dismiss warning"
           >
             <X className="h-4 w-4" />
           </button>
         </div>
       )}
 
-      {/* Drag & Drop Zone */}
+      {/* Elevated Drag & Drop Zone */}
       <div
         onDragOver={(e) => {
           e.preventDefault();
@@ -126,7 +144,7 @@ export default function UploadPage() {
             : "border-brand-border hover:border-brand-primary/50 hover:bg-brand-bg-soft/40"
         }`}
       >
-        <div className="h-14 w-14 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center mb-4 shadow-2xs border border-brand-primary/20">
+        <div className="h-14 w-14 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center mb-4 shadow-xs border border-brand-primary/20">
           <UploadCloud className="h-7 w-7" />
         </div>
 
@@ -136,6 +154,14 @@ export default function UploadPage() {
         <p className="text-xs text-brand-muted max-w-md mt-1.5 leading-relaxed">
           Upload MP4, MKV, ZIP, RAR, PDF, or RAW assets. Files up to 100 GB+ supported via S3 multipart chunking.
         </p>
+
+        {/* Supported Format Tags */}
+        <div className="flex flex-wrap items-center justify-center gap-1.5 mt-4 text-[11px] text-brand-muted">
+          <span className="px-2 py-0.5 rounded-md bg-brand-bg-soft border border-brand-border/60">MP4 / MKV / MOV</span>
+          <span className="px-2 py-0.5 rounded-md bg-brand-bg-soft border border-brand-border/60">ZIP / RAR / TAR</span>
+          <span className="px-2 py-0.5 rounded-md bg-brand-bg-soft border border-brand-border/60">PDF / PSD / BLEND</span>
+          <span className="px-2 py-0.5 rounded-md bg-brand-bg-soft border border-brand-border/60">WAV / FLAC</span>
+        </div>
 
         <div className="flex items-center gap-3 mt-6">
           <label className="cursor-pointer">
@@ -153,7 +179,7 @@ export default function UploadPage() {
           <Button
             variant="ghost"
             size="sm"
-            onClick={handleFolderUploadAttempt}
+            onClick={() => setFolderWarning(true)}
             className="text-xs text-brand-muted rounded-xl"
           >
             Upload Folder...
@@ -161,32 +187,111 @@ export default function UploadPage() {
         </div>
       </div>
 
-      {/* Active Upload Queue Component (§ 4.16) */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-between text-xs font-semibold text-brand-muted uppercase tracking-wider">
-          <span>Active Transfers ({queue.length})</span>
-          <span>Unlimited Cloudflare Edge Ingestion</span>
+      {/* Dual Storage Routing Info Box */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="p-4 rounded-2xl border border-brand-border bg-brand-surface flex items-start gap-3 shadow-xs">
+          <div className="h-9 w-9 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0">
+            <Video className="h-4 w-4" />
+          </div>
+          <div className="text-xs">
+            <div className="font-semibold text-brand-text flex items-center gap-1.5">
+              <span>Cloudflare Stream</span>
+              <Badge variant="glow" className="text-[10px] py-0">Video Engine</Badge>
+            </div>
+            <p className="text-brand-muted mt-1 leading-relaxed">
+              Videos auto-ingest to Stream edge with automatic multi-bitrate HLS/DASH transcoding and instant playback.
+            </p>
+          </div>
         </div>
 
-        {queue.length === 0 ? (
-          <Card className="p-8 text-center border-dashed">
-            <p className="text-sm text-brand-muted">
-              No active uploads in queue. Select files or use the test buttons above to start uploading.
+        <div className="p-4 rounded-2xl border border-brand-border bg-brand-surface flex items-start gap-3 shadow-xs">
+          <div className="h-9 w-9 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center shrink-0">
+            <HardDrive className="h-4 w-4" />
+          </div>
+          <div className="text-xs">
+            <div className="font-semibold text-brand-text flex items-center gap-1.5">
+              <span>Cloudflare R2 (APAC)</span>
+              <Badge variant="secondary" className="text-[10px] py-0">S3 Vault</Badge>
+            </div>
+            <p className="text-brand-muted mt-1 leading-relaxed">
+              Archives & document assets stream to the <code>playxim</code> APAC bucket with zero egress bandwidth charges.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Active Upload Queue Component */}
+      <div className="space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 p-0.5 rounded-lg bg-brand-bg-soft border border-brand-border/60">
+              <button
+                type="button"
+                onClick={() => setStatusFilter("all")}
+                className={`px-2.5 py-1 rounded-md font-medium transition-colors cursor-pointer ${
+                  statusFilter === "all"
+                    ? "bg-brand-surface text-brand-text shadow-xs"
+                    : "text-brand-muted hover:text-brand-text"
+                }`}
+              >
+                All ({queue.length})
+              </button>
+              <button
+                type="button"
+                onClick={() => setStatusFilter("active")}
+                className={`px-2.5 py-1 rounded-md font-medium transition-colors cursor-pointer ${
+                  statusFilter === "active"
+                    ? "bg-brand-surface text-brand-text shadow-xs"
+                    : "text-brand-muted hover:text-brand-text"
+                }`}
+              >
+                Active ({activeTransfers.length})
+              </button>
+              <button
+                type="button"
+                onClick={() => setStatusFilter("completed")}
+                className={`px-2.5 py-1 rounded-md font-medium transition-colors cursor-pointer ${
+                  statusFilter === "completed"
+                    ? "bg-brand-surface text-brand-text shadow-xs"
+                    : "text-brand-muted hover:text-brand-text"
+                }`}
+              >
+                Completed ({completedCount})
+              </button>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 text-brand-muted font-mono text-[11px]">
+            {totalSpeed > 0 && (
+              <span className="text-brand-primary font-semibold">
+                Network: {formatBytes(totalSpeed)}/s
+              </span>
+            )}
+            <span>Unlimited Cloudflare Ingestion</span>
+          </div>
+        </div>
+
+        {filteredQueue.length === 0 ? (
+          <Card className="p-10 text-center border-dashed rounded-2xl">
+            <UploadCloud className="h-8 w-8 text-brand-muted/40 mx-auto mb-2" />
+            <p className="text-sm font-semibold text-brand-text">No active uploads in queue</p>
+            <p className="text-xs text-brand-muted mt-0.5">
+              Drop files anywhere or use the browse button above to start transferring.
             </p>
           </Card>
         ) : (
           <div className="space-y-3">
-            {queue.map((item: UploadItem) => {
+            {filteredQueue.map((item: UploadItem) => {
               const isVideo = item.name.toLowerCase().match(/\.(mp4|mov|mkv|webm|avi)$/);
               return (
-                <Card key={item.id} className="p-4 sm:p-5">
+                <Card key={item.id} className="p-4 sm:p-5 rounded-2xl">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="h-10 w-10 rounded-xl bg-brand-bg-soft flex items-center justify-center shrink-0 border border-brand-border">
                         {isVideo ? (
-                          <Video className="h-5 w-5 text-brand-glow" />
+                          <Video className="h-5 w-5 text-brand-primary" />
                         ) : item.name.endsWith(".zip") ? (
-                          <HardDrive className="h-5 w-5 text-brand-primary" />
+                          <HardDrive className="h-5 w-5 text-amber-500" />
                         ) : (
                           <FileCode className="h-5 w-5 text-emerald-500" />
                         )}
@@ -204,16 +309,20 @@ export default function UploadPage() {
                           </Badge>
                         </div>
 
-                        <div className="text-xs text-brand-muted mt-0.5 flex items-center gap-3">
-                          <span>{item.formattedSize}</span>
+                        <div className="text-xs text-brand-muted mt-0.5 flex items-center gap-3 font-mono">
+                          <span className="tabular-nums">{item.formattedSize}</span>
                           {item.speedBytesPerSec > 0 && (
                             <>
                               <span>•</span>
-                              <span>{formatBytes(item.speedBytesPerSec)}/s</span>
+                              <span className="text-brand-primary tabular-nums">
+                                {formatBytes(item.speedBytesPerSec)}/s
+                              </span>
                             </>
                           )}
                           <span>•</span>
-                          <span className="capitalize">{item.status}</span>
+                          <span className="capitalize font-sans font-medium text-brand-text">
+                            {item.status}
+                          </span>
                           {item.error && (
                             <span className="text-red-500">({item.error})</span>
                           )}
@@ -223,10 +332,17 @@ export default function UploadPage() {
 
                     <div className="flex items-center gap-1.5 shrink-0">
                       {item.status === "completed" ? (
-                        <span className="flex items-center gap-1 text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
-                          <CheckCircle2 className="h-4 w-4" />
-                          <span>Ready</span>
-                        </span>
+                        <div className="flex items-center gap-2">
+                          <span className="flex items-center gap-1 text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
+                            <CheckCircle2 className="h-4 w-4" />
+                            <span>Ready</span>
+                          </span>
+                          <Link href="/dashboard/content">
+                            <Button variant="ghost" size="xs" className="text-xs text-brand-primary">
+                              View File
+                            </Button>
+                          </Link>
+                        </div>
                       ) : (
                         <Button
                           variant="ghost"
@@ -239,6 +355,7 @@ export default function UploadPage() {
                             }
                           }}
                           title={item.status === "uploading" ? "Pause" : "Resume"}
+                          aria-label={item.status === "uploading" ? "Pause" : "Resume"}
                         >
                           {item.status === "uploading" ? (
                             <Pause className="h-3.5 w-3.5" />
@@ -253,7 +370,8 @@ export default function UploadPage() {
                         size="icon-sm"
                         onClick={() => cancelUpload(item.id)}
                         className="text-brand-muted hover:text-red-500"
-                        title="Remove"
+                        title="Remove from queue"
+                        aria-label={`Remove ${item.name} from queue`}
                       >
                         <X className="h-3.5 w-3.5" />
                       </Button>
@@ -275,7 +393,7 @@ export default function UploadPage() {
                       />
                     </div>
                     <div className="flex justify-between text-[11px] font-mono text-brand-muted">
-                      <span>{item.progress}% completed</span>
+                      <span className="tabular-nums">{item.progress}% completed</span>
                       <span>
                         {item.status === "completed"
                           ? "Multipart finalized"
@@ -298,3 +416,4 @@ export default function UploadPage() {
     </div>
   );
 }
+

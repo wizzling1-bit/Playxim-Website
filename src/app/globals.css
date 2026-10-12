@@ -5,15 +5,17 @@
 
 @layer base {
   :root, [data-theme="light"] {
-    /* Playxim Apple x Linear Design System Tokens - Crisp Porcelain Light Mode */
-    --bg: #F8FAFC;
-    --bg-soft: #F1F5F9;
+    /* Playxim Apple x Linear Design System Tokens - Crisp Blue-Gray Light Mode */
+    --bg: #F3F6FC;
+    --bg-soft: #EEF2F9;
     --surface: #FFFFFF;
+    --surface-1: #FFFFFF;
     --surface-raised: #FFFFFF;
     --surface-2: #F8FAFC;
+    --surface-3: #EEF2F9;
     --surface-glass: rgba(255, 255, 255, 0.88);
 
-    --border: #E2E8F0;
+    --border: #E3E8F2;
     --border-strong: #CBD5E1;
     --border-subtle: rgba(15, 23, 42, 0.04);
     --border-highlight: rgba(37, 99, 235, 0.18);
@@ -28,7 +30,7 @@
     --secondary: #0284C7;
     --glow: #2563EB;
     --accent: #D97706;
-    --band: #F1F5F9;
+    --band: #EEF2F9;
 
     /* Semantic Mappings */
     --background: var(--bg);
@@ -46,33 +48,41 @@
     --input: var(--border);
     --ring: var(--primary);
 
-    /* Radiuses - Unified scale */
+    /* Radiuses - Unified 12/16/20 scale */
     --radius-xs: 6px;
     --radius-sm: 8px;
-    --radius-md: 10px;
-    --radius-lg: 14px;
-    --radius-xl: 16px;
-    --radius-2xl: 20px;
-    --radius-pill: 999px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-2xl: 24px;
+    --radius-pill: 9999px;
 
-    /* Shadows */
+    /* Motion Tokens */
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-slow: 400ms;
+    --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    /* Layered blue-tinted shadows for light mode */
     --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.04);
-    --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.04), 0 6px 16px -4px rgba(15, 23, 42, 0.03);
-    --shadow-elevated: 0 12px 32px -8px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.03);
+    --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.04), 0 6px 16px -4px rgba(37, 99, 235, 0.05);
+    --shadow-elevated: 0 12px 32px -8px rgba(37, 99, 235, 0.09), 0 2px 6px rgba(15, 23, 42, 0.03);
     --shadow-glow: 0 0 28px -4px rgba(37, 99, 235, 0.16);
   }
 
   .dark, [data-theme="dark"] {
-    /* Playxim True Obsidian x Carbon Dark Mode Tokens */
-    --bg: #090A0F;
-    --bg-soft: #0E1117;
-    --surface: #12151D;
-    --surface-raised: #181C26;
-    --surface-2: #161A24;
-    --surface-glass: rgba(18, 21, 29, 0.85);
+    /* Playxim Deep Obsidian x Carbon Dark Mode Tokens */
+    --bg: #0A0D14;
+    --bg-soft: #0F131C;
+    --surface: #0F131C;
+    --surface-1: #0F131C;
+    --surface-raised: #151A25;
+    --surface-2: #151A25;
+    --surface-3: #1C2230;
+    --surface-glass: rgba(15, 19, 28, 0.85);
 
-    --border: rgba(255, 255, 255, 0.08);
-    --border-strong: rgba(255, 255, 255, 0.14);
+    --border: rgba(255, 255, 255, 0.07);
+    --border-strong: rgba(255, 255, 255, 0.12);
     --border-subtle: rgba(255, 255, 255, 0.04);
     --border-highlight: rgba(59, 130, 246, 0.28);
 
@@ -86,14 +96,14 @@
     --secondary: #38BDF8;
     --glow: #3B82F6;
     --accent: #F59E0B;
-    --band: #0E1117;
+    --band: #0F131C;
 
     /* Semantic Mappings */
     --background: var(--bg);
     --foreground: var(--text);
-    --card: var(--surface);
+    --card: var(--surface-1);
     --card-foreground: var(--text);
-    --popover: var(--surface);
+    --popover: var(--surface-1);
     --popover-foreground: var(--text);
     --primary-foreground: #FFFFFF;
     --secondary-foreground: var(--text);
@@ -104,10 +114,25 @@
     --input: var(--border);
     --ring: var(--primary);
 
-    /* Shadows with Luminous Rim Occlusion */
+    /* Radiuses */
+    --radius-xs: 6px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-2xl: 24px;
+    --radius-pill: 9999px;
+
+    /* Motion Tokens */
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-slow: 400ms;
+    --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    /* Shadows with Luminous Rim Occlusion and 1px Inset Top Specular Highlight */
     --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.6);
-    --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 4px 20px -2px rgba(0, 0, 0, 0.7);
-    --shadow-elevated: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 16px 40px -8px rgba(0, 0, 0, 0.85);
+    --shadow-card: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 0 0 1px rgba(255, 255, 255, 0.06), 0 4px 20px -2px rgba(0, 0, 0, 0.7);
+    --shadow-elevated: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 0 1px rgba(255, 255, 255, 0.08), 0 16px 40px -8px rgba(0, 0, 0, 0.85);
     --shadow-glow: 0 0 32px -4px rgba(59, 130, 246, 0.2);
   }
 }
@@ -116,8 +141,10 @@
   --color-brand-bg: var(--bg);
   --color-brand-bg-soft: var(--bg-soft);
   --color-brand-surface: var(--surface);
-  --color-brand-surface-raised: var(--surface-raised);
+  --color-brand-surface-1: var(--surface-1);
   --color-brand-surface-2: var(--surface-2);
+  --color-brand-surface-3: var(--surface-3);
+  --color-brand-surface-raised: var(--surface-raised);
   --color-brand-border: var(--border);
   --color-brand-border-strong: var(--border-strong);
   --color-brand-border-subtle: var(--border-subtle);
@@ -133,6 +160,19 @@
   --color-brand-glow: var(--glow);
   --color-brand-accent: var(--accent);
   --color-brand-band: var(--band);
+
+  /* Playxim Blue 50-950 scale */
+  --color-playxim-50: #EFF6FF;
+  --color-playxim-100: #DBEAFE;
+  --color-playxim-200: #BFDBFE;
+  --color-playxim-300: #93C5FD;
+  --color-playxim-400: #60A5FA;
+  --color-playxim-500: #3B82F6;
+  --color-playxim-600: #2563EB;
+  --color-playxim-700: #1D4ED8;
+  --color-playxim-800: #1E40AF;
+  --color-playxim-900: #1E3A8A;
+  --color-playxim-950: #172554;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);

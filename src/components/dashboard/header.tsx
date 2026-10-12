@@ -7,7 +7,9 @@ import { Menu, UploadCloud, Bell, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { CommandPalette } from "@/components/dashboard/command-palette";
-import { useAuth } from "@/lib/hooks/use-auth";
+import { useCurrentCreator } from "@/lib/hooks/use-current-creator";
+import { usePlatformShortcut } from "@/lib/hooks/use-platform-shortcut";
+import { dashboardContent } from "@/lib/content/dashboard";
 
 export function DashboardHeader({
   onOpenMobileSidebar,
@@ -15,19 +17,19 @@ export function DashboardHeader({
   onOpenMobileSidebar: () => void;
 }) {
   const pathname = usePathname();
-  const { user, profile } = useAuth();
+  const { displayName, initial, avatarUrl } = useCurrentCreator();
+  const { symbol: shortcutSymbol } = usePlatformShortcut();
   const [commandOpen, setCommandOpen] = React.useState(false);
 
-  const displayName = profile?.display_name || user?.displayName || "Creator";
-  const initial = (displayName.charAt(0) || "C").toUpperCase();
-
-  // Compute breadcrumb title based on route
-  const getPageTitle = () => {
+  // Derive human-readable subpage label
+  const getSubpageTitle = () => {
     const segments = pathname.split("/").filter(Boolean);
-    if (segments.length <= 1) return "Creator Overview";
+    if (segments.length <= 1) return null;
     const sub = segments[1];
     return sub.charAt(0).toUpperCase() + sub.slice(1);
   };
+
+  const subpageTitle = getSubpageTitle();
 
   return (
     <header className="h-16 border-b border-brand-border bg-brand-surface/90 backdrop-blur-md px-4 sm:px-6 flex items-center justify-between sticky top-0 z-30 transition-colors">
@@ -43,31 +45,37 @@ export function DashboardHeader({
           <Menu className="h-5 w-5" />
         </Button>
 
-        {/* Breadcrumb title */}
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-mono text-brand-muted hidden sm:inline">
-            Dashboard
-          </span>
-          <span className="text-brand-muted hidden sm:inline">/</span>
-          <h1 className="text-sm font-bold text-brand-text tracking-tight">
-            {getPageTitle()}
-          </h1>
-        </div>
+        {/* Semantic Breadcrumb (No duplicate H1, uniform sans typography) */}
+        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-brand-muted font-medium">
+          <Link
+            href="/dashboard"
+            className="hover:text-brand-text transition-colors"
+          >
+            {dashboardContent.header.dashboardBreadcrumb}
+          </Link>
+
+          {subpageTitle && (
+            <>
+              <span className="text-brand-border-strong select-none">/</span>
+              <span className="text-brand-text font-semibold">{subpageTitle}</span>
+            </>
+          )}
+        </nav>
       </div>
 
       {/* Right Action Group */}
       <div className="flex items-center gap-2.5">
-        {/* Quick Search / Command Palette Trigger */}
+        {/* Quick Search / Command Palette Trigger with OS-aware shortcut */}
         <button
           type="button"
           onClick={() => setCommandOpen(true)}
           className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-xl border border-brand-border bg-brand-bg-soft/50 hover:bg-brand-bg-soft hover:border-brand-border-strong text-brand-muted hover:text-brand-text text-xs transition-colors cursor-pointer"
-          aria-label="Open command palette"
+          aria-label={`Open command palette (${shortcutSymbol})`}
         >
           <Search className="h-3.5 w-3.5" />
-          <span>Quick actions...</span>
-          <kbd className="ml-1.5 font-mono text-[10px] px-1.5 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-muted">
-            ⌘K
+          <span>{dashboardContent.header.quickActions}</span>
+          <kbd className="ml-1.5 font-mono text-[10px] px-1.5 py-0.5 rounded bg-brand-surface border border-brand-border text-brand-muted font-medium">
+            {shortcutSymbol}
           </kbd>
         </button>
 
@@ -75,7 +83,7 @@ export function DashboardHeader({
         <Link href="/dashboard/upload">
           <Button variant="primary" size="sm" className="shadow-xs">
             <UploadCloud className="h-4 w-4" />
-            <span className="hidden sm:inline">New Upload</span>
+            <span className="hidden sm:inline">{dashboardContent.header.newUpload}</span>
           </Button>
         </Link>
 
@@ -84,8 +92,8 @@ export function DashboardHeader({
           variant="ghost"
           size="icon-sm"
           className="text-brand-muted hover:text-brand-text"
-          title="Notifications"
-          aria-label="Notifications"
+          title={dashboardContent.header.notifications}
+          aria-label={dashboardContent.header.notifications}
         >
           <Bell className="h-4 w-4" />
         </Button>
@@ -94,9 +102,9 @@ export function DashboardHeader({
         <ThemeToggle />
 
         {/* User avatar */}
-        {user?.photoURL ? (
+        {avatarUrl ? (
           <img
-            src={user.photoURL}
+            src={avatarUrl}
             alt={displayName}
             className="h-8 w-8 rounded-full object-cover shrink-0 border border-brand-border"
           />
